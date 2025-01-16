@@ -1,26 +1,48 @@
 # Site Settings
 title: Anurag Mishra
-email: am2552@g.rit.edu
-description: >- 
-  AI Research Scientist | MS in AI at RIT | Machine Learning & NLP Researcher
-baseurl: ""
-url: "https://i-anuragmishra.github.io"
-github_username: i-anuragmishra
-linkedin_username: i-anuragmishra
-location: Rochester, NY
+subtitle: AI Research Scientist
+name: Anurag Mishra
+description: AI Research Scientist | MS in AI at RIT | Machine Learning & NLP Researcher
+url: https://i-anuragmishra.github.io
+repository: i-anuragmishra/i-anuragmishra.github.io
+logo: "/assets/images/profile.jpg"
 
-# Build settings
-markdown: kramdown
-remote_theme: "mmistakes/minimal-mistakes@4.24.0"
-minimal_mistakes_skin: "default"
+# Site Author
+author:
+  name: "Anurag Mishra"
+  avatar: "/assets/images/profile.jpg"
+  bio: "AI Research Scientist | MS in AI Student at RIT"
+  location: "Rochester, NY"
+  links:
+    - label: "Email"
+      icon: "fas fa-fw fa-envelope"
+      url: "mailto:am2552@g.rit.edu"
+    - label: "GitHub"
+      icon: "fab fa-fw fa-github"
+      url: "https://github.com/i-anuragmishra"
+    - label: "LinkedIn"
+      icon: "fab fa-fw fa-linkedin"
+      url: "https://linkedin.com/in/i-anuragmishra"
 
-# Theme Settings
-header_pages:
-  - about.md
-  - research.md
-  - publications.md
-  - experience.md
-  - projects.md
+# Site Footer
+footer:
+  links:
+    - label: "GitHub"
+      icon: "fab fa-fw fa-github"
+      url: "https://github.com/i-anuragmishra"
+    - label: "LinkedIn"
+      icon: "fab fa-fw fa-linkedin"
+      url: "https://linkedin.com/in/i-anuragmishra"
+
+# Reading Files
+include:
+  - _pages
+  - assets
+exclude:
+  - Gemfile
+  - Gemfile.lock
+  - node_modules
+  - vendor
 
 # Collections
 collections:
@@ -36,52 +58,37 @@ collections:
 
 # Defaults
 defaults:
+  # _pages
   - scope:
-      path: ""
+      path: "_pages"
       type: pages
     values:
       layout: single
       author_profile: true
+  # _publications
   - scope:
       path: ""
       type: publications
     values:
       layout: single
       author_profile: true
+      share: true
+  # _projects
   - scope:
       path: ""
       type: projects
     values:
       layout: single
       author_profile: true
+      share: true
+  # _research
   - scope:
       path: ""
       type: research
     values:
       layout: single
       author_profile: true
-
-# Site Author
-author:
-  name: "Anurag Mishra"
-  avatar: "/assets/images/profile.jpg"
-  bio: "AI Research Scientist | MS in AI at RIT"
-  location: "Rochester, NY"
-  links:
-    - label: "GitHub"
-      icon: "fab fa-fw fa-github"
-      url: "https://github.com/i-anuragmishra"
-    - label: "LinkedIn"
-      icon: "fab fa-fw fa-linkedin"
-      url: "https://linkedin.com/in/i-anuragmishra"
-    - label: "Email"
-      icon: "fas fa-fw fa-envelope"
-      url: "mailto:am2552@g.rit.edu"
-
-# Reading Files
-include:
-  - .htaccess
-  - _pages
+      share: true
 
 # Plugins
 plugins:
@@ -90,34 +97,18 @@ plugins:
   - jekyll-gist
   - jekyll-feed
   - jekyll-include-cache
-  - jekyll-seo-tag
 
-# Exclude from processing
-exclude:
-  - "*.sublime-project"
-  - "*.sublime-workspace"
-  - vendor
-  - .asset-cache
-  - .bundle
-  - .jekyll-assets-cache
-  - .sass-cache
-  - assets/js/plugins
-  - assets/js/_main.js
-  - assets/js/vendor
-  - Capfile
-  - CHANGELOG
-  - config
-  - Gemfile
-  - Gemfile.lock
-  - Gruntfile.js
-  - gulpfile.js
-  - LICENSE
-  - log
-  - node_modules
-  - package.json
-  - package-lock.json
-  - Rakefile
-  - README
-  - tmp
-  - /docs
-  - /test 
+# Theme Settings
+minimal_mistakes_skin: "default"
+search: true
+
+# HTML Compression
+compress_html:
+  clippings: all
+  ignore:
+    envs: development
+
+# Sass/SCSS
+sass:
+  sass_dir: _sass
+  style: compressed 
