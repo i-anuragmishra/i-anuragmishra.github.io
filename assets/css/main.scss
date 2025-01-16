@@ -1,59 +1,148 @@
 --- # Only the main Sass file needs front matter (the dashes are enough) --- @import "minimal-mistakes";
 
 /* Colors */
-$dodger-blue: #1E90FF;
-$coral-red: #FF6B6B;
-$light-grey: #F8F9FA;
-$dark-grey: #343A40;
+$pastel-blue: #A7C7E7;
+$pastel-coral: #FFB5A7;
+$pastel-mint: #B5E7D1;
+$light-bg: #FAFAFA;
+$soft-text: #4A4A4A;
 
-/* Custom styles */
-.page__content {
-
-    h1,
-    h2,
-    h3 {
-        color: $dark-grey;
-    }
-
-    a {
-        color: $dodger-blue;
-
-        &:hover {
-            color: $coral-red;
-        }
-    }
+/* Global styles */
+body {
+    background-color: $light-bg;
+    color: $soft-text;
 }
 
-.author__avatar {
-    img {
-        border: none;
-        box-shadow: none;
-    }
-}
-
+/* Masthead (top bar) */
 .masthead {
-    background-color: $light-grey;
+    background-color: rgba(255, 255, 255, 0.95);
     border-bottom: 1px solid #eee;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.02);
 }
 
 .greedy-nav {
     background: transparent;
 
     a {
-        color: $dark-grey;
+        color: $soft-text;
+        font-weight: 400;
 
         &:hover {
-            color: $dodger-blue;
+            color: $pastel-blue;
+        }
+    }
+
+    .site-title {
+        color: $soft-text;
+        font-weight: 500;
+    }
+}
+
+/* Content styling */
+.page__content {
+    h1 {
+        color: $soft-text;
+        font-size: 2.2em;
+        font-weight: 500;
+    }
+
+    h2 {
+        color: $soft-text;
+        font-size: 1.8em;
+        font-weight: 400;
+    }
+
+    h3 {
+        color: $soft-text;
+        font-size: 1.4em;
+        font-weight: 400;
+    }
+
+    a {
+        color: $pastel-blue;
+        text-decoration: none;
+
+        &:hover {
+            color: $pastel-coral;
+            text-decoration: none;
         }
     }
 }
 
-.page__hero--overlay {
-    .page__title {
-        color: $dark-grey;
+/* Author sidebar */
+.author__avatar {
+    img {
+        border: 3px solid white;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    }
+}
+
+.author__name {
+    color: $soft-text;
+    font-weight: 500;
+}
+
+.author__bio {
+    color: $soft-text;
+    font-size: 0.9em;
+}
+
+/* Buttons */
+.btn--primary {
+    background-color: $pastel-blue;
+    color: white;
+
+    &:hover {
+        background-color: darken($pastel-blue, 5%);
+    }
+}
+
+/* Feature items */
+.feature__item {
+    padding: 1.5em;
+    background: white;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.02);
+    margin-bottom: 1em;
+
+    h2 {
+        color: $soft-text;
+        margin-top: 0;
     }
 
+    p {
+        font-size: 0.9em;
+        line-height: 1.6;
+    }
+}
+
+/* Navigation */
+.nav__list {
+    .nav__items {
+        a {
+            color: $soft-text;
+
+            &:hover {
+                color: $pastel-blue;
+            }
+        }
+    }
+}
+
+/* Page hero */
+.page__hero--overlay {
+    background-color: $light-bg;
+
+    .page__title,
     .page__lead {
-        color: $dark-grey;
+        color: $soft-text;
+    }
+}
+
+/* Lists */
+ul,
+ol {
+    li {
+        margin-bottom: 0.5em;
     }
 }
