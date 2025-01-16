@@ -1,73 +1,63 @@
 ---
-layout: default
-title: Home
+layout: home
+author_profile: true
+classes:
+  - landing
+  - dark-theme
+header:
+  overlay_color: "#000"
+  overlay_filter: "0.5"
+  overlay_image: /assets/images/header-bg.jpg
+  actions:
+    - label: "View CV"
+      url: "/Resume_Anurag_RIT.pdf"
+excerpt: >
+  AI Research Scientist specializing in Machine Learning, NLP, and Computer Vision.
+  Currently pursuing MS in AI at Rochester Institute of Technology.
+feature_row:
+  - image_path: /assets/images/research-thumb.jpg
+    alt: "Research"
+    title: "Research Focus"
+    excerpt: "Time Series Analysis, Natural Language Processing, and Computer Vision applications in real-world problem solving."
+    url: "/research/"
+    btn_label: "Learn More"
+    btn_class: "btn--primary"
+  - image_path: /assets/images/publications-thumb.jpg
+    alt: "Publications"
+    title: "Publications"
+    excerpt: "Academic papers and research contributions in AI and Machine Learning."
+    url: "/publications/"
+    btn_label: "View Publications"
+    btn_class: "btn--primary"
+  - image_path: /assets/images/projects-thumb.jpg
+    alt: "Projects"
+    title: "Projects"
+    excerpt: "Featured projects showcasing practical applications of AI and ML technologies."
+    url: "/projects/"
+    btn_label: "View Projects"
+    btn_class: "btn--primary"
 ---
 
-<div class="section-card" id="about">
-  <h2>About Me</h2>
-  <div class="content-grid">
-    <div class="text-content">
-      <p>I'm an AI Research Scientist and graduate student at Rochester Institute of Technology, focusing on advancing the boundaries of artificial intelligence and machine learning. My research interests lie at the intersection of Natural Language Processing, Computer Vision, and Deep Learning.</p>
-      <p>Currently, I'm conducting research in time series analysis and developing novel approaches to enhance human-machine communication through advanced NLP techniques. My work aims to bridge the gap between theoretical machine learning concepts and their practical applications in solving real-world problems.</p>
-    </div>
-    <div class="stats-grid">
-      <div class="stat-item">
-        <span class="stat-number">4.0</span>
-        <span class="stat-label">GPA</span>
-      </div>
-      <div class="stat-item">
-        <span class="stat-number">2+</span>
-        <span class="stat-label">Years Research Experience</span>
-      </div>
-      <div class="stat-item">
-        <span class="stat-number">5+</span>
-        <span class="stat-label">Projects Completed</span>
-      </div>
-    </div>
-  </div>
-</div>
+{% include feature_row %}
 
-<div class="section-card" id="research">
-  <h2>Current Research</h2>
-  <div class="research-grid">
-    <div class="research-area">
-      <div class="research-icon">🔍</div>
-      <h3>Time Series Analysis</h3>
-      <p>Developing innovative approaches to time series analysis with applications in emergency management and predictive modeling.</p>
-    </div>
-    <div class="research-area">
-      <div class="research-icon">🤖</div>
-      <h3>Natural Language Processing</h3>
-      <p>Advancing the boundaries of human-machine communication through sophisticated NLP techniques and semantic understanding.</p>
-    </div>
-    <div class="research-area">
-      <div class="research-icon">👁️</div>
-      <h3>Computer Vision</h3>
-      <p>Exploring deep learning applications in computer vision for real-world problem solving and pattern recognition.</p>
-    </div>
-  </div>
-</div>
+## Current Research
 
-{% assign sorted_publications = site.publications | sort: "date" | reverse %}
-{% if sorted_publications.size > 0 %}
-<div class="section-card" id="recent-publications">
-  <h2>Recent Publications</h2>
-  <div class="publications-grid">
-    {% for publication in sorted_publications limit:2 %}
-    <div class="publication-item">
-      <span class="pub-type">{{ publication.type }}</span>
-      <h3>{{ publication.title }}</h3>
-      <p class="pub-authors">{{ publication.authors }}</p>
-      <p class="pub-venue">{{ publication.venue }}</p>
-      <p class="pub-abstract">{{ publication.abstract }}</p>
-      <div class="pub-tags">
-        {% for tag in publication.tags %}
-        <span>{{ tag }}</span>
-        {% endfor %}
-      </div>
-    </div>
-    {% endfor %}
-  </div>
-  <p class="see-more"><a href="{{ '/publications' | relative_url }}">See all publications →</a></p>
+My research focuses on advancing the boundaries of artificial intelligence and machine learning, with particular emphasis on:
+
+- **Time Series Analysis**: Developing innovative approaches for emergency management and predictive modeling
+- **Natural Language Processing**: Enhancing human-machine communication through advanced NLP techniques
+- **Computer Vision**: Exploring deep learning applications for real-world problem solving
+
+## Recent Publications
+
+{% assign recent_papers = site.publications | sort: "date" | reverse | limit: 2 %}
+{% for paper in recent_papers %}
+<div class="publication-card">
+  <h3><a href="{{ paper.url }}">{{ paper.title }}</a></h3>
+  <p class="authors">{{ paper.authors }}</p>
+  <p class="venue">{{ paper.venue }}</p>
+  <p class="abstract">{{ paper.excerpt }}</p>
 </div>
-{% endif %} 
+{% endfor %}
+
+[View All Publications](/publications/){: .btn .btn--primary} 
