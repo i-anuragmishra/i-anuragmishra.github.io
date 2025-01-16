@@ -22,7 +22,7 @@
 <meta name="msapplication-TileImage" content="{{ base_path }}/images/mstile-144x144.png?v=M44lzPylqQ">
 <meta name="msapplication-config" content="{{ base_path }}/images/browserconfig.xml?v=M44lzPylqQ">
 <meta name="theme-color" content="#ffffff">
-<link rel="stylesheet" href="{{ base_path }}/assets/css/academicons.css"/>
+<link rel="stylesheet" href="{{ base_path }}/assets/css/academicons.css" />
 
 
 <!-- Support for MatJax -->
@@ -30,3 +30,17 @@
 <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
 
 <!-- end custom head snippets -->
+
+<!-- Custom styles -->
+<link rel="stylesheet" href="{{ '/assets/css/main.css' | relative_url }}">
+<style>
+    :root {
+        --primary-color: #2563eb;
+        --secondary-color: #3b82f6;
+        --accent-color: #f97316;
+        --background-color: #f8fafc;
+        --card-bg-color: #ffffff;
+        --text-primary-color: #1e293b;
+        --text-secondary-color: #475569;
+    }
+</style>

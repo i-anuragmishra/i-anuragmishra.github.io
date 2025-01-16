@@ -1,5 +1,5 @@
 # Theme Settings
-remote_theme: mmistakes/minimal-mistakes
+remote_theme: "mmistakes/minimal-mistakes@4.24.0"
 minimal_mistakes_skin: "default"
 locale: "en-US"
 
@@ -12,6 +12,15 @@ description: "AI Research • Machine Learning • NLP"
 url: "https://i-anuragmishra.github.io"
 baseurl: ""
 repository: "i-anuragmishra/i-anuragmishra.github.io"
+
+# Build settings
+markdown: kramdown
+sass:
+  style: compressed
+  sass_dir: _sass
+  load_paths:
+    - _sass
+    - assets/css
 
 # Site Author
 author:
