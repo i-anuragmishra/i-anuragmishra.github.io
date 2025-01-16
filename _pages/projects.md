@@ -1,6 +1,6 @@
 ---
+title: Projects
 layout: single
-title: "Projects"
 permalink: /projects/
 author_profile: true
 classes: wide
@@ -8,94 +8,71 @@ classes: wide
 
 # Featured Projects
 
-## Time Series Analysis System
-**Emergency Management Prediction Platform**
+## Emergency Management Prediction System
+**AI-Powered Educational Platform**
 
-A comprehensive system for analyzing and predicting emergency scenarios using advanced time series analysis.
+A comprehensive system for emergency response prediction and management education, built with accessibility in mind.
 
-### Technical Details:
-- Built with Python and TensorFlow
-- Implements LSTM and Transformer models
-- Real-time data processing pipeline
+- **Technologies:** Python, TensorFlow, PyTorch
+- **Key Features:**
+  - Real-time prediction with 92% accuracy
+  - Accessible interface design
+  - Multi-modal data processing
+- **[View Project](https://github.com/i-anuragmishra/emergency-prediction)**
 
-### Achievements:
-- 92% accuracy in pattern recognition
-- Successfully deployed in educational settings
-- Reduced response time by 40%
+## Intelligent Learning Assistant
+**NLP-Based Educational Tool**
 
-[View on GitHub](https://github.com/i-anuragmishra/emergency-prediction)
+An advanced learning assistant that provides automated feedback and personalized learning paths.
 
-## NLP-based Educational Tool
-**Intelligent Learning Assistant**
+- **Technologies:** Python, BERT, FastAPI
+- **Features:**
+  - Automated content analysis
+  - Personalized learning recommendations
+  - Real-time feedback system
+- **[View Demo](https://github.com/i-anuragmishra/nlp-education)**
 
-An interactive learning system powered by advanced NLP models to enhance educational experiences.
+## Visual Learning Aid System
+**Computer Vision for Education**
 
-### Features:
-- BERT-based content analysis
-- Automated feedback generation
-- Personalized learning paths
+A computer vision system designed to enhance learning experiences through visual recognition and feedback.
 
-### Impact:
-- Improved student engagement by 40%
-- Adopted by multiple educational institutions
-- Processing 1000+ daily interactions
-
-[View on GitHub](https://github.com/i-anuragmishra/nlp-education)
-
-## Computer Vision for Accessibility
-**Visual Learning Aid System**
-
-A computer vision system designed to assist deaf students in educational settings.
-
-### Technologies:
-- YOLOv5 for object detection
-- Real-time sign language recognition
-- Integration with educational platforms
-
-### Results:
-- 95% accuracy in sign recognition
-- Supports 1000+ educational signs
-- Real-time processing capabilities
-
-[View Demo](https://demo-link)
+- **Technologies:** Python, OpenCV, TensorFlow
+- **Achievements:**
+  - 95% accuracy in recognition
+  - Real-time processing
+  - Modular architecture
+- **[Project Details](https://github.com/i-anuragmishra/visual-aid)**
 
 ## Railway Scheduling Optimizer
-**ML-Powered Transportation System**
+**ML-Powered Efficiency System**
 
-An intelligent system for optimizing railway schedules using machine learning.
+An intelligent system for optimizing railway schedules using machine learning algorithms.
 
-### Key Features:
-- Predictive maintenance modeling
-- Real-time schedule optimization
-- Anomaly detection system
+- **Technologies:** Python, Scikit-learn, PostgreSQL
+- **Impact:**
+  - 12% efficiency improvement
+  - Real-time schedule updates
+  - Predictive maintenance
+- **[View Code](https://github.com/i-anuragmishra/railway-optimizer)**
 
-### Outcomes:
-- 12% improvement in scheduling efficiency
-- Reduced maintenance downtime by 25%
-- Handling 100+ train schedules daily
+# Technical Skills
 
-[Project Details](https://project-link)
+## Programming Languages
+- Python
+- C/C++
+- R
+- JavaScript
 
-# Technical Skills Demonstrated
-
-## Programming
-- Python, C++, JavaScript
-- TensorFlow, PyTorch
-- SQL, MongoDB
-
-## Machine Learning
-- Deep Learning
-- Natural Language Processing
-- Computer Vision
+## ML/AI Frameworks
+- TensorFlow
+- PyTorch
+- Scikit-learn
+- Keras
 
 ## Tools & Technologies
-- Git, Docker
-- AWS, Cloud Computing
-- CI/CD Pipelines
-
-# Get Involved
-
-Interested in collaborating on projects? Feel free to reach out:
-- Email: [am2552@g.rit.edu](mailto:am2552@g.rit.edu)
-- GitHub: [i-anuragmishra](https://github.com/i-anuragmishra)
-- LinkedIn: [Profile](https://linkedin.com/in/i-anuragmishra) 
+- Git
+- Docker
+- AWS
+- MongoDB
+- PostgreSQL 
