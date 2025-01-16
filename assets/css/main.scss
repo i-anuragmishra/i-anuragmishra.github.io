@@ -1,148 +1,175 @@
 --- # Only the main Sass file needs front matter (the dashes are enough) --- @import "minimal-mistakes";
 
 /* Colors */
-$pastel-blue: #A7C7E7;
-$pastel-coral: #FFB5A7;
-$pastel-mint: #B5E7D1;
-$light-bg: #FAFAFA;
-$soft-text: #4A4A4A;
+$dark-header: #000000;
+$accent-blue: #00A3E0;
+$soft-gray: #F5F5F5;
+$text-dark: #333333;
+$text-light: #FFFFFF;
 
 /* Global styles */
 body {
-    background-color: $light-bg;
-    color: $soft-text;
+    background-color: $soft-gray;
+    color: $text-dark;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
 }
 
-/* Masthead (top bar) */
+/* Header area */
 .masthead {
-    background-color: rgba(255, 255, 255, 0.95);
-    border-bottom: 1px solid #eee;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.02);
+    background-color: $dark-header;
+    border: none;
+    padding: 1em 0;
+
+    &__inner-wrap {
+        padding: 0.5em 2em;
+    }
 }
 
 .greedy-nav {
     background: transparent;
 
     a {
-        color: $soft-text;
-        font-weight: 400;
+        color: $text-light;
+        font-weight: 300;
+        font-size: 1em;
 
         &:hover {
-            color: $pastel-blue;
+            color: $accent-blue;
         }
     }
 
     .site-title {
-        color: $soft-text;
-        font-weight: 500;
+        color: $text-light;
+        font-weight: 400;
+        font-size: 1.2em;
     }
 }
 
-/* Content styling */
+/* Hero section */
+.page__hero {
+    background-color: $dark-header;
+    padding: 4em 0;
+    margin-bottom: 2em;
+
+    &--overlay {
+        padding: 4em 0;
+        background-color: $dark-header;
+
+        .page__title {
+            color: $text-light;
+            font-size: 3.5em;
+            font-weight: 300;
+            margin-bottom: 0.2em;
+        }
+
+        .page__lead {
+            color: rgba(255, 255, 255, 0.8);
+            font-size: 1.2em;
+            font-weight: 300;
+        }
+    }
+}
+
+/* Content area */
 .page__content {
+    padding: 2em 0;
+
     h1 {
-        color: $soft-text;
-        font-size: 2.2em;
-        font-weight: 500;
+        color: $text-dark;
+        font-size: 2.5em;
+        font-weight: 300;
+        margin-bottom: 0.5em;
     }
 
     h2 {
-        color: $soft-text;
-        font-size: 1.8em;
-        font-weight: 400;
+        color: $text-dark;
+        font-size: 2em;
+        font-weight: 300;
     }
 
     h3 {
-        color: $soft-text;
-        font-size: 1.4em;
-        font-weight: 400;
-    }
-
-    a {
-        color: $pastel-blue;
-        text-decoration: none;
-
-        &:hover {
-            color: $pastel-coral;
-            text-decoration: none;
-        }
-    }
-}
-
-/* Author sidebar */
-.author__avatar {
-    img {
-        border: 3px solid white;
-        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-    }
-}
-
-.author__name {
-    color: $soft-text;
-    font-weight: 500;
-}
-
-.author__bio {
-    color: $soft-text;
-    font-size: 0.9em;
-}
-
-/* Buttons */
-.btn--primary {
-    background-color: $pastel-blue;
-    color: white;
-
-    &:hover {
-        background-color: darken($pastel-blue, 5%);
-    }
-}
-
-/* Feature items */
-.feature__item {
-    padding: 1.5em;
-    background: white;
-    border-radius: 8px;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.02);
-    margin-bottom: 1em;
-
-    h2 {
-        color: $soft-text;
-        margin-top: 0;
+        color: $text-dark;
+        font-size: 1.5em;
+        font-weight: 300;
     }
 
     p {
-        font-size: 0.9em;
-        line-height: 1.6;
+        color: $text-dark;
+        line-height: 1.8;
     }
-}
 
-/* Navigation */
-.nav__list {
-    .nav__items {
-        a {
-            color: $soft-text;
+    a {
+        color: $accent-blue;
+        text-decoration: none;
 
-            &:hover {
-                color: $pastel-blue;
-            }
+        &:hover {
+            color: darken($accent-blue, 10%);
         }
     }
 }
 
-/* Page hero */
-.page__hero--overlay {
-    background-color: $light-bg;
+/* Feature grid */
+.feature__wrapper {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 2em;
+    margin: 2em 0;
+}
 
-    .page__title,
-    .page__lead {
-        color: $soft-text;
+.feature__item {
+    background: white;
+    padding: 2em;
+    border-radius: 4px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+    transition: transform 0.2s ease;
+
+    &:hover {
+        transform: translateY(-2px);
+    }
+
+    h2 {
+        font-size: 1.5em;
+        font-weight: 400;
+        margin: 0 0 1em 0;
+    }
+
+    p {
+        font-size: 0.95em;
+        line-height: 1.6;
+        margin-bottom: 1.5em;
     }
 }
 
-/* Lists */
-ul,
-ol {
-    li {
+/* Buttons */
+.btn {
+    &--primary {
+        background-color: $accent-blue;
+        color: white;
+        padding: 0.75em 1.5em;
+        font-weight: 400;
+        border-radius: 4px;
+
+        &:hover {
+            background-color: darken($accent-blue, 5%);
+        }
+    }
+}
+
+/* Welcome section */
+.welcome {
+    max-width: 800px;
+    margin: 3em auto;
+    padding: 0 2em;
+
+    h1 {
+        font-size: 2.5em;
+        font-weight: 300;
         margin-bottom: 0.5em;
+    }
+
+    p {
+        font-size: 1.1em;
+        line-height: 1.8;
+        color: $text-dark;
     }
 }
