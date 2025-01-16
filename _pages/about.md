@@ -1,49 +1,53 @@
 ---
-permalink: /
+layout: single
 title: "About Me"
-excerpt: "About me"
+permalink: /about/
 author_profile: true
-redirect_from: 
-  - /about/
-  - /about.html
 ---
 
-I am a Master of Science student in Artificial Intelligence at the Rochester Institute of Technology, specializing in Machine Learning and Natural Language Processing. My research focuses on developing innovative solutions in AI, with particular emphasis on time series analysis and NLP applications.
+I am an AI Research Scientist and graduate student at Rochester Institute of Technology, focusing on advancing the boundaries of artificial intelligence and machine learning. My research interests lie at the intersection of Natural Language Processing, Computer Vision, and Deep Learning.
 
-Research Interests
-======
-* **Machine Learning & Deep Learning**
-  * Time series analysis and prediction models
-  * Statistical machine learning methods
-  * Neural network architectures
+## Research Focus
 
-* **Natural Language Processing**
-  * Text analysis and generation
-  * Language understanding systems
-  * Multimodal learning
+My current research focuses on three main areas:
 
-Current Research
-======
-* **NSF Grant Project - Emergency Management Education**
-  * Leading the development of AI-powered educational modules
-  * Part of $1 million NSF grant project
-  * Focus on accessibility for the deaf community
+### Time Series Analysis
+Developing innovative approaches for emergency management and predictive modeling, with a particular emphasis on real-time data processing and pattern recognition.
 
-* **Graduate Research at RIT**
-  * Time series prediction models
-  * NLP applications in educational technology
-  * Machine learning for accessibility
+### Natural Language Processing
+Working on enhancing human-machine communication through advanced NLP techniques, including transformer models and contextual understanding systems.
 
-Previous Research Experience
-======
-* **Research at DRDO, India**
-  * Applied Fuzzy Number Theory in AI/ML systems
-  * Algorithm optimization for real-world applications
-  * Data analysis and predictive modeling
+### Computer Vision
+Exploring deep learning applications in computer vision for real-world problem solving, focusing on object detection and scene understanding.
 
-Contact
-------
-I'm always open to research collaborations and discussions. Feel free to reach out:
-* Email: [am2552@g.rit.edu](mailto:am2552@g.rit.edu)
-* LinkedIn: [i-anuragmishra](https://linkedin.com/in/i-anuragmishra)
-* GitHub: [i-anuragmishra](https://github.com/i-anuragmishra) 
+## Academic Background
+
+- **MS in Artificial Intelligence** (2023-2025)  
+  Rochester Institute of Technology  
+  GPA: 4.0/4.0
+
+- **BTech in Computer Science** (2019-2023)  
+  Sikkim Manipal Institute of Technology  
+  GPA: 8.47/10.0
+
+## Current Work
+
+As a Graduate Research Assistant at RIT, I am:
+- Working on emergency management education programs under a $1 million NSF grant
+- Developing educational modules for the deaf community
+- Conducting research in time series analysis and NLP
+- Contributing to academic papers in machine learning and AI
+
+## Skills & Expertise
+
+- **Programming Languages**: Python, C/C++, R, JavaScript, Dart, SQL
+- **ML & AI Frameworks**: TensorFlow, PyTorch, Scikit-learn, BERT, SpaCy
+- **Tools & Technologies**: Git, Docker, AWS, Hadoop, MongoDB, PostgreSQL
+- **Areas of Expertise**: Machine Learning, Deep Learning, NLP, Computer Vision
+
+## Get in Touch
+
+I'm always interested in collaborating on research projects or discussing ideas in AI and machine learning. Feel free to reach out via:
+- Email: [am2552@g.rit.edu](mailto:am2552@g.rit.edu)
+- LinkedIn: [i-anuragmishra](https://linkedin.com/in/i-anuragmishra)
+- GitHub: [i-anuragmishra](https://github.com/i-anuragmishra) 
