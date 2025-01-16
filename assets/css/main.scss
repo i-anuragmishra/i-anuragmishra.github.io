@@ -1,1 +1,59 @@
 --- # Only the main Sass file needs front matter (the dashes are enough) --- @import "minimal-mistakes";
+
+/* Colors */
+$dodger-blue: #1E90FF;
+$coral-red: #FF6B6B;
+$light-grey: #F8F9FA;
+$dark-grey: #343A40;
+
+/* Custom styles */
+.page__content {
+
+    h1,
+    h2,
+    h3 {
+        color: $dark-grey;
+    }
+
+    a {
+        color: $dodger-blue;
+
+        &:hover {
+            color: $coral-red;
+        }
+    }
+}
+
+.author__avatar {
+    img {
+        border: none;
+        box-shadow: none;
+    }
+}
+
+.masthead {
+    background-color: $light-grey;
+    border-bottom: 1px solid #eee;
+}
+
+.greedy-nav {
+    background: transparent;
+
+    a {
+        color: $dark-grey;
+
+        &:hover {
+            color: $dodger-blue;
+        }
+    }
+}
+
+.page__hero--overlay {
+    .page__title {
+        color: $dark-grey;
+    }
+
+    .page__lead {
+        color: $dark-grey;
+    }
+}

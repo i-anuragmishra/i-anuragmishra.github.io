@@ -1,14 +1,14 @@
 # Theme Settings
 remote_theme: mmistakes/minimal-mistakes
-minimal_mistakes_skin: "default"
+minimal_mistakes_skin: "air"
 locale: "en-US"
 
 # Site Settings
 title: "Anurag Mishra"
-title_separator: "-"
-subtitle: "AI Research Scientist"
+title_separator: "•"
+subtitle: "AI Research"
 name: "Anurag Mishra"
-description: "AI Research Scientist | MS in AI at RIT | Machine Learning & NLP Researcher"
+description: "AI Research • Machine Learning • NLP"
 url: "https://i-anuragmishra.github.io"
 baseurl: ""
 repository: "i-anuragmishra/i-anuragmishra.github.io"
@@ -17,10 +17,8 @@ repository: "i-anuragmishra/i-anuragmishra.github.io"
 author:
   name: "Anurag Mishra"
   avatar: "assets/images/profile.jpg"
-  bio: "AI Research Scientist | MS in AI at RIT"
+  bio: "AI Research @ RIT"
   location: "Rochester, NY"
-  employer: 
-  googlescholar: 
   email: "am4010@rit.edu"
   github: "i-anuragmishra"
   linkedin: "anurag-mishra-ai"
@@ -36,38 +34,23 @@ plugins:
   - jekyll-sitemap
   - jekyll-gist
   - jekyll-feed
-  - jemoji
   - jekyll-include-cache
   - jekyll-remote-theme
 
 # Collections
 collections:
-  teaching:
+  research:
     output: true
     permalink: /:collection/:path/
-  publications:
+  projects:
     output: true
     permalink: /:collection/:path/
-  portfolio:
-    output: true
-    permalink: /:collection/:path/
-  talks:
+  blog:
     output: true
     permalink: /:collection/:path/
 
 # Defaults
 defaults:
-  # _posts
-  - scope:
-      path: ""
-      type: posts
-    values:
-      layout: single
-      author_profile: true
-      read_time: true
-      comments: true
-      share: true
-      related: true
   # _pages
   - scope:
       path: ""
@@ -75,38 +58,27 @@ defaults:
     values:
       layout: single
       author_profile: true
-  # _teaching
+  # _research
   - scope:
       path: ""
-      type: teaching
+      type: research
     values:
       layout: single
       author_profile: true
-      share: true
-      comments: true
-  # _publications
+      share: false
+  # _projects
   - scope:
       path: ""
-      type: publications
+      type: projects
     values:
       layout: single
       author_profile: true
-      share: true
-      comments: true
-  # _portfolio
+      share: false
+  # _blog
   - scope:
       path: ""
-      type: portfolio
+      type: blog
     values:
       layout: single
       author_profile: true
-      share: true
-      comment: true
-  # _talks
-  - scope:
-      path: ""
-      type: talks
-    values:
-      layout: talk
-      author_profile: true
-      share: true 
+      share: false 
