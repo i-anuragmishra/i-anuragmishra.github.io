@@ -2,6 +2,8 @@
    Forms
    ========================================================================== */
 
+@import 'variables';
+
 form {
   margin: 0 0 5px 0;
 
@@ -194,8 +196,8 @@ input[type="hidden"] {
   vertical-align: middle;
 }
 
-.radio.inline + .radio.inline,
-.checkbox.inline + .checkbox.inline {
+.radio.inline+.radio.inline,
+.checkbox.inline+.checkbox.inline {
   margin-left: 10px;
 }
 
@@ -283,7 +285,8 @@ select:focus {
 .form-inline .checkbox input[type="checkbox"] {
   float: left;
   margin-left: 0;
-  margin-right: 3px; }
+  margin-right: 3px;
+}
 
 
 /*
@@ -365,6 +368,7 @@ select:focus {
     list-style: none;
     margin-left: 0;
     padding-left: 0;
+
     li {
       list-style-type: none;
     }
@@ -382,7 +386,7 @@ select:focus {
   color: #000;
   border-width: 2px !important;
   border-style: solid !important;
-  border-color: lighten(#000,50);
+  border-color: lighten(#000, 50);
   border-radius: $border-radius;
 }
 
