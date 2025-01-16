@@ -1,84 +1,69 @@
-<!DOCTYPE html>
-<html lang="en">
+---
+layout: home
+author_profile: true
+header:
+overlay_color: "#000"
+overlay_filter: "0.5"
+overlay_image: /assets/images/header-bg.jpg
+excerpt: "AI Research Scientist | MS in AI at RIT"
+intro:
+- excerpt: 'Passionate about advancing AI technology through research and innovation.'
+feature_row:
+- image_path: /assets/images/research-thumb.jpg
+alt: "Research"
+title: "Research"
+excerpt: "Exploring AI solutions in Time Series Analysis, NLP, and Computer Vision."
+url: "/research/"
+btn_label: "Learn More"
+btn_class: "btn--primary"
+- image_path: /assets/images/projects-thumb.jpg
+alt: "Projects"
+title: "Projects"
+excerpt: "Technical implementations and practical applications of AI/ML."
+url: "/projects/"
+btn_label: "View Projects"
+btn_class: "btn--primary"
+- image_path: /assets/images/publications-thumb.jpg
+alt: "Publications"
+title: "Publications"
+excerpt: "Research papers and academic contributions."
+url: "/publications/"
+btn_label: "Read More"
+btn_class: "btn--primary"
+---
 
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Anurag Mishra | AI Research Scientist</title>
-    <link rel="stylesheet" href="style.css">
-</head>
+{% include feature_row id="intro" type="center" %}
 
-<body>
-    <header>
-        <h1>Anurag Mishra</h1>
-        <p class="title">AI Research Scientist | MS in AI Student at RIT</p>
-        <div class="social-links">
-            <a href="https://github.com/i-anuragmishra" target="_blank">GitHub</a>
-            <a href="https://linkedin.com/in/i-anuragmishra" target="_blank">LinkedIn</a>
-            <a href="mailto:am2552@g.rit.edu">Email</a>
-            <a href="Resume_Anurag_RIT.pdf" target="_blank">CV</a>
-        </div>
-    </header>
+{% include feature_row %}
 
-    <div class="section">
-        <h2>About</h2>
-        <p>I am an AI Research Scientist and graduate student at Rochester Institute of Technology, focusing on
-            advancing the boundaries of artificial intelligence and machine learning. My research interests lie at the
-            intersection of Natural Language Processing, Computer Vision, and Deep Learning.</p>
-    </div>
+# Welcome!
 
-    <div class="section">
-        <h2>Research Focus</h2>
-        <ul>
-            <li><strong>Time Series Analysis:</strong> Developing innovative approaches for emergency management
-                education, focusing on predictive modeling and pattern recognition.</li>
-            <li><strong>Natural Language Processing:</strong> Enhancing human-machine communication through advanced NLP
-                techniques and transformer models.</li>
-            <li><strong>Computer Vision:</strong> Exploring deep learning applications in computer vision for real-world
-                problem solving.</li>
-        </ul>
-    </div>
+I am an AI Research Scientist and graduate student at Rochester Institute of Technology, focusing on advancing the
+boundaries of artificial intelligence and machine learning. My research interests lie at the intersection of Natural
+Language Processing, Computer Vision, and Deep Learning.
 
-    <div class="section">
-        <h2>Education</h2>
-        <ul>
-            <li><strong>MS in Artificial Intelligence</strong> (2023-2025)<br>
-                Rochester Institute of Technology<br>
-                GPA: 4.0/4.0</li>
-            <li><strong>BTech in Computer Science</strong> (2019-2023)<br>
-                Sikkim Manipal Institute of Technology<br>
-                GPA: 8.47/10.0</li>
-        </ul>
-    </div>
+## Current Research
 
-    <div class="section">
-        <h2>Experience</h2>
-        <ul>
-            <li><strong>Graduate Research Assistant</strong> - RIT (2023-Present)<br>
-                Working on emergency management education under NSF grant, developing AI-powered educational modules.
-            </li>
-            <li><strong>Research Intern</strong> - DRDO (2022)<br>
-                Applied Fuzzy Number Theory in AI/ML systems, focusing on algorithm optimization.</li>
-            <li><strong>Data Science Intern</strong> - CRIS (2022)<br>
-                Developed ML models for railway systems, improving scheduling efficiency by 12%.</li>
-        </ul>
-    </div>
+Currently working on innovative AI solutions in:
+- **Time Series Analysis** for emergency management education
+- **Natural Language Processing** for enhanced human-machine communication
+- **Computer Vision** applications in educational technology
 
-    <div class="section">
-        <h2>Technical Skills</h2>
-        <ul>
-            <li><strong>Programming:</strong> Python, C/C++, R, JavaScript, SQL</li>
-            <li><strong>ML & AI:</strong> TensorFlow, PyTorch, Scikit-learn, BERT, SpaCy</li>
-            <li><strong>Tools:</strong> Git, Docker, AWS, Hadoop, MongoDB</li>
-        </ul>
-    </div>
+[Learn more about my research →](/research/){: .btn .btn--info}
 
-    <div class="contact">
-        <h2>Contact</h2>
-        <p>I'm always interested in research collaborations and discussions in AI and machine learning.</p>
-        <p>Email: <a href="mailto:am2552@g.rit.edu">am2552@g.rit.edu</a><br>
-            Location: Rochester, NY</p>
-    </div>
-</body>
+## Recent Publications
 
-</html>
+{% for post in site.publications limit:2 %}
+{% include archive-single.html %}
+{% endfor %}
+
+[View all publications →](/publications/){: .btn .btn--info}
+
+## Current Work
+
+As a Graduate Research Assistant at RIT, I am working on:
+- Developing AI-powered educational modules under NSF grant
+- Conducting research in time series analysis and NLP
+- Creating accessible learning solutions
+
+[View my CV →](/cv/){: .btn .btn--info}
