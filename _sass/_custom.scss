@@ -1,82 +1,130 @@
 /* Custom Colors */
-$coral: #FF6B6B;
-$soft-red: #FF8585;
-$pastel-pink: #FFE2E2;
-$pastel-blue: #F0F7FF;
-$text-dark: #2D3436;
+$primary: #2563eb;
+$secondary: #3b82f6;
+$accent: #f97316;
+$background: #f8fafc;
+$card-bg: #ffffff;
+$text-primary: #1e293b;
+$text-secondary: #475569;
 
 /* Override Global styles */
 body {
-    background-color: $pastel-blue;
-    color: $text-dark;
+    background-color: $background;
+    color: $text-primary;
     line-height: 1.6;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
 }
 
 /* Header Overrides */
 .masthead {
-    background-color: #fff;
-    border-bottom: 2px solid $pastel-pink;
-    padding: 1em 0;
-    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+    background-color: rgba(255, 255, 255, 0.8);
+    backdrop-filter: blur(10px);
+    border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+    position: fixed;
+    width: 100%;
+    z-index: 1000;
+    padding: 0.5rem 0;
 }
 
 .greedy-nav {
     background: transparent;
 
     a {
-        color: $text-dark;
-        font-weight: 400;
-        transition: color 0.2s ease;
+        color: $text-primary;
+        font-weight: 500;
+        transition: all 0.2s ease;
+        padding: 0.5rem 1rem;
+        border-radius: 6px;
 
         &:hover {
-            color: $coral;
+            color: $primary;
+            background: rgba(37, 99, 235, 0.1);
         }
     }
 
     .site-title {
-        color: $coral;
-        font-weight: 600;
+        color: $primary;
+        font-weight: 700;
+        font-size: 1.25rem;
+        letter-spacing: -0.5px;
     }
 }
 
 /* Hero Section */
 .page__hero {
-    background: linear-gradient(135deg, $coral, $soft-red);
-    padding: 6em 0;
-    margin-bottom: 3em;
+    background: linear-gradient(135deg, $primary, $secondary);
+    padding: 8rem 0 4rem;
+    margin-bottom: 0;
 
     &--overlay {
-        padding: 6em 0;
-        background: linear-gradient(135deg, $coral, $soft-red);
+        padding: 8rem 0 4rem;
+        background: linear-gradient(135deg, $primary, $secondary);
 
         .page__title {
             color: #fff;
-            font-weight: 600;
-            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1);
+            font-weight: 700;
+            font-size: 3.5rem;
+            line-height: 1.1;
+            letter-spacing: -1px;
+            text-shadow: none;
+            margin-bottom: 1.5rem;
         }
 
         .page__lead {
             color: rgba(255, 255, 255, 0.9);
+            font-size: 1.25rem;
+            font-weight: 400;
+            max-width: 600px;
+            margin: 0 auto;
         }
     }
 }
 
 /* Content Styling */
 .page__content {
+    padding: 4rem 0;
 
     h1,
     h2,
     h3 {
-        color: $text-dark;
-        font-weight: 500;
+        color: $text-primary;
+        font-weight: 700;
+        letter-spacing: -0.5px;
+        line-height: 1.2;
+    }
+
+    h1 {
+        font-size: 2.5rem;
+        margin-bottom: 2rem;
+    }
+
+    h2 {
+        font-size: 2rem;
+        margin-bottom: 1.5rem;
+    }
+
+    h3 {
+        font-size: 1.5rem;
+        margin-bottom: 1rem;
+    }
+
+    p {
+        color: $text-secondary;
+        line-height: 1.8;
+        margin-bottom: 1.5rem;
     }
 
     a {
-        color: $coral;
-        transition: color 0.2s ease;
+        color: $primary;
+        text-decoration: none;
+        font-weight: 500;
+        transition: all 0.2s ease;
+        padding-bottom: 2px;
+        border-bottom: 2px solid transparent;
 
         &:hover {
-            color: darken($coral, 10%);
+            color: darken($primary, 10%);
+            border-bottom-color: currentColor;
         }
     }
 }
@@ -84,56 +132,141 @@ body {
 /* Feature Grid */
 .feature__wrapper {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-    gap: 2em;
-    margin: 3em 0;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 2rem;
+    margin: 3rem 0;
+    padding: 0 1rem;
+}
 
-    .feature__item {
-        background: #fff;
-        padding: 2.5em;
-        border-radius: 12px;
-        box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
-        transition: all 0.3s ease;
+.feature__item {
+    background: $card-bg;
+    padding: 2rem;
+    border-radius: 16px;
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -2px rgba(0, 0, 0, 0.1);
+    transition: all 0.3s ease;
+    border: 1px solid rgba(0, 0, 0, 0.1);
 
-        &:hover {
-            transform: translateY(-4px);
-            box-shadow: 0 6px 25px rgba(0, 0, 0, 0.08);
-        }
+    &:hover {
+        transform: translateY(-4px);
+        box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 8px 10px -6px rgba(0, 0, 0, 0.1);
+    }
 
-        h2 {
-            color: $coral;
-            font-weight: 500;
-            margin-bottom: 1em;
-        }
+    h2 {
+        color: $text-primary;
+        font-size: 1.5rem;
+        font-weight: 700;
+        margin-bottom: 1rem;
+        letter-spacing: -0.5px;
+    }
+
+    p {
+        color: $text-secondary;
+        line-height: 1.7;
+        margin-bottom: 1.5rem;
     }
 }
 
 /* Button Styling */
 .btn--primary {
-    background-color: $coral;
-    color: #fff;
-    padding: 0.8em 1.8em;
-    font-weight: 500;
+    background-color: $primary;
+    color: white;
+    padding: 0.75rem 1.5rem;
+    font-weight: 600;
     border-radius: 8px;
     transition: all 0.2s ease;
+    border: none;
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
 
     &:hover {
-        background-color: darken($coral, 5%);
+        background-color: darken($primary, 5%);
         transform: translateY(-2px);
+        box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -2px rgba(0, 0, 0, 0.1);
+    }
+
+    &:active {
+        transform: translateY(0);
     }
 }
 
 /* Welcome Section */
 .welcome {
-    max-width: 900px;
-    margin: 4em auto;
-    padding: 3em;
-    background: #fff;
-    border-radius: 16px;
-    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 3rem 2rem;
+    background: transparent;
 
     h1 {
-        color: $coral;
-        font-weight: 600;
+        color: $text-primary;
+        font-size: 2.5rem;
+        font-weight: 700;
+        margin-bottom: 1.5rem;
+        letter-spacing: -0.5px;
+        line-height: 1.2;
+    }
+
+    p {
+        color: $text-secondary;
+        font-size: 1.125rem;
+        line-height: 1.8;
+        margin-bottom: 2rem;
+    }
+}
+
+/* Current Research Section */
+.current-research {
+    background: $card-bg;
+    border-radius: 16px;
+    padding: 2rem;
+    margin: 2rem 0;
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -2px rgba(0, 0, 0, 0.1);
+    border: 1px solid rgba(0, 0, 0, 0.1);
+
+    h2 {
+        color: $text-primary;
+        font-size: 1.75rem;
+        font-weight: 700;
+        margin-bottom: 1.5rem;
+        letter-spacing: -0.5px;
+    }
+
+    ul {
+        list-style: none;
+        padding: 0;
+        margin: 0;
+
+        li {
+            margin-bottom: 1rem;
+            padding-left: 1.5rem;
+            position: relative;
+            color: $text-secondary;
+
+            &:before {
+                content: "•";
+                color: $primary;
+                font-weight: bold;
+                position: absolute;
+                left: 0;
+            }
+        }
+    }
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .page__hero--overlay {
+        .page__title {
+            font-size: 2.5rem;
+        }
+    }
+
+    .feature__wrapper {
+        grid-template-columns: 1fr;
+        padding: 0 1rem;
+    }
+
+    .welcome {
+        padding: 2rem 1rem;
     }
 }

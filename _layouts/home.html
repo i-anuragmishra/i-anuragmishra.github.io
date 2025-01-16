@@ -1,22 +1,50 @@
 ---
-layout: archive
+layout: default
 ---
 
-{{ content }}
-
-<h3 class="archive__subtitle">{{ site.data.ui-text[site.locale].recent_posts | default: "Recent Posts" }}</h3>
-
-{% if paginator %}
-{% assign posts = paginator.posts %}
-{% else %}
-{% assign posts = site.posts %}
-{% endif %}
-
-{% assign entries_layout = page.entries_layout | default: 'list' %}
-<div class="entries-{{ entries_layout }}">
-    {% for post in posts %}
-    {% include archive-single.html type=entries_layout %}
-    {% endfor %}
+<div class="page__hero--overlay">
+    <div class="wrapper">
+        <h1 class="page__title">{{ site.title }}</h1>
+        <p class="page__lead">{{ site.description }}</p>
+    </div>
 </div>
 
-{% include paginator.html %}
+<div class="wrapper">
+    <section class="welcome">
+        <h1>Welcome!</h1>
+        <p>{{ site.author.bio }}</p>
+        <p>I am an AI Research Scientist and graduate student at Rochester Institute of Technology, focusing on
+            advancing the boundaries of artificial intelligence and machine learning. My research interests lie at the
+            intersection of Natural Language Processing, Computer Vision, and Deep Learning.</p>
+    </section>
+
+    <section class="current-research">
+        <h2>Current Research</h2>
+        <ul>
+            <li><strong>Time Series Analysis</strong> for emergency management education</li>
+            <li><strong>Natural Language Processing</strong> for enhanced human-machine communication</li>
+            <li><strong>Computer Vision</strong> applications in educational technology</li>
+        </ul>
+        <a href="/research" class="btn btn--primary">Learn more about my research →</a>
+    </section>
+
+    <div class="feature__wrapper">
+        <div class="feature__item">
+            <h2>Research</h2>
+            <p>Exploring AI solutions in Time Series Analysis, NLP, and Computer Vision</p>
+            <a href="/research" class="btn btn--primary">Learn More</a>
+        </div>
+
+        <div class="feature__item">
+            <h2>Projects</h2>
+            <p>Technical implementations and practical applications of AI/ML</p>
+            <a href="/projects" class="btn btn--primary">View Projects</a>
+        </div>
+
+        <div class="feature__item">
+            <h2>Publications</h2>
+            <p>Research papers and academic contributions</p>
+            <a href="/publications" class="btn btn--primary">Read More</a>
+        </div>
+    </div>
+</div>
