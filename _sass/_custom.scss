@@ -114,3 +114,170 @@ html {
         padding: 1.5rem;
     }
 }
+
+// Modern Research Scientist Custom Styles
+
+// Base Layout
+body {
+    font-family: $base-font-family;
+    line-height: $base-line-height;
+    color: $text-color;
+    background-color: $light-bg;
+}
+
+// Header & Navigation
+.site-header {
+    background: linear-gradient(135deg, $primary-color, $secondary-color);
+    color: $white;
+    padding: $spacing-unit * 4 $spacing-unit * 2 $spacing-unit * 3;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+
+    .header-content {
+        max-width: 800px;
+        margin: 0 auto;
+    }
+
+    .site-title {
+        font-size: 3.5rem;
+        font-weight: 700;
+        letter-spacing: -1px;
+        color: $white;
+        margin-bottom: $spacing-unit * 0.5;
+    }
+
+    .site-subtitle {
+        font-size: 1.5rem;
+        font-weight: 600;
+        color: $accent-color;
+        margin-bottom: $spacing-unit * 0.5;
+    }
+
+    .site-description {
+        font-size: 1.25rem;
+        opacity: 0.9;
+        max-width: 600px;
+        margin: 0 auto $spacing-unit;
+    }
+}
+
+// Content Sections
+.page-content {
+    padding: $spacing-unit;
+
+    .wrapper {
+        max-width: $content-width;
+        margin: 0 auto;
+    }
+}
+
+// Section Cards
+.section-card {
+    background: $white;
+    border-radius: $border-radius;
+    padding: $spacing-unit * 2;
+    margin-bottom: $spacing-unit * 1.5;
+    box-shadow: $shadow;
+    animation: fadeIn 0.5s ease-out forwards;
+}
+
+// Publications Grid
+.publications-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: $spacing-unit;
+
+    .publication-item {
+        background: $white;
+        padding: $spacing-unit;
+        border-radius: $border-radius;
+        border: 1px solid rgba(0, 0, 0, 0.1);
+        transition: transform 0.3s ease;
+
+        &:hover {
+            transform: translateY(-5px);
+        }
+
+        .pub-type {
+            display: inline-block;
+            padding: 0.5rem 1rem;
+            background: $accent-color;
+            color: $white;
+            border-radius: 20px;
+            font-size: 0.9rem;
+            font-weight: 500;
+            margin-bottom: $spacing-unit * 0.5;
+        }
+
+        h3 {
+            font-size: 1.5rem;
+            color: $primary-color;
+            margin-bottom: $spacing-unit * 0.5;
+            line-height: 1.4;
+        }
+    }
+}
+
+// Research Areas
+.research-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: $spacing-unit;
+
+    .research-area {
+        background: $white;
+        padding: $spacing-unit;
+        border-radius: $border-radius;
+        text-align: center;
+        transition: transform 0.3s ease;
+        border: 1px solid rgba(0, 0, 0, 0.1);
+
+        &:hover {
+            transform: translateY(-5px);
+        }
+
+        .research-icon {
+            font-size: 2.5rem;
+            margin-bottom: $spacing-unit * 0.5;
+        }
+
+        h3 {
+            color: $primary-color;
+            margin-bottom: $spacing-unit * 0.5;
+            font-size: 1.25rem;
+        }
+    }
+}
+
+// Animations
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+// Responsive Design
+@media screen and (max-width: $on-palm) {
+    .site-header {
+        padding: $spacing-unit * 3 $spacing-unit $spacing-unit * 2;
+
+        .site-title {
+            font-size: 2.5rem;
+        }
+    }
+
+    .section-card {
+        padding: $spacing-unit;
+    }
+
+    .research-grid {
+        grid-template-columns: 1fr;
+    }
+}

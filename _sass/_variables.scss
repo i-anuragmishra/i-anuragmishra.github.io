@@ -169,3 +169,26 @@ $button-background-hover: darken($coral-red, 10%);
 
 /* Headers */
 $header-color: $dark-gray;
+
+// Modern Research Scientist Theme Variables
+$primary-color: #1e3d59; // Deep navy
+$secondary-color: #1e90ff; // Dodger blue
+$accent-color: #ff6b6b; // Coral red
+$text-color: #2c3e50;
+$light-bg: #f8f9fa;
+$white: #ffffff;
+$shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+$border-radius: 8px;
+
+// Typography
+$base-font-family: 'Inter', 'SF Pro Display', system-ui, -apple-system, sans-serif;
+$heading-font-family: $base-font-family;
+$base-font-size: 16px;
+$large-font-size: 18px;
+$base-line-height: 1.7;
+
+// Spacing
+$spacing-unit: 2rem;
+$content-width: 1200px;
+$on-palm: 600px;
+$on-laptop: 800px;
