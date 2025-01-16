@@ -1,24 +1,27 @@
 --- # Only the main Sass file needs front matter (the dashes are enough) --- @import "minimal-mistakes";
 
 /* Colors */
-$dark-header: #000000;
-$accent-blue: #00A3E0;
-$soft-gray: #F5F5F5;
-$text-dark: #333333;
+$coral: #FF6B6B;
+$soft-red: #FF8585;
+$pastel-pink: #FFE2E2;
+$pastel-blue: #F0F7FF;
+$text-dark: #2D3436;
 $text-light: #FFFFFF;
 
 /* Global styles */
 body {
-    background-color: $soft-gray;
+    background-color: $pastel-blue;
     color: $text-dark;
     font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+    line-height: 1.6;
 }
 
 /* Header area */
 .masthead {
-    background-color: $dark-header;
-    border: none;
+    background-color: $text-light;
+    border-bottom: 2px solid $pastel-pink;
     padding: 1em 0;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
 
     &__inner-wrap {
         padding: 0.5em 2em;
@@ -29,68 +32,70 @@ body {
     background: transparent;
 
     a {
-        color: $text-light;
-        font-weight: 300;
+        color: $text-dark;
+        font-weight: 400;
         font-size: 1em;
+        transition: color 0.2s ease;
 
         &:hover {
-            color: $accent-blue;
+            color: $coral;
         }
     }
 
     .site-title {
-        color: $text-light;
-        font-weight: 400;
-        font-size: 1.2em;
+        color: $coral;
+        font-weight: 600;
+        font-size: 1.3em;
     }
 }
 
 /* Hero section */
 .page__hero {
-    background-color: $dark-header;
-    padding: 4em 0;
-    margin-bottom: 2em;
+    background: linear-gradient(135deg, $coral, $soft-red);
+    padding: 6em 0;
+    margin-bottom: 3em;
 
     &--overlay {
-        padding: 4em 0;
-        background-color: $dark-header;
+        padding: 6em 0;
+        background: linear-gradient(135deg, $coral, $soft-red);
 
         .page__title {
             color: $text-light;
             font-size: 3.5em;
-            font-weight: 300;
-            margin-bottom: 0.2em;
+            font-weight: 600;
+            margin-bottom: 0.3em;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1);
         }
 
         .page__lead {
-            color: rgba(255, 255, 255, 0.8);
-            font-size: 1.2em;
-            font-weight: 300;
+            color: rgba(255, 255, 255, 0.9);
+            font-size: 1.3em;
+            font-weight: 400;
         }
     }
 }
 
 /* Content area */
 .page__content {
-    padding: 2em 0;
+    padding: 3em 0;
 
     h1 {
         color: $text-dark;
         font-size: 2.5em;
-        font-weight: 300;
+        font-weight: 600;
         margin-bottom: 0.5em;
     }
 
     h2 {
         color: $text-dark;
         font-size: 2em;
-        font-weight: 300;
+        font-weight: 500;
     }
 
     h3 {
         color: $text-dark;
         font-size: 1.5em;
-        font-weight: 300;
+        font-weight: 500;
     }
 
     p {
@@ -99,11 +104,12 @@ body {
     }
 
     a {
-        color: $accent-blue;
+        color: $coral;
         text-decoration: none;
+        transition: color 0.2s ease;
 
         &:hover {
-            color: darken($accent-blue, 10%);
+            color: darken($coral, 10%);
         }
     }
 }
@@ -111,64 +117,74 @@ body {
 /* Feature grid */
 .feature__wrapper {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
     gap: 2em;
-    margin: 2em 0;
+    margin: 3em 0;
 }
 
 .feature__item {
-    background: white;
-    padding: 2em;
-    border-radius: 4px;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
-    transition: transform 0.2s ease;
+    background: $text-light;
+    padding: 2.5em;
+    border-radius: 12px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
+    transition: all 0.3s ease;
 
     &:hover {
-        transform: translateY(-2px);
+        transform: translateY(-4px);
+        box-shadow: 0 6px 25px rgba(0, 0, 0, 0.08);
     }
 
     h2 {
-        font-size: 1.5em;
-        font-weight: 400;
+        font-size: 1.6em;
+        font-weight: 500;
         margin: 0 0 1em 0;
+        color: $coral;
     }
 
     p {
-        font-size: 0.95em;
-        line-height: 1.6;
+        font-size: 1em;
+        line-height: 1.7;
         margin-bottom: 1.5em;
+        color: $text-dark;
     }
 }
 
 /* Buttons */
 .btn {
     &--primary {
-        background-color: $accent-blue;
+        background-color: $coral;
         color: white;
-        padding: 0.75em 1.5em;
-        font-weight: 400;
-        border-radius: 4px;
+        padding: 0.8em 1.8em;
+        font-weight: 500;
+        border-radius: 8px;
+        transition: all 0.2s ease;
 
         &:hover {
-            background-color: darken($accent-blue, 5%);
+            background-color: darken($coral, 5%);
+            transform: translateY(-2px);
         }
     }
 }
 
 /* Welcome section */
 .welcome {
-    max-width: 800px;
-    margin: 3em auto;
+    max-width: 900px;
+    margin: 4em auto;
     padding: 0 2em;
+    background: $text-light;
+    border-radius: 16px;
+    padding: 3em;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
 
     h1 {
-        font-size: 2.5em;
-        font-weight: 300;
+        font-size: 2.8em;
+        font-weight: 600;
         margin-bottom: 0.5em;
+        color: $coral;
     }
 
     p {
-        font-size: 1.1em;
+        font-size: 1.2em;
         line-height: 1.8;
         color: $text-dark;
     }
