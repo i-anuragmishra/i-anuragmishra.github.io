@@ -1,49 +1,33 @@
 ---
-permalink: /
+layout: single
 title: "About Me"
-excerpt: "About me"
+permalink: /about/
 author_profile: true
-redirect_from: 
-  - /about/
-  - /about.html
 ---
 
-I am a Master of Science student in Artificial Intelligence at the Rochester Institute of Technology, specializing in Machine Learning and Natural Language Processing. My research focuses on developing innovative solutions in AI, with particular emphasis on time series analysis and NLP applications.
+I am an AI Research Scientist and graduate student at Rochester Institute of Technology, focusing on advancing the boundaries of artificial intelligence and machine learning. My research interests lie at the intersection of Natural Language Processing, Computer Vision, and Deep Learning.
 
-Research Interests
-======
-* **Machine Learning & Deep Learning**
-  * Time series analysis and prediction models
-  * Statistical machine learning methods
-  * Neural network architectures
+## Research Focus
 
-* **Natural Language Processing**
-  * Text analysis and generation
-  * Language understanding systems
-  * Multimodal learning
+- **Time Series Analysis:** Developing innovative approaches for emergency management education, focusing on predictive modeling and pattern recognition.
+- **Natural Language Processing:** Enhancing human-machine communication through advanced NLP techniques and transformer models.
+- **Computer Vision:** Exploring deep learning applications in computer vision for real-world problem solving.
 
-Current Research
-======
-* **NSF Grant Project - Emergency Management Education**
-  * Leading the development of AI-powered educational modules
-  * Part of $1 million NSF grant project
-  * Focus on accessibility for the deaf community
+## Current Work
 
-* **Graduate Research at RIT**
-  * Time series prediction models
-  * NLP applications in educational technology
-  * Machine learning for accessibility
+As a Graduate Research Assistant at RIT, I am working on emergency management education under an NSF grant. My work involves developing AI-powered educational modules and conducting research in time series analysis, NLP, and statistical machine learning.
 
-Previous Research Experience
-======
-* **Research at DRDO, India**
-  * Applied Fuzzy Number Theory in AI/ML systems
-  * Algorithm optimization for real-world applications
-  * Data analysis and predictive modeling
+## Skills & Expertise
 
-Contact
-------
-I'm always open to research collaborations and discussions. Feel free to reach out:
-* Email: [am2552@g.rit.edu](mailto:am2552@g.rit.edu)
-* LinkedIn: [i-anuragmishra](https://linkedin.com/in/i-anuragmishra)
-* GitHub: [i-anuragmishra](https://github.com/i-anuragmishra) 
+- **Programming Languages:** Python, C/C++, R, JavaScript, SQL
+- **ML & AI Tools:** TensorFlow, PyTorch, Scikit-learn, BERT, SpaCy
+- **Development Tools:** Git, Docker, AWS, Hadoop, MongoDB
+
+## Contact
+
+I'm always interested in research collaborations and discussions in AI and machine learning. Feel free to reach out:
+
+- Email: [am2552@g.rit.edu](mailto:am2552@g.rit.edu)
+- Location: Rochester, NY
+- [LinkedIn](https://linkedin.com/in/i-anuragmishra)
+- [GitHub](https://github.com/i-anuragmishra) 

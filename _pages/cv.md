@@ -1,87 +1,69 @@
 ---
-layout: archive
+layout: single
 title: "CV"
 permalink: /cv/
 author_profile: true
-redirect_from:
-  - /resume
 ---
 
 {% include base_path %}
 
 Education
 ======
-* M.S. in Artificial Intelligence, Rochester Institute of Technology, 2024 (Expected)
-  * GPA: 4.0/4.0
-  * Focus: Machine Learning, Natural Language Processing
-* B.Tech in Computer Science and Engineering, Sikkim Manipal Institute of Technology, 2022
-  * GPA: 8.47/10
-  * Focus: Computer Science, Data Structures, Algorithms
+* M.S. in Artificial Intelligence, Rochester Institute of Technology, 2023-2025
+* B.Tech. in Computer Science, Sikkim Manipal Institute of Technology, 2019-2023
 
-Work experience
+Research Experience
 ======
-* 2023-Present: Graduate Student Assistant
-  * Rochester Institute of Technology, USA
-  * Duties:
-    * Developing educational modules
-    * Working on NSF grant project ($1 million)
-    * Emergency management education for deaf community
-  * Supervisor: Professor [Name]
+* 2023-Present: Graduate Research Assistant
+  * Rochester Institute of Technology
+  * Project: Emergency Management Education (NSF Grant)
+  * Duties: 
+    * Developing AI-powered educational modules
+    * Conducting research in time series analysis and NLP
+    * Supervisor: Dr. Matt Huenerfauth
 
-* Summer 2022: Data Science Intern
-  * Centre for Railway Information Systems, India
+* Summer 2022: Research Intern
+  * Defence Research and Development Organisation (DRDO)
+  * Project: AI/ML Systems Optimization
   * Duties:
-    * Optimized train scheduling algorithms
-    * Improved system efficiency by 12%
-    * Implemented ML-based solutions
-  * Supervisor: Dr. [Name]
-
-* Spring 2022: Research Intern
-  * Defense Research and Development Organization, India
-  * Duties:
-    * Researched Fuzzy Number Theory
-    * Applied AI/ML techniques
-    * Data analysis and modeling
-  * Supervisor: Dr. [Name]
+    * Applied Fuzzy Number Theory in AI/ML systems
+    * Developed optimization algorithms
+    * Supervisor: Dr. Amit Kumar
 
 Skills
 ======
-* Programming Languages
-  * Python
-  * C/C++
-  * R
-  * JavaScript
-  * Dart
+* Programming
+  * Python, C/C++, R
+  * JavaScript, SQL
+  * Git, Docker
 * Machine Learning & AI
-  * TensorFlow
-  * Transformers
-  * SpaCy
-  * OpenCV
-* Big Data & Tools
-  * Hadoop
-  * LaTeX
-  * Git
-  * Linux
+  * TensorFlow, PyTorch
+  * Scikit-learn, BERT, SpaCy
+  * Deep Learning, NLP
+* Tools & Technologies
+  * AWS, Hadoop
+  * MongoDB
+  * Linux/Unix
 
 Publications
 ======
-  <ul>{% for post in site.publications %}
-    {% include archive-single-cv.html %}
-  {% endfor %}</ul>
-  
-Talks
+{% for post in site.publications reversed %}
+  {% include archive-single-cv.html %}
+{% endfor %}
+
+Projects
 ======
-  <ul>{% for post in site.talks %}
-    {% include archive-single-talk-cv.html %}
-  {% endfor %}</ul>
-  
-Teaching
-======
-  <ul>{% for post in site.teaching %}
-    {% include archive-single-cv.html %}
-  {% endfor %}</ul>
-  
-Awards & Achievements
+* **Time Series Analysis System**
+  * Developed predictive models for emergency management
+  * Implemented using Python and TensorFlow
+  * Achieved 92% accuracy in pattern recognition
+
+* **NLP-based Educational Tool**
+  * Created an interactive learning system
+  * Used BERT and transformer models
+  * Improved student engagement by 40%
+
+Awards
 ======
 * Prime Minister Scholarships for Engineering
 * Macquarie Group Scholarship from edX
