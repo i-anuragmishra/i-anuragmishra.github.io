@@ -1,51 +1,40 @@
---- ---
-
-/* Variables */
-:root {
-    --primary: #2563eb;
-    --primary-dark: #1d4ed8;
-    --secondary: #3b82f6;
-    --background: #f8fafc;
-    --text: #1e293b;
-    --text-light: #64748b;
-    --white: #ffffff;
-}
+--- # Only the main Sass file needs front matter (the dashes are enough) --- @import "variables";
 
 /* Base Styles */
 body {
     margin: 0;
     padding: 0;
-    font-family: 'Inter', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
-    background-color: var(--background);
-    color: var(--text);
+    font-family: $font-family-base;
+    background-color: $color-background;
+    color: $color-text;
     line-height: 1.6;
 }
 
 /* Layout */
 .container {
-    max-width: 1200px;
+    max-width: $container-max-width;
     margin: 0 auto;
-    padding: 2rem;
+    padding: $spacing-xl;
 }
 
 /* Hero Section */
 .hero {
-    background: linear-gradient(135deg, var(--primary), var(--secondary));
-    padding: 8rem 4rem;
+    background: linear-gradient(135deg, $color-primary, $color-secondary);
+    padding: $spacing-5xl $spacing-3xl;
     text-align: center;
-    color: var(--white);
+    color: $color-white;
 
     h1 {
-        font-size: 4rem;
+        font-size: $font-size-4xl;
         font-weight: 700;
         margin: 0;
         letter-spacing: -0.05em;
     }
 
     .subtitle {
-        font-size: 1.25rem;
+        font-size: $font-size-lg;
         opacity: 0.9;
-        margin-top: 1rem;
+        margin-top: $spacing-base;
     }
 }
 
@@ -53,35 +42,35 @@ body {
 .card-grid {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-    gap: 2rem;
-    margin: 4rem 0;
+    gap: $spacing-xl;
+    margin: $spacing-3xl 0;
 }
 
 .card {
-    background: var(--white);
-    border-radius: 16px;
+    background: $color-white;
+    border-radius: $border-radius-lg;
     overflow: hidden;
-    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -2px rgba(0, 0, 0, 0.1);
-    transition: transform 0.2s ease, box-shadow 0.2s ease;
+    box-shadow: $shadow;
+    transition: $transition-base;
 
     &:hover {
         transform: translateY(-4px);
-        box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 8px 10px -6px rgba(0, 0, 0, 0.1);
+        box-shadow: $shadow-lg;
     }
 
     &__content {
-        padding: 2rem;
+        padding: $spacing-xl;
 
         h2 {
-            font-size: 1.5rem;
+            font-size: $font-size-xl;
             font-weight: 700;
-            margin: 0 0 1rem 0;
-            color: var(--text);
+            margin: 0 0 $spacing-base 0;
+            color: $color-text;
         }
 
         p {
-            color: var(--text-light);
-            margin: 0 0 1.5rem 0;
+            color: $color-text-light;
+            margin: 0 0 $spacing-lg 0;
         }
     }
 }
@@ -90,16 +79,16 @@ body {
 .button {
     display: inline-flex;
     align-items: center;
-    padding: 0.75rem 1.5rem;
-    background-color: var(--primary);
-    color: var(--white);
+    padding: $spacing-base $spacing-lg;
+    background-color: $color-primary;
+    color: $color-white;
     text-decoration: none;
-    border-radius: 8px;
+    border-radius: $border-radius;
     font-weight: 500;
-    transition: all 0.2s ease;
+    transition: $transition-base;
 
     &:hover {
-        background-color: var(--primary-dark);
+        background-color: $color-primary-dark;
         transform: translateY(-2px);
     }
 }
@@ -107,55 +96,55 @@ body {
 /* About Section */
 .about {
     max-width: 800px;
-    margin: 6rem auto;
+    margin: $spacing-4xl auto;
     text-align: center;
 
     h2 {
-        font-size: 2rem;
+        font-size: $font-size-2xl;
         font-weight: 700;
-        margin-bottom: 1.5rem;
-        color: var(--text);
+        margin-bottom: $spacing-lg;
+        color: $color-text;
     }
 
     p {
-        color: var(--text-light);
-        font-size: 1.125rem;
+        color: $color-text-light;
+        font-size: $font-size-lg;
     }
 }
 
 /* Research Section */
 .research {
-    margin: 6rem 0;
+    margin: $spacing-4xl 0;
 
     h2 {
-        font-size: 2rem;
+        font-size: $font-size-2xl;
         font-weight: 700;
         text-align: center;
-        margin-bottom: 3rem;
+        margin-bottom: $spacing-2xl;
     }
 
     &__areas {
         display: grid;
         grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-        gap: 2rem;
+        gap: $spacing-xl;
     }
 
     &__area {
-        background: var(--white);
-        padding: 2rem;
-        border-radius: 16px;
-        box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+        background: $color-white;
+        padding: $spacing-xl;
+        border-radius: $border-radius-lg;
+        box-shadow: $shadow;
         text-align: center;
 
         h3 {
-            font-size: 1.25rem;
+            font-size: $font-size-lg;
             font-weight: 600;
-            margin: 0 0 1rem 0;
-            color: var(--primary);
+            margin: 0 0 $spacing-base 0;
+            color: $color-primary;
         }
 
         p {
-            color: var(--text-light);
+            color: $color-text-light;
             margin: 0;
         }
     }
@@ -166,15 +155,15 @@ body {
     position: fixed;
     top: 0;
     width: 100%;
-    background: rgba(255, 255, 255, 0.8);
+    background: rgba($color-white, 0.8);
     backdrop-filter: blur(10px);
-    padding: 1rem 0;
+    padding: $spacing-base 0;
     z-index: 1000;
 
     &__container {
-        max-width: 1200px;
+        max-width: $container-max-width;
         margin: 0 auto;
-        padding: 0 2rem;
+        padding: 0 $spacing-xl;
         display: flex;
         justify-content: space-between;
         align-items: center;
@@ -182,40 +171,40 @@ body {
 
     &__brand {
         font-weight: 700;
-        color: var(--primary);
+        color: $color-primary;
         text-decoration: none;
-        font-size: 1.25rem;
+        font-size: $font-size-lg;
     }
 
     &__links {
         display: flex;
-        gap: 2rem;
+        gap: $spacing-xl;
 
         a {
-            color: var(--text);
+            color: $color-text;
             text-decoration: none;
             font-weight: 500;
-            transition: color 0.2s ease;
+            transition: $transition-base;
 
             &:hover {
-                color: var(--primary);
+                color: $color-primary;
             }
         }
     }
 }
 
 /* Responsive Design */
-@media (max-width: 768px) {
+@media (max-width: $breakpoint-md) {
     .hero {
-        padding: 6rem 2rem;
+        padding: $spacing-4xl $spacing-xl;
 
         h1 {
-            font-size: 3rem;
+            font-size: $font-size-3xl;
         }
     }
 
     .container {
-        padding: 1rem;
+        padding: $spacing-base;
     }
 
     .card-grid {
