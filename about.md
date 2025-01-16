@@ -1,52 +1,41 @@
 ---
-layout: page
-title: About Me
-permalink: /
+layout: single
+title: "About Me"
+permalink: /about/
+author_profile: true
 ---
 
-I am a Master of Science student in Artificial Intelligence at the Rochester Institute of Technology, specializing in Machine Learning and Natural Language Processing. My research focuses on developing innovative solutions in AI, with particular emphasis on time series analysis and NLP applications.
+# About Me
 
-## Research Interests
+I am an AI Research Scientist and graduate student at Rochester Institute of Technology, focusing on advancing the boundaries of artificial intelligence and machine learning. My research interests lie at the intersection of Natural Language Processing, Computer Vision, and Deep Learning.
 
-<div class="research-areas">
-  <div class="card">
-    <h3>Machine Learning & Deep Learning</h3>
-    <ul>
-      <li>Time Series Analysis and Prediction</li>
-      <li>Neural Network Architectures</li>
-      <li>Statistical Learning Methods</li>
-    </ul>
-  </div>
+## Research Focus
 
-  <div class="card">
-    <h3>Natural Language Processing</h3>
-    <ul>
-      <li>Text Analysis and Generation</li>
-      <li>Language Understanding Systems</li>
-      <li>Multimodal Learning</li>
-    </ul>
-  </div>
-</div>
+My research primarily focuses on:
+- Time Series Analysis for emergency management education
+- Natural Language Processing for enhanced human-machine communication
+- Computer Vision applications in educational technology
 
-## Current Research
+## Academic Background
 
-<div class="section">
-  <div class="card">
-    <h3>NSF Grant Project</h3>
-    <p>Emergency Management Education for Deaf Community</p>
-    <ul>
-      <li>AI-powered educational modules development</li>
-      <li>$1 million grant project</li>
-      <li>Accessibility-focused solutions</li>
-    </ul>
-  </div>
+- **M.S. in Artificial Intelligence** (2023-2025)  
+  Rochester Institute of Technology
+- **B.Tech. in Computer Science** (2019-2023)  
+  With specialization in AI and Machine Learning
 
-  <div class="card">
-    <h3>Graduate Research at RIT</h3>
-    <ul>
-      <li>Time series prediction models</li>
-      <li>NLP in educational technology</li>
-      <li>Machine learning for accessibility</li>
-    </ul>
-  </div>
-</div> 
+## Current Work
+
+As a Graduate Research Assistant at RIT, I am:
+- Developing AI-powered educational modules under NSF grant
+- Conducting research in time series analysis and NLP
+- Creating accessible learning solutions
+
+## Skills
+
+- **Programming Languages**: Python, C++, R, JavaScript
+- **ML/AI Frameworks**: TensorFlow, PyTorch, Scikit-learn
+- **Tools & Technologies**: Git, Docker, AWS, MongoDB
+
+## Contact
+
+Feel free to reach out to me at [am4010@rit.edu](mailto:am4010@rit.edu) or connect with me on [LinkedIn](https://www.linkedin.com/in/anurag-mishra-ai). 
