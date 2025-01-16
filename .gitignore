@@ -1,0 +1,57 @@
+# Jekyll site
+_site/
+.sass-cache/
+.jekyll-cache/
+.jekyll-metadata
+.bundle/
+vendor/
+
+# Template reference (keep locally but don't upload)
+academicpages.github.io-master/
+academic-template/
+template-reference/
+_template/
+
+# Compiled files
+*.pyc
+*.pyo
+*.pyd
+__pycache__/
+
+# Environment
+.env
+.venv
+env/
+venv/
+ENV/
+
+# IDE specific files
+.idea/
+.vscode/
+*.swp
+*.swo
+*~
+
+# OS specific files
+.DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+ehthumbs.db
+Thumbs.db
+
+# Build files
+*.log
+tmp/
+temp/
+
+# Dependencies
+node_modules/
+package-lock.json
+yarn.lock
+
+# Local development
+*.local
+.ruby-version
+.ruby-gemset 
