@@ -1,5 +1,5 @@
+@import "minimal-mistakes/skins/{{ site.minimal_mistakes_skin | default: 'default' }}";
 @import "minimal-mistakes";
-@import "variables";
 
 /* Base Styles */
 body {
@@ -214,5 +214,135 @@ body {
 
     .research__areas {
         grid-template-columns: 1fr;
+    }
+}
+
+/* Modern styling for the homepage */
+.hero-section {
+    padding: 4rem 0;
+    text-align: center;
+    max-width: 800px;
+    margin: 0 auto;
+
+    .welcome {
+        font-size: 1.2rem;
+        line-height: 1.6;
+        color: #2c3e50;
+    }
+}
+
+.content-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 2rem;
+    padding: 2rem;
+    max-width: 1200px;
+    margin: 0 auto;
+
+    .grid-item {
+        background: #ffffff;
+        padding: 2rem;
+        border-radius: 12px;
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        transition: transform 0.3s ease;
+
+        &:hover {
+            transform: translateY(-5px);
+        }
+
+        .icon {
+            font-size: 1.5rem;
+            font-weight: bold;
+            color: #4169E1;
+            margin-bottom: 1rem;
+        }
+
+        h2 {
+            font-size: 2rem;
+            margin: 0.5rem 0;
+            color: #2c3e50;
+        }
+
+        p {
+            color: #666;
+            margin-bottom: 1.5rem;
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 0.8rem 1.5rem;
+            background-color: #4169E1;
+            color: white;
+            text-decoration: none;
+            border-radius: 6px;
+            transition: background-color 0.3s ease;
+
+            &:hover {
+                background-color: darken(#4169E1, 10%);
+            }
+        }
+    }
+}
+
+.current-research {
+    max-width: 800px;
+    margin: 4rem auto;
+    padding: 2rem;
+    background: #f8f9fa;
+    border-radius: 12px;
+
+    h2 {
+        color: #2c3e50;
+        margin-bottom: 1.5rem;
+    }
+
+    ul {
+        list-style: none;
+        padding: 0;
+
+        li {
+            margin-bottom: 1rem;
+            padding-left: 1.5rem;
+            position: relative;
+
+            &:before {
+                content: "•";
+                color: #4169E1;
+                position: absolute;
+                left: 0;
+            }
+        }
+    }
+
+    .btn-outline {
+        display: inline-block;
+        margin-top: 1.5rem;
+        padding: 0.8rem 1.5rem;
+        border: 2px solid #4169E1;
+        color: #4169E1;
+        text-decoration: none;
+        border-radius: 6px;
+        transition: all 0.3s ease;
+
+        &:hover {
+            background-color: #4169E1;
+            color: white;
+        }
+    }
+}
+
+/* Responsive adjustments */
+@media screen and (max-width: 768px) {
+    .hero-section {
+        padding: 2rem 1rem;
+    }
+
+    .content-grid {
+        grid-template-columns: 1fr;
+        padding: 1rem;
+    }
+
+    .current-research {
+        margin: 2rem 1rem;
     }
 }
