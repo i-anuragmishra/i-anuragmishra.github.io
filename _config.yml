@@ -1,0 +1,59 @@
+# Build settings
+markdown: kramdown
+theme: minima
+repository: i-anuragmishra/i-anuragmishra.github.io
+
+# Theme Settings
+header_pages:
+  - about.md
+  - research.md
+  - portfolio.md
+  - publications.md
+  - experience.md
+
+minima:
+  skin: classic
+  social_links:
+    github: i-anuragmishra
+    linkedin: i-anuragmishra
+
+# Site Settings
+title: Anurag Mishra
+email: am2552@g.rit.edu
+description: >- 
+  MS in AI student at RIT | Machine Learning & NLP Researcher
+baseurl: ""
+url: "https://i-anuragmishra.github.io"
+github_username: i-anuragmishra
+linkedin_username: i-anuragmishra
+
+# Collections
+collections:
+  publications:
+    output: true
+    permalink: /:collection/:path/
+  portfolio:
+    output: true
+    permalink: /:collection/:path/
+
+# Defaults
+defaults:
+  - scope:
+      path: ""
+      type: pages
+    values:
+      layout: page
+  - scope:
+      path: ""
+      type: publications
+    values:
+      layout: page
+  - scope:
+      path: ""
+      type: portfolio
+    values:
+      layout: page
+
+plugins:
+  - jekyll-feed
+  - jekyll-seo-tag 

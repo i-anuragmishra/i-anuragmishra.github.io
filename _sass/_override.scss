@@ -1,0 +1,102 @@
+/* Override theme styles */
+
+// Override masthead
+.masthead {
+    background-color: white !important;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.05) !important;
+
+    &__inner-wrap {
+        padding: 1rem 2rem !important;
+    }
+
+    nav {
+        background: none !important;
+
+        a {
+            color: $dark-gray !important;
+            font-weight: 500 !important;
+            transition: color 0.3s ease !important;
+
+            &:hover {
+                color: $dodger-blue !important;
+            }
+        }
+    }
+}
+
+// Override page content
+.page__content {
+    h2 {
+        border-bottom: 2px solid $coral-red !important;
+        padding-bottom: 0.5em !important;
+        margin-top: 3em !important;
+    }
+}
+
+// Override cards
+.card {
+    background: white !important;
+    border-radius: 12px !important;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05) !important;
+    padding: 2rem !important;
+    margin: 1rem 0 !important;
+    transition: transform 0.3s ease !important;
+    border: none !important;
+
+    &:hover {
+        transform: translateY(-5px) !important;
+        box-shadow: 0 8px 30px rgba(0, 0, 0, 0.1) !important;
+    }
+
+    h3 {
+        color: $dodger-blue !important;
+        margin-bottom: 1rem !important;
+    }
+}
+
+// Override sections
+.section {
+    padding: 4rem 0 !important;
+    margin: 3rem 0 !important;
+    border-radius: 8px !important;
+    background: $light-gray !important;
+
+    h2 {
+        color: $dark-gray !important;
+        font-size: 2rem !important;
+        margin-bottom: 2rem !important;
+        position: relative !important;
+
+        &:after {
+            content: '' !important;
+            position: absolute !important;
+            bottom: -10px !important;
+            left: 0 !important;
+            width: 60px !important;
+            height: 4px !important;
+            background: $coral-red !important;
+            border-radius: 2px !important;
+        }
+    }
+}
+
+// Override typography
+.subtitle {
+    color: $coral-red !important;
+    font-weight: 500 !important;
+    margin: 0.5rem 0 !important;
+}
+
+.date {
+    color: lighten($dark-gray, 20%) !important;
+    font-size: 0.9rem !important;
+    margin-bottom: 1rem !important;
+}
+
+// Override research areas grid
+.research-areas {
+    display: grid !important;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)) !important;
+    gap: 2rem !important;
+    margin: 2rem 0 !important;
+}

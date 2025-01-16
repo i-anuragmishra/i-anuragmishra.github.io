@@ -1,0 +1,116 @@
+/* Custom minimalist styles */
+
+/* Smooth scrolling */
+html {
+    scroll-behavior: smooth;
+}
+
+/* Card animations and styling */
+.card {
+    border: none;
+    margin-bottom: 2rem;
+    background: white;
+    border-radius: 12px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
+    transition: all 0.3s ease;
+
+    &:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 8px 30px rgba(0, 0, 0, 0.1);
+    }
+
+    h3 {
+        color: $dodger-blue;
+        margin-bottom: 1rem;
+    }
+}
+
+/* Section styling */
+.section {
+    padding: 4rem 0;
+    margin: 3rem 0;
+
+    h2 {
+        color: $dark-gray;
+        font-size: 2rem;
+        margin-bottom: 2rem;
+        position: relative;
+
+        &:after {
+            content: '';
+            position: absolute;
+            bottom: -10px;
+            left: 0;
+            width: 60px;
+            height: 4px;
+            background: $coral-red;
+            border-radius: 2px;
+        }
+    }
+}
+
+/* Typography */
+.subtitle {
+    color: $coral-red;
+    font-weight: 500;
+    margin: 0.5rem 0;
+}
+
+.date {
+    color: lighten($dark-gray, 20%);
+    font-size: 0.9rem;
+    margin-bottom: 1rem;
+}
+
+/* Skills section */
+.skills {
+    .card {
+        p {
+            color: $dark-gray;
+            line-height: 2;
+        }
+    }
+}
+
+/* Navigation styling */
+.masthead {
+    background: white;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+
+    &__inner-wrap {
+        padding: 1rem 2rem;
+    }
+
+    nav {
+        background: none;
+
+        a {
+            color: $dark-gray;
+            font-weight: 500;
+            transition: color 0.3s ease;
+
+            &:hover {
+                color: $dodger-blue;
+            }
+        }
+    }
+}
+
+/* Research areas grid */
+.research-areas {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 2rem;
+    margin: 2rem 0;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+    .section {
+        padding: 2rem 0;
+    }
+
+    .card {
+        padding: 1.5rem;
+    }
+}
