@@ -1,71 +1,87 @@
 ---
-layout: single
+layout: archive
 title: "CV"
 permalink: /cv/
 author_profile: true
+redirect_from:
+  - /resume
 ---
 
 {% include base_path %}
 
 Education
 ======
-* M.S. in Artificial Intelligence, Rochester Institute of Technology, 2023-2025
-* B.Tech. in Computer Science, Sikkim Manipal Institute of Technology, 2019-2023
+* M.S. in Artificial Intelligence, Rochester Institute of Technology, 2024 (Expected)
+  * GPA: 4.0/4.0
+  * Focus: Machine Learning, Natural Language Processing
+* B.Tech in Computer Science and Engineering, Sikkim Manipal Institute of Technology, 2022
+  * GPA: 8.47/10
+  * Focus: Computer Science, Data Structures, Algorithms
 
-Research Experience
+Work experience
 ======
-* Graduate Research Assistant (2023-Present)
-  * Rochester Institute of Technology
-  * Research: Time Series Analysis, NLP, Emergency Management Education
-  * Supervisor: Professor [Name]
-
-* Research Intern (2022)
-  * DRDO
-  * Research: Fuzzy Number Theory in AI/ML
-  * Supervisor: Dr. [Name]
-
-Work Experience
-======
-* Graduate Student Assistant (2023-Present)
-  * Rochester Institute of Technology
+* 2023-Present: Graduate Student Assistant
+  * Rochester Institute of Technology, USA
   * Duties:
     * Developing educational modules
-    * Contributing to NSF-funded research
-    * Emergency management education
+    * Working on NSF grant project ($1 million)
+    * Emergency management education for deaf community
+  * Supervisor: Professor [Name]
 
-* Data Science Intern (2022)
-  * CENTRE FOR RAILWAY INFORMATION SYSTEMS
+* Summer 2022: Data Science Intern
+  * Centre for Railway Information Systems, India
   * Duties:
     * Optimized train scheduling algorithms
-    * Developed ML models for predictive maintenance
-    * Implemented data processing pipelines
+    * Improved system efficiency by 12%
+    * Implemented ML-based solutions
+  * Supervisor: Dr. [Name]
+
+* Spring 2022: Research Intern
+  * Defense Research and Development Organization, India
+  * Duties:
+    * Researched Fuzzy Number Theory
+    * Applied AI/ML techniques
+    * Data analysis and modeling
+  * Supervisor: Dr. [Name]
 
 Skills
 ======
 * Programming Languages
-  * Python, C/C++, R, JavaScript, Dart, SQL
+  * Python
+  * C/C++
+  * R
+  * JavaScript
+  * Dart
 * Machine Learning & AI
-  * TensorFlow, PyTorch, Scikit-learn
-  * Transformers, BERT, SpaCy
-  * OpenCV, Latex
-* Tools & Technologies
-  * Git, Docker, AWS
-  * Hadoop, MongoDB, PostgreSQL
-  * Flutter
+  * TensorFlow
+  * Transformers
+  * SpaCy
+  * OpenCV
+* Big Data & Tools
+  * Hadoop
+  * LaTeX
+  * Git
+  * Linux
 
 Publications
 ======
-{% for post in site.publications reversed %}
-  {% include archive-single-cv.html %}
-{% endfor %}
-
-Projects
+  <ul>{% for post in site.publications %}
+    {% include archive-single-cv.html %}
+  {% endfor %}</ul>
+  
+Talks
 ======
-{% for post in site.projects reversed %}
-  {% include archive-single-cv.html %}
-{% endfor %}
-
-Awards
+  <ul>{% for post in site.talks %}
+    {% include archive-single-talk-cv.html %}
+  {% endfor %}</ul>
+  
+Teaching
+======
+  <ul>{% for post in site.teaching %}
+    {% include archive-single-cv.html %}
+  {% endfor %}</ul>
+  
+Awards & Achievements
 ======
 * Prime Minister Scholarships for Engineering
 * Macquarie Group Scholarship from edX
