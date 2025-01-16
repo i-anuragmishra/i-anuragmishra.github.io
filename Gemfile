@@ -1,14 +1,16 @@
 source "https://rubygems.org"
 
 gem "github-pages", group: :jekyll_plugins
-gem "minima"
+gem "jekyll-include-cache", group: :jekyll_plugins
+gem "jekyll-remote-theme", group: :jekyll_plugins
+gem "faraday-retry"
 
 group :jekyll_plugins do
-  gem "jekyll-feed"
-  gem "jekyll-seo-tag"
-  gem "jekyll-sitemap"
   gem "jekyll-paginate"
-  gem "jekyll-include-cache"
+  gem "jekyll-sitemap"
+  gem "jekyll-gist"
+  gem "jekyll-feed"
+  gem "jemoji"
 end
 
 platforms :mingw, :x64_mingw, :mswin, :jruby do

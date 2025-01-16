@@ -1,3 +1,8 @@
+# Theme Settings
+remote_theme: "mmistakes/minimal-mistakes@4.24.0"
+minimal_mistakes_skin: "default"
+locale: "en-US"
+
 # Site Settings
 title: Anurag Mishra
 subtitle: AI Research Scientist
@@ -6,6 +11,7 @@ description: AI Research Scientist | MS in AI at RIT | Machine Learning & NLP Re
 url: https://i-anuragmishra.github.io
 repository: i-anuragmishra/i-anuragmishra.github.io
 logo: "/assets/images/profile.jpg"
+search: true
 
 # Site Author
 author:
@@ -97,10 +103,7 @@ plugins:
   - jekyll-gist
   - jekyll-feed
   - jekyll-include-cache
-
-# Theme Settings
-minimal_mistakes_skin: "default"
-search: true
+  - jekyll-remote-theme
 
 # HTML Compression
 compress_html:
