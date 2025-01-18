@@ -41,22 +41,9 @@ include:
 plugins:
   - jekyll-paginate
   - jekyll-sitemap
-  - jekyll-gist
   - jekyll-feed
   - jekyll-include-cache
   - jekyll-remote-theme
-
-# Collections
-collections:
-  research:
-    output: true
-    permalink: /:collection/:path/
-  projects:
-    output: true
-    permalink: /:collection/:path/
-  blog:
-    output: true
-    permalink: /:collection/:path/
 
 # Defaults
 defaults:
@@ -66,28 +53,4 @@ defaults:
       type: pages
     values:
       layout: single
-      author_profile: true
-  # _research
-  - scope:
-      path: ""
-      type: research
-    values:
-      layout: single
-      author_profile: true
-      share: false
-  # _projects
-  - scope:
-      path: ""
-      type: projects
-    values:
-      layout: single
-      author_profile: true
-      share: false
-  # _blog
-  - scope:
-      path: ""
-      type: blog
-    values:
-      layout: single
-      author_profile: true
-      share: false 
+      author_profile: true 

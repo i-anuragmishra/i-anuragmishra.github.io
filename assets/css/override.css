@@ -1,77 +1,57 @@
-/* Direct Style Overrides */
-body {
-    background-color: #f8fafc !important;
-    color: #1e293b !important;
-    font-family: 'Inter', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif !important;
+/* Clean, minimal styles for academic portfolio */
+.hero-section {
+    padding: 2rem 0;
+    text-align: center;
+    max-width: 800px;
+    margin: 0 auto;
 }
 
-.masthead {
-    background-color: rgba(255, 255, 255, 0.8) !important;
-    backdrop-filter: blur(10px);
-    border-bottom: 1px solid rgba(0, 0, 0, 0.1) !important;
-    position: fixed !important;
-    width: 100%;
-    z-index: 1000;
+.welcome p {
+    font-size: 1.2rem;
+    line-height: 1.6;
+    color: #333;
 }
 
-.page__hero--overlay {
-    background: linear-gradient(135deg, #2563eb, #3b82f6) !important;
-    padding: 8rem 0 4rem !important;
+.content-section {
+    margin: 3rem auto;
+    max-width: 800px;
+    padding: 0 1rem;
 }
 
-.page__hero--overlay .page__title {
-    color: white !important;
-    font-weight: 700 !important;
-    font-size: 3.5rem !important;
-    letter-spacing: -1px !important;
+.content-section h2 {
+    color: #2a2a2a;
+    border-bottom: 2px solid #4169E1;
+    padding-bottom: 0.5rem;
+    margin-bottom: 1.5rem;
 }
 
-.feature__wrapper {
-    display: grid !important;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)) !important;
-    gap: 2rem !important;
-    margin: 3rem 0 !important;
-    padding: 0 1rem !important;
+.content-section ul {
+    list-style: none;
+    padding-left: 0;
 }
 
-.feature__item {
-    background: white !important;
-    padding: 2rem !important;
-    border-radius: 16px !important;
-    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -2px rgba(0, 0, 0, 0.1) !important;
-    transition: all 0.3s ease !important;
-    border: 1px solid rgba(0, 0, 0, 0.1) !important;
+.content-section li {
+    margin-bottom: 1rem;
+    line-height: 1.5;
 }
 
-.feature__item:hover {
-    transform: translateY(-4px) !important;
-    box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 8px 10px -6px rgba(0, 0, 0, 0.1) !important;
+.social-links {
+    margin-top: 1.5rem;
 }
 
-.btn--primary {
-    background-color: #2563eb !important;
-    color: white !important;
-    padding: 0.75rem 1.5rem !important;
-    border-radius: 8px !important;
-    text-decoration: none !important;
+.btn-outline {
+    display: inline-block;
+    padding: 0.5rem 1rem;
+    margin-right: 1rem;
+    border: 2px solid #4169E1;
+    color: #4169E1;
+    text-decoration: none;
+    border-radius: 4px;
+    transition: all 0.3s ease;
 }
 
-.welcome {
-    max-width: 800px !important;
-    margin: 4rem auto !important;
-    padding: 3rem 2rem !important;
-}
-
-.current-research {
-    background: white !important;
-    border-radius: 16px !important;
-    padding: 2rem !important;
-    margin: 2rem 0 !important;
-    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1) !important;
-    border: 1px solid rgba(0, 0, 0, 0.1) !important;
-}
-
-/* Fix spacing for fixed header */
-.initial-content {
-    padding-top: 4rem !important;
+.btn-outline:hover {
+    background: #4169E1;
+    color: white;
+    text-decoration: none;
 }
