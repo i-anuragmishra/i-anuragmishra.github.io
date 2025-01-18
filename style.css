@@ -112,12 +112,13 @@ h1 {
     font-size: 1rem;
 }
 
-/* Content Cards */
+/* Content Container */
 .content {
     max-width: 800px;
     margin: 0 auto;
 }
 
+/* Intro Card */
 .intro-card {
     background: var(--card-bg);
     padding: 30px;
@@ -132,6 +133,51 @@ h1 {
     font-size: 1.5rem;
     color: var(--primary);
     margin-bottom: 15px;
+}
+
+/* Research Areas */
+.research-areas {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 25px;
+    margin-top: 40px;
+}
+
+.area-card {
+    background: var(--card-bg);
+    padding: 30px;
+    border-radius: 12px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    border: 1px solid var(--border);
+}
+
+.area-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 12px rgba(0, 0, 0, 0.1);
+}
+
+.area-card .card-icon {
+    font-size: 1.8rem;
+    margin-bottom: 15px;
+    color: var(--primary);
+    transition: transform 0.3s ease;
+}
+
+.area-card:hover .card-icon {
+    transform: scale(1.1);
+}
+
+.area-card h3 {
+    font-size: 1.1rem;
+    font-weight: 600;
+    margin: 10px 0;
+    color: var(--text);
+}
+
+.area-card p {
+    color: var(--text-light);
+    font-size: 0.95rem;
 }
 
 /* Current Work Section */
@@ -187,49 +233,21 @@ h1 {
     line-height: 1.6;
 }
 
-/* Update Research Areas */
-.research-areas {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-    gap: 25px;
+/* Design Updates Section */
+.site-updates {
     margin-top: 40px;
-}
-
-.area-card {
     background: var(--card-bg);
     padding: 30px;
     border-radius: 12px;
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
     border: 1px solid var(--border);
 }
 
-.area-card:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 8px 12px rgba(0, 0, 0, 0.1);
-}
-
-.area-card .card-icon {
-    font-size: 1.8rem;
-    margin-bottom: 15px;
-    color: var(--primary);
-    transition: transform 0.3s ease;
-}
-
-.area-card:hover .card-icon {
-    transform: scale(1.1);
-}
-
-.area-card h3 {
-    font-size: 1.1rem;
+.site-updates h2 {
+    font-size: 1.4rem;
     font-weight: 600;
-    margin: 10px 0;
+    margin-bottom: 15px;
     color: var(--text);
-}
-
-.area-card p {
-    color: var(--text-light);
-    font-size: 0.95rem;
 }
 
 /* Footer */
@@ -273,11 +291,6 @@ footer {
     color: var(--text-light);
     font-size: 0.85rem;
     margin-bottom: 8px;
-}
-
-.powered-by {
-    color: var(--text-light);
-    font-size: 0.8rem;
 }
 
 /* Responsive Design */
