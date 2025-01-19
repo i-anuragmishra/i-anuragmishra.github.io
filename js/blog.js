@@ -70,13 +70,12 @@ function createPostPreview(post) {
 
     return `
         <div class="item">
-            <h3>${title}</h3>
-            <p class="date">${formatDate(date)}</p>
-            <p class="tags">${tags.map(tag => `<span class="tag">${tag}</span>`).join(' ')}</p>
+            <h2>${title}</h2>
+            <div class="post-meta">
+                ${formatDate(date)} • ${tags.map(tag => tag).join(', ')}
+            </div>
             <p class="item-description">${post.excerpt}</p>
-            <button onclick="loadPost('${post.name}')" class="read-more">
-                Read More
-            </button>
+            <a href="post.html?post=${post.name}" class="read-more">Read More →</a>
         </div>
     `;
 }
@@ -92,6 +91,7 @@ async function loadBlogPosts() {
         const parsed = parseFrontMatter(markdown);
 
         if (parsed) {
+            // Get excerpt from first paragraph after the title
             const excerpt = parsed.content.split('\n\n')[1] || '';
             const post = {
                 name: 'sample-post.md',
@@ -110,7 +110,10 @@ async function loadBlogPosts() {
 // Function to load and display a single post
 async function loadPost(filename) {
     const postContent = document.getElementById('post-content');
-    if (!postContent) return;
+    const postTitle = document.getElementById('post-title');
+    const postMeta = document.getElementById('post-meta');
+
+    if (!postContent || !postTitle || !postMeta) return;
 
     try {
         const response = await fetch(`posts/${filename}`);
@@ -123,10 +126,10 @@ async function loadPost(filename) {
 
         // Update title and metadata
         document.title = `${parsed.frontMatter.title} • Anurag Mishra`;
-        document.getElementById('post-title').textContent = parsed.frontMatter.title;
-        document.getElementById('post-meta').innerHTML = `
+        postTitle.textContent = parsed.frontMatter.title;
+        postMeta.innerHTML = `
             ${formatDate(parsed.frontMatter.date)} • 
-            ${parsed.frontMatter.tags.map(tag => `<span class="tag">${tag}</span>`).join(' ')}
+            ${parsed.frontMatter.tags.map(tag => tag).join(', ')}
         `;
 
         // Render markdown content
@@ -142,9 +145,9 @@ async function loadPost(filename) {
     }
 }
 
-// Initialize page
+// Initialize page based on current URL
 document.addEventListener('DOMContentLoaded', () => {
-    if (window.location.pathname.endsWith('blogs.html')) {
+    if (window.location.pathname.endsWith('writing.html')) {
         loadBlogPosts();
     } else if (window.location.pathname.endsWith('post.html')) {
         const urlParams = new URLSearchParams(window.location.search);

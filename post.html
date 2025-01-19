@@ -17,7 +17,7 @@
     <script src="https://cdn.jsdelivr.net/npm/highlight.js@11.8.0/lib/core.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/highlight.js@11.8.0/lib/languages/javascript.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/highlight.js@11.8.0/lib/languages/python.min.js"></script>
-    <!-- Blog metadata -->
+    <!-- Blog functionality -->
     <script src="js/blog.js"></script>
 </head>
 
@@ -26,21 +26,22 @@
         <a href="index.html">~/home</a>
         <a href="publications.html">~/research</a>
         <a href="projects.html">~/projects</a>
-        <a href="blogs.html">~/writing</a>
+        <a href="writing.html">~/writing</a>
         <a href="Resume_Anurag_RIT.pdf">~/cv</a>
     </nav>
 
-    <main>
-        <article class="post">
-            <header class="post-header">
-                <h1 id="post-title"></h1>
-                <div id="post-meta" class="post-meta"></div>
-            </header>
-            <div id="post-content" class="post-content">
-                <!-- Post content will be loaded here -->
-            </div>
-        </article>
-    </main>
+    <article class="post">
+        <header class="post-header">
+            <h1 id="post-title"></h1>
+            <div id="post-meta" class="post-meta"></div>
+        </header>
+        <div id="post-content" class="post-content">
+            <!-- Post content will be loaded here -->
+        </div>
+        <div class="post-footer">
+            <a href="writing.html">← Back to Writing</a>
+        </div>
+    </article>
 
     <footer>
         <a href="mailto:am2552@rit.edu">email</a>
@@ -60,69 +61,16 @@
             }
         });
 
-        // Function to get URL parameters
-        function getQueryParam(param) {
-            const urlParams = new URLSearchParams(window.location.search);
-            return urlParams.get(param);
-        }
-
-        // Function to load post metadata
-        function getPostMetadata(filename) {
-            return posts.find(post => post.file === filename);
-        }
-
-        // Function to format date
-        function formatDate(dateStr) {
-            const date = new Date(dateStr);
-            return date.toLocaleDateString('en-US', {
-                year: 'numeric',
-                month: 'long',
-                day: 'numeric'
-            });
-        }
-
-        // Function to load and display the post
-        async function loadPost() {
-            const postFile = getQueryParam('post');
-            if (!postFile) {
-                window.location.href = 'blogs.html';
-                return;
-            }
-
-            try {
-                const response = await fetch(`posts/${postFile}`);
-                if (!response.ok) throw new Error('Post not found');
-
-                const markdown = await response.text();
-                const post = getPostMetadata(postFile);
-
-                if (!post) {
-                    throw new Error('Post metadata not found');
-                }
-
-                // Update title and metadata
-                document.title = `${post.title} • Anurag Mishra`;
-                document.getElementById('post-title').textContent = post.title;
-                document.getElementById('post-meta').innerHTML = `
-                    ${formatDate(post.date)} • 
-                    ${post.tags.map(tag => `<span class="tag">${tag}</span>`).join(' ')}
-                `;
-
-                // Render markdown content
-                document.getElementById('post-content').innerHTML = marked.parse(markdown);
-
-                // Apply syntax highlighting to code blocks
-                document.querySelectorAll('pre code').forEach((block) => {
-                    hljs.highlightBlock(block);
-                });
-            } catch (error) {
-                console.error('Error loading post:', error);
-                document.getElementById('post-content').innerHTML = '<p>Error loading post. Please try again later.</p>';
-            }
-        }
-
         // Load post when the page loads
-        document.addEventListener('DOMContentLoaded', loadPost);
+        document.addEventListener('DOMContentLoaded', () => {
+            const urlParams = new URLSearchParams(window.location.search);
+            const postFile = urlParams.get('post');
+            if (postFile) {
+                loadPost(postFile);
+            } else {
+                window.location.href = 'writing.html';
+            }
+        });
     </script>
 </body>
 
