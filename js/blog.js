@@ -126,8 +126,12 @@ async function loadPost(filename) {
 
         const markdown = await response.text();
 
-        // Simple frontmatter parsing
-        const [_, frontMatter, content] = markdown.split('---');
+        // Split content properly - get everything after the second '---'
+        const parts = markdown.split('---');
+        const frontMatter = parts[1];
+        const content = parts.slice(2).join('---').trim(); // Join all remaining parts
+
+        // Parse frontmatter
         const title = frontMatter.match(/title: "(.*?)"/)[1];
         const date = frontMatter.match(/date: "(.*?)"/)[1];
         const tags = frontMatter.match(/tags: \[(.*?)\]/)[1].split(',').map(t => t.trim());
@@ -136,6 +140,13 @@ async function loadPost(filename) {
         document.title = `${title} • Anurag Mishra`;
         postTitle.textContent = title;
         postMeta.textContent = `${date} • ${tags.join(', ')}`;
+
+        // Configure marked options for better rendering
+        marked.setOptions({
+            breaks: true,
+            gfm: true,
+            headerIds: true
+        });
 
         // Convert markdown to HTML and insert
         const html = marked.parse(content);
