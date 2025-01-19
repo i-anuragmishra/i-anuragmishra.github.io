@@ -1,1 +1,41 @@
- 
+title: Anurag Mishra
+email: am2552@rit.edu
+description: >-
+  Technical Writing on AI, Machine Learning, and Deep Learning
+baseurl: ""
+url: "https://i-anuragmishra.github.io"
+
+# Build settings
+markdown: kramdown
+theme: minima
+plugins:
+  - jekyll-feed
+  - jekyll-seo-tag
+
+# Exclude from processing
+exclude:
+  - .sass-cache/
+  - .jekyll-cache/
+  - gemfiles/
+  - Gemfile
+  - Gemfile.lock
+  - node_modules/
+  - vendor/bundle/
+  - vendor/cache/
+  - vendor/gems/
+  - vendor/ruby/
+
+# Collections
+collections:
+  posts:
+    output: true
+    permalink: /:collection/:year/:month/:day/:title/
+
+# Defaults
+defaults:
+  - scope:
+      path: ""
+      type: "posts"
+    values:
+      layout: "post"
+      author: "Anurag Mishra" 

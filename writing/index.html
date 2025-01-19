@@ -1,0 +1,30 @@
+---
+layout: default
+title: Technical Writing
+---
+
+<h1>Technical Writing</h1>
+<p>Thoughts and tutorials on AI, machine learning, and deep learning.</p>
+
+<div class="social-links">
+    <a href="mailto:{{ site.email }}">{{ site.email }}</a> •
+    <a href="https://github.com/i-anuragmishra">github</a> •
+    <a href="https://linkedin.com/in/i-anuragmishra">linkedin</a> •
+    <a href="https://scholar.google.com/citations?user=YOUR_ID">scholar</a>
+</div>
+
+<div class="blog-posts">
+    {% for post in site.posts %}
+    <article class="post-preview">
+        <h2><a href="{{ post.url | relative_url }}">{{ post.title }}</a></h2>
+        <div class="post-meta">
+            {{ post.date | date: "%B %d, %Y" }} •
+            {% for tag in post.tags %}
+            <span class="tag">{{ tag }}</span>
+            {% endfor %}
+        </div>
+        <p>{{ post.excerpt }}</p>
+        <a href="{{ post.url | relative_url }}" class="read-more">Read More →</a>
+    </article>
+    {% endfor %}
+</div>
