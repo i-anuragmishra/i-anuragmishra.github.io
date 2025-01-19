@@ -85,25 +85,27 @@ async function loadBlogPosts() {
     const blogList = document.getElementById('blog-list');
     if (!blogList) return;
 
-    try {
-        const response = await fetch('/posts');
-        const posts = await response.json();
+    // Hardcoded post for testing
+    const post = {
+        title: "Introduction to Explainable AI",
+        date: "March 19, 2024",
+        tags: ["AI", "Deep Learning", "XAI"],
+        excerpt: "As deep learning models become increasingly complex and ubiquitous, understanding their decision-making process has never been more crucial. This post introduces the concept of Explainable AI (XAI) and discusses why it matters.",
+        filename: "2024-03-20-introduction-to-explainable-ai.md"
+    };
 
-        // Sort posts by date descending
-        posts.sort((a, b) => new Date(b.frontMatter.date) - new Date(a.frontMatter.date));
+    const html = `
+        <article class="blog-preview">
+            <h2><a href="post.html?post=${post.filename}">${post.title}</a></h2>
+            <div class="post-meta">
+                ${post.date} • ${post.tags.join(', ')}
+            </div>
+            <p>${post.excerpt}</p>
+            <a href="post.html?post=${post.filename}" class="read-more">Read More →</a>
+        </article>
+    `;
 
-        // Remove duplicates
-        const uniquePosts = posts.filter((post, index, self) =>
-            index === self.findIndex((p) => p.filename === post.filename)
-        );
-
-        // Render posts
-        const postsHTML = uniquePosts.map(createPostPreview).join('');
-        blogList.innerHTML = postsHTML;
-    } catch (err) {
-        console.error('Error loading posts:', err);
-        blogList.innerHTML = '<p>Error loading posts. Please try again later.</p>';
-    }
+    blogList.innerHTML = html;
 }
 
 /**
@@ -156,10 +158,9 @@ async function loadPost(filename) {
 
 // Load posts when the page loads
 document.addEventListener('DOMContentLoaded', () => {
-    const path = window.location.pathname;
-    if (path.endsWith('writing.html') || path.endsWith('blogs.html')) {
+    if (window.location.pathname.endsWith('blogs.html')) {
         loadBlogPosts();
-    } else if (path.endsWith('post.html')) {
+    } else if (window.location.pathname.endsWith('post.html')) {
         const urlParams = new URLSearchParams(window.location.search);
         const postFile = urlParams.get('post');
         if (postFile) {
