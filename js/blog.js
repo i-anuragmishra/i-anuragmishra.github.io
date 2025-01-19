@@ -1,49 +1,46 @@
-// Function to get repository contents from GitHub
-async function getPostsFromGitHub() {
-    try {
-        const response = await fetch('https://api.github.com/repos/i-anuragmishra/i-anuragmishra.github.io/contents/posts');
-        const files = await response.json();
-        return files.filter(file => file.name.endsWith('.md'));
-    } catch (error) {
-        console.error('Error fetching posts from GitHub:', error);
-        return [];
-    }
-}
+//
+// blog.js
+//
 
-// Function to parse front matter from markdown
+// Parse front matter delimited by "---"
 function parseFrontMatter(markdown) {
+    // We expect:  ---\nkey: value\nkey: value\n---\n# Real content ...
     const parts = markdown.split('---');
-    if (parts.length < 3) return null;
+    // If there aren't at least 3 segments, then there's no front matter
+    if (parts.length < 3) return { frontMatter: {}, content: markdown };
 
     try {
-        const frontMatter = {};
         const frontMatterLines = parts[1].trim().split('\n');
+        const frontMatter = {};
+
         frontMatterLines.forEach(line => {
-            const [key, ...value] = line.split(':');
-            if (key) {
-                let parsedValue = value.join(':').trim();
-                // Handle tags array
-                if (key.trim() === 'tags') {
-                    parsedValue = parsedValue
-                        .replace(/[\[\]]/g, '')
-                        .split(',')
-                        .map(t => t.trim());
-                }
-                frontMatter[key.trim()] = parsedValue;
+            const [key, ...rest] = line.split(':');
+            if (!key) return; // skip blank lines
+
+            let rawValue = rest.join(':').trim();
+            // If it's "tags: [AI, XAI]", parse into an array
+            if (key.trim() === 'tags') {
+                rawValue = rawValue
+                    .replace(/[\[\]]/g, '') // remove [ or ]
+                    .split(',')
+                    .map(t => t.trim());
             }
+
+            frontMatter[key.trim()] = rawValue;
         });
 
         return {
             frontMatter,
+            // Join everything after the second "---" back together
             content: parts.slice(2).join('---').trim()
         };
-    } catch (error) {
-        console.error('Error parsing front matter:', error);
-        return null;
+    } catch (err) {
+        console.error('Error parsing front matter:', err);
+        return { frontMatter: {}, content: markdown };
     }
 }
 
-// Function to format date
+// Format a date string nicely, e.g. "March 20, 2024"
 function formatDate(dateStr) {
     const date = new Date(dateStr);
     return date.toLocaleDateString('en-US', {
@@ -53,81 +50,88 @@ function formatDate(dateStr) {
     });
 }
 
-// Function to create post preview HTML
-function createPostPreview(post) {
-    return `
-        <div class="item">
-            <h2>${post.frontMatter.title}</h2>
-            <div class="post-meta">
-                ${formatDate(post.frontMatter.date)} • ${post.frontMatter.tags.join(', ')}
-            </div>
-            <p class="item-description">${post.excerpt}</p>
-            <a href="post.html?post=${post.filename}" class="read-more">Read More →</a>
-        </div>
-    `;
-}
-
-// Function to get excerpt from content
+// Simple function to grab the first non‐header paragraph as an excerpt
 function getExcerpt(content) {
-    // Get first paragraph after any headers
+    // Split by double‐newline
     const paragraphs = content.split('\n\n');
+    // Return the first paragraph that doesn’t start with "#"
     for (const p of paragraphs) {
-        if (!p.startsWith('#')) {
+        if (!p.trim().startsWith('#')) {
             return p.trim();
         }
     }
     return '';
 }
 
-// Function to load and display blog posts list
+// Create the small preview snippet used on writing.html
+function createPostPreview(post) {
+    const { title, date, tags } = post.frontMatter;
+    return `
+      <div class="item">
+        <h2>${title}</h2>
+        <div class="post-meta">
+          ${formatDate(date)} • ${Array.isArray(tags) ? tags.join(', ') : ''}
+        </div>
+        <p class="item-description">${post.excerpt}</p>
+        <a href="post.html?post=${encodeURIComponent(post.filename)}" class="read-more">
+          Read More →
+        </a>
+      </div>
+    `;
+}
+
+// Load the list of posts for the writing page
 async function loadBlogPosts() {
     const blogList = document.getElementById('blog-list');
     if (!blogList) return;
 
     blogList.innerHTML = '<p>Loading posts...</p>';
 
-    try {
-        const posts = [];
-        const filenames = ['2024-03-20-introduction-to-explainable-ai.md'];
+    // ADD the filenames of all your .md posts here:
+    const filenames = [
+        '2024-03-20-introduction-to-explainable-ai.md',
+        'sample-post.md'
+    ];
 
-        for (const filename of filenames) {
-            try {
-                const response = await fetch(`posts/${filename}`);
-                if (!response.ok) continue;
+    const posts = [];
 
-                const markdown = await response.text();
-                const parsed = parseFrontMatter(markdown);
-
-                if (parsed && parsed.frontMatter.title) {
-                    posts.push({
-                        filename,
-                        frontMatter: parsed.frontMatter,
-                        excerpt: getExcerpt(parsed.content)
-                    });
-                }
-            } catch (error) {
-                console.error(`Error loading post ${filename}:`, error);
+    // Fetch each file from /posts, parse the front matter, extract an excerpt
+    for (const filename of filenames) {
+        try {
+            const response = await fetch(`posts/${filename}`);
+            if (!response.ok) {
+                console.warn(`File not found: ${filename}`);
+                continue;
             }
+            const markdown = await response.text();
+            const parsed = parseFrontMatter(markdown);
+
+            // If there's no valid front matter "title", skip
+            if (!parsed.frontMatter.title) continue;
+
+            posts.push({
+                filename,
+                frontMatter: parsed.frontMatter,
+                excerpt: getExcerpt(parsed.content)
+            });
+        } catch (err) {
+            console.error(`Error loading ${filename}:`, err);
         }
-
-        if (posts.length === 0) {
-            blogList.innerHTML = '<p>No posts found.</p>';
-            return;
-        }
-
-        // Sort posts by date (newest first)
-        posts.sort((a, b) => new Date(b.frontMatter.date) - new Date(a.frontMatter.date));
-
-        // Create HTML for all posts
-        blogList.innerHTML = posts.map(post => createPostPreview(post)).join('');
-
-    } catch (error) {
-        console.error('Error loading posts:', error);
-        blogList.innerHTML = '<p>Error loading posts. Please try again later.</p>';
     }
+
+    if (posts.length === 0) {
+        blogList.innerHTML = '<p>No posts found.</p>';
+        return;
+    }
+
+    // Sort by date descending
+    posts.sort((a, b) => new Date(b.frontMatter.date) - new Date(a.frontMatter.date));
+
+    // Render them
+    blogList.innerHTML = posts.map(createPostPreview).join('');
 }
 
-// Function to load and display a single post
+// Load a single post in post.html
 async function loadPost(filename) {
     const postContent = document.getElementById('post-content');
     const postTitle = document.getElementById('post-title');
@@ -139,47 +143,56 @@ async function loadPost(filename) {
 
     try {
         const response = await fetch(`posts/${filename}`);
-        if (!response.ok) throw new Error('Post not found');
+        if (!response.ok) throw new Error(`Post ${filename} not found.`);
 
         const markdown = await response.text();
         const parsed = parseFrontMatter(markdown);
-
-        if (!parsed || !parsed.frontMatter.title) {
-            throw new Error('Invalid post format');
+        if (!parsed.frontMatter.title) {
+            throw new Error(`Invalid front matter in ${filename}.`);
         }
 
-        // Update title and metadata
+        // Set page <title>
         document.title = `${parsed.frontMatter.title} • Anurag Mishra`;
+
+        // Update the post heading
         postTitle.textContent = parsed.frontMatter.title;
-        postMeta.innerHTML = `
-            ${formatDate(parsed.frontMatter.date)} • 
-            ${parsed.frontMatter.tags.join(', ')}
-        `;
 
-        // Render markdown content
-        postContent.innerHTML = marked.parse(parsed.content);
+        // Update metadata line
+        const dateStr = formatDate(parsed.frontMatter.date);
+        const tags = Array.isArray(parsed.frontMatter.tags)
+            ? parsed.frontMatter.tags.join(', ')
+            : '';
+        postMeta.textContent = `${dateStr} • ${tags}`;
 
-        // Apply syntax highlighting to code blocks
-        document.querySelectorAll('pre code').forEach((block) => {
+        // Convert the Markdown body to HTML
+        const html = marked.parse(parsed.content);
+        postContent.innerHTML = html;
+
+        // Optional: highlight code blocks
+        document.querySelectorAll('pre code').forEach(block => {
             hljs.highlightBlock(block);
         });
-    } catch (error) {
-        console.error('Error loading post:', error);
+    } catch (err) {
+        console.error('Error loading post:', err);
         postContent.innerHTML = '<p>Error loading post. Please try again later.</p>';
     }
 }
 
-// Initialize page based on current URL
+// On DOM load, decide which function to run
 document.addEventListener('DOMContentLoaded', () => {
+    // If the URL ends in writing.html, show the list of posts
     if (window.location.pathname.endsWith('writing.html')) {
         loadBlogPosts();
-    } else if (window.location.pathname.endsWith('post.html')) {
+    }
+    // If the URL ends in post.html, show a single post
+    else if (window.location.pathname.endsWith('post.html')) {
         const urlParams = new URLSearchParams(window.location.search);
         const postFile = urlParams.get('post');
         if (postFile) {
             loadPost(postFile);
         } else {
+            // If no ?post=... param, go back to writing
             window.location.href = 'writing.html';
         }
     }
-}); 
+});
