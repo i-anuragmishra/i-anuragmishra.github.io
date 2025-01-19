@@ -2,15 +2,30 @@
 <html lang="en">
 
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Blog Post • Anurag Mishra</title>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Post • Anurag Mishra</title>
+
+    <!-- CSS/Fonts -->
     <link rel="stylesheet" href="style.css">
     <link rel="stylesheet"
         href="https://fonts.googleapis.com/css2?family=Crimson+Pro:ital,wght@0,400;0,500;0,600;1,400&family=JetBrains+Mono:wght@400;500&family=Inter:wght@400;500;600&display=swap">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
-    <!-- Syntax highlighting -->
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/highlight.js@11.8.0/styles/github.min.css">
+
+    <!-- Marked for Markdown parsing -->
+    <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+    <!-- highlight.js for code blocks + style -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/highlight.js@11/styles/github.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/highlight.js@11/lib/core.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/highlight.js@11/lib/languages/javascript.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/highlight.js@11/lib/languages/python.min.js"></script>
+    <script>
+        hljs.registerLanguage('javascript', window.hljsDefineJavascript);
+        hljs.registerLanguage('python', window.hljsDefinePython);
+    </script>
+
+    <!-- Our blog script -->
+    <script src="js/blog.js" defer></script>
 </head>
 
 <body>
@@ -23,17 +38,16 @@
     </nav>
 
     <article class="post">
-        <header class="post-header">
-            <h1 id="post-title"></h1>
-            <div id="post-meta" class="post-meta"></div>
-        </header>
+        <h1 id="post-title"></h1>
+        <div id="post-meta" class="post-meta"></div>
         <div id="post-content" class="post-content">
-            <!-- Post content will be loaded here -->
-        </div>
-        <div class="post-footer">
-            <a href="writing.html">← Back to Writing</a>
+            <!-- Full Markdown content gets injected here -->
         </div>
     </article>
+
+    <p style="margin: 2rem 0;">
+        <a href="writing.html">← Back to Writing</a>
+    </p>
 
     <footer>
         <a href="mailto:am2552@rit.edu">email</a>
@@ -41,38 +55,6 @@
         <a href="https://www.linkedin.com/in/i-anuragmishra">linkedin</a>
         <a href="https://scholar.google.com/citations?user=ZzAwD4EAAAAJ">scholar</a>
     </footer>
-
-    <!-- Load scripts in correct order -->
-    <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/highlight.js@11.8.0/lib/core.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/highlight.js@11.8.0/lib/languages/javascript.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/highlight.js@11.8.0/lib/languages/python.min.js"></script>
-    <script src="js/blog.js"></script>
-
-    <script>
-        // Configure Marked.js to use highlight.js
-        marked.setOptions({
-            highlight: function (code, lang) {
-                if (lang && hljs.getLanguage(lang)) {
-                    return hljs.highlight(code, { language: lang }).value;
-                }
-                return hljs.highlightAuto(code).value;
-            },
-            breaks: true,
-            gfm: true
-        });
-
-        // Load post when the page loads
-        document.addEventListener('DOMContentLoaded', () => {
-            const urlParams = new URLSearchParams(window.location.search);
-            const postFile = urlParams.get('post');
-            if (postFile) {
-                loadPost(postFile);
-            } else {
-                window.location.href = 'writing.html';
-            }
-        });
-    </script>
 </body>
 
 </html>

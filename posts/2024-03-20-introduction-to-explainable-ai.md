@@ -1,6 +1,5 @@
 ---
-layout: post
-title: "Introduction to Explainable AI: Making Deep Learning Models Transparent"
+title: Introduction to Explainable AI
 date: 2024-03-20
 tags: [AI, Deep Learning, XAI]
 ---
