@@ -89,58 +89,20 @@ function createPostPreview(post) {
  * Fetch all local .md posts from the `posts/` folder.
  * Hard-code the filenames you want to display.
  */
-async function loadBlogPosts() {
-    const blogList = document.getElementById('blog-list');
-    if (!blogList) return;
+function loadBlogPosts() {
+    return fetch('/posts')
+        .then(response => response.json())
+        .then(posts => {
+            // Sort posts by date descending
+            posts.sort((a, b) => new Date(b.date) - new Date(a.date));
 
-    blogList.innerHTML = '<p>Loading posts...</p>';
+            // Remove duplicates by URL
+            const uniquePosts = posts.filter((post, index, self) =>
+                index === self.findIndex((p) => p.url === post.url)
+            );
 
-    // Add each .md file you want to list here
-    const filenames = [
-        '2024-03-20-introduction-to-explainable-ai.md',
-        'sample-post.md'
-    ];
-
-    const posts = [];
-
-    for (const filename of filenames) {
-        try {
-            const response = await fetch(`posts/${filename}`);
-            if (!response.ok) {
-                console.warn(`File not found or not OK: posts/${filename}`);
-                continue;
-            }
-            const markdown = await response.text();
-            const parsed = parseFrontMatter(markdown);
-
-            // If no valid "title" in front matter, skip
-            if (!parsed.frontMatter.title) continue;
-
-            // Create an excerpt
-            const excerpt = getExcerpt(parsed.content);
-
-            posts.push({
-                filename,
-                frontMatter: parsed.frontMatter,
-                excerpt
-            });
-        } catch (err) {
-            console.error(`Error loading ${filename}:`, err);
-        }
-    }
-
-    if (posts.length === 0) {
-        blogList.innerHTML = '<p>No posts found.</p>';
-        return;
-    }
-
-    // Sort by date descending
-    posts.sort((a, b) =>
-        new Date(b.frontMatter.date) - new Date(a.frontMatter.date)
-    );
-
-    // Render each post preview
-    blogList.innerHTML = posts.map(createPostPreview).join('');
+            return uniquePosts;
+        });
 }
 
 /**

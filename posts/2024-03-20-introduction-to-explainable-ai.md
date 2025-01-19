@@ -1,7 +1,8 @@
 ---
-title: Introduction to Explainable AI
-date: 2024-03-20
-tags: [AI, Deep Learning, XAI]
+title: "Introduction to Explainable AI"
+date: "March 19, 2024"
+tags: ["AI", "Deep Learning", "XAI"]
+url: "/posts/introduction-to-explainable-ai"
 ---
 
 As deep learning models become increasingly complex and ubiquitous, understanding their decision-making process has never been more crucial. This post introduces the concept of Explainable AI (XAI) and discusses why it matters.

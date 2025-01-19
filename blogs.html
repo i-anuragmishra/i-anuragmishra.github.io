@@ -32,9 +32,18 @@
         </p>
     </div>
 
-    <section id="blog-list">
-        <!-- Blog posts will be dynamically inserted here -->
-    </section>
+    <div class="blog-list">
+        {{#posts}}
+        <article class="blog-preview">
+            <h2><a href="{{url}}">{{title}}</a></h2>
+            <div class="post-meta">
+                {{date}} • {{#tags}}{{.}}{{#unless @last}}, {{/unless}}{{/tags}}
+            </div>
+            <p>{{excerpt}}</p>
+            <a href="{{url}}" class="read-more">Read More →</a>
+        </article>
+        {{/posts}}
+    </div>
 
     <footer>
         <a href="mailto:am2552@rit.edu">email</a>
