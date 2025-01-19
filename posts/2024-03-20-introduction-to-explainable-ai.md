@@ -55,7 +55,6 @@ Explainable Artificial Intelligence (XAI) has emerged as a critical field in dat
 
 In this blog post, we will dive deep into the concepts of Explainable AI, explore why it matters, and provide a straightforward example using popular Python libraries to make AI models more transparent. If you’re new to the world of XAI or are a seasoned machine learning practitioner looking to refine your knowledge, read on.
 
----
 
 ## **Table of Contents**
 
