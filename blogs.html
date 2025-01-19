@@ -32,17 +32,8 @@
         </p>
     </div>
 
-    <div class="blog-list">
-        {{#posts}}
-        <article class="blog-preview">
-            <h2><a href="{{url}}">{{title}}</a></h2>
-            <div class="post-meta">
-                {{date}} • {{#tags}}{{.}}{{#unless @last}}, {{/unless}}{{/tags}}
-            </div>
-            <p>{{excerpt}}</p>
-            <a href="{{url}}" class="read-more">Read More →</a>
-        </article>
-        {{/posts}}
+    <div id="blog-list" class="blog-list">
+        <!-- Posts will be loaded here by JavaScript -->
     </div>
 
     <footer>
@@ -51,39 +42,6 @@
         <a href="https://www.linkedin.com/in/i-anuragmishra">linkedin</a>
         <a href="https://scholar.google.com/citations?user=ZzAwD4EAAAAJ">scholar</a>
     </footer>
-
-    <script>
-        // Format date nicely
-        function formatDate(dateStr) {
-            const date = new Date(dateStr);
-            return date.toLocaleDateString('en-US', {
-                year: 'numeric',
-                month: 'long',
-                day: 'numeric'
-            });
-        }
-
-        // Function to create post preview HTML
-        function createPostPreview(post) {
-            const title = post.frontMatter.title || 'Untitled Post';
-            const date = post.frontMatter.date || new Date().toISOString().split('T')[0];
-            const tags = post.frontMatter.tags || [];
-
-            return `
-                <div class="item">
-                    <h2>${title}</h2>
-                    <div class="post-meta">
-                        ${formatDate(date)} • ${tags.map(tag => tag).join(', ')}
-                    </div>
-                    <p class="item-description">${post.excerpt}</p>
-                    <a href="post.html?post=${encodeURIComponent(post.filename)}" class="read-more">Read More →</a>
-                </div>
-            `;
-        }
-
-        // Load blog posts when the page loads
-        document.addEventListener('DOMContentLoaded', loadBlogPosts);
-    </script>
 </body>
 
 </html>
