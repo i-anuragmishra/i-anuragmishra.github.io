@@ -4,18 +4,30 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Blog Post</title>
-    <link rel="stylesheet" href="/style.css">
+    <title>Blog Post • Anurag Mishra</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet"
+        href="https://fonts.googleapis.com/css2?family=Crimson+Pro:ital,wght@0,400;0,500;0,600;1,400&family=JetBrains+Mono:wght@400;500&family=Inter:wght@400;500;600&display=swap">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <!-- Syntax highlighting -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/highlight.js@11.8.0/styles/github.min.css">
+    <!-- Marked.js for Markdown parsing -->
     <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+    <!-- Highlight.js for syntax highlighting -->
+    <script src="https://cdn.jsdelivr.net/npm/highlight.js@11.8.0/lib/core.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/highlight.js@11.8.0/lib/languages/javascript.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/highlight.js@11.8.0/lib/languages/python.min.js"></script>
+    <!-- Blog metadata -->
+    <script src="js/blog.js"></script>
 </head>
 
 <body>
     <nav>
-        <a href="/">~/home</a>
-        <a href="/research">~/research</a>
-        <a href="/projects">~/projects</a>
-        <a href="/writing">~/writing</a>
-        <a href="/cv">~/cv</a>
+        <a href="index.html">~/home</a>
+        <a href="publications.html">~/research</a>
+        <a href="projects.html">~/projects</a>
+        <a href="blogs.html">~/writing</a>
+        <a href="Resume_Anurag_RIT.pdf">~/cv</a>
     </nav>
 
     <main>
@@ -30,7 +42,24 @@
         </article>
     </main>
 
+    <footer>
+        <a href="mailto:am2552@rit.edu">email</a>
+        <a href="https://github.com/i-anuragmishra">github</a>
+        <a href="https://www.linkedin.com/in/i-anuragmishra">linkedin</a>
+        <a href="https://scholar.google.com/citations?user=ZzAwD4EAAAAJ">scholar</a>
+    </footer>
+
     <script>
+        // Configure Marked.js to use highlight.js
+        marked.setOptions({
+            highlight: function (code, lang) {
+                if (lang && hljs.getLanguage(lang)) {
+                    return hljs.highlight(code, { language: lang }).value;
+                }
+                return hljs.highlightAuto(code).value;
+            }
+        });
+
         // Function to get URL parameters
         function getQueryParam(param) {
             const urlParams = new URLSearchParams(window.location.search);
@@ -56,19 +85,23 @@
         async function loadPost() {
             const postFile = getQueryParam('post');
             if (!postFile) {
-                window.location.href = '/writing';
+                window.location.href = 'blogs.html';
                 return;
             }
 
             try {
-                const response = await fetch(`/posts/${postFile}`);
+                const response = await fetch(`posts/${postFile}`);
                 if (!response.ok) throw new Error('Post not found');
 
                 const markdown = await response.text();
                 const post = getPostMetadata(postFile);
 
+                if (!post) {
+                    throw new Error('Post metadata not found');
+                }
+
                 // Update title and metadata
-                document.title = post.title;
+                document.title = `${post.title} • Anurag Mishra`;
                 document.getElementById('post-title').textContent = post.title;
                 document.getElementById('post-meta').innerHTML = `
                     ${formatDate(post.date)} • 
@@ -77,6 +110,11 @@
 
                 // Render markdown content
                 document.getElementById('post-content').innerHTML = marked.parse(markdown);
+
+                // Apply syntax highlighting to code blocks
+                document.querySelectorAll('pre code').forEach((block) => {
+                    hljs.highlightBlock(block);
+                });
             } catch (error) {
                 console.error('Error loading post:', error);
                 document.getElementById('post-content').innerHTML = '<p>Error loading post. Please try again later.</p>';
@@ -86,7 +124,6 @@
         // Load post when the page loads
         document.addEventListener('DOMContentLoaded', loadPost);
     </script>
-    <script src="/js/blog.js"></script>
 </body>
 
 </html>

@@ -168,4 +168,16 @@ document.addEventListener('DOMContentLoaded', () => {
         const filename = window.location.pathname.split('/').pop() + '.md';
         loadPost(filename);
     }
-}); 
+});
+
+// An array of metadata for each blog post
+const posts = [
+    {
+        file: "sample-post.md",
+        title: "Sample Blog Post",
+        date: "2024-03-19",
+        tags: ["AI", "Machine Learning"],
+        excerpt: "A sample blog post to demonstrate the blog system.",
+    }
+    // Add more posts here as you create them
+]; 
