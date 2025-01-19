@@ -13,13 +13,7 @@ async function getPostsFromGitHub() {
 // Function to parse front matter from markdown
 function parseFrontMatter(markdown) {
     const parts = markdown.split('---');
-    if (parts.length < 3) {
-        // No front matter, treat the whole content as markdown
-        return {
-            frontMatter: {},
-            content: markdown
-        };
-    }
+    if (parts.length < 3) return null;
 
     try {
         const frontMatter = {};
@@ -45,10 +39,7 @@ function parseFrontMatter(markdown) {
         };
     } catch (error) {
         console.error('Error parsing front matter:', error);
-        return {
-            frontMatter: {},
-            content: markdown
-        };
+        return null;
     }
 }
 
@@ -64,20 +55,28 @@ function formatDate(dateStr) {
 
 // Function to create post preview HTML
 function createPostPreview(post) {
-    const title = post.frontMatter.title || 'Untitled Post';
-    const date = post.frontMatter.date || new Date().toISOString().split('T')[0];
-    const tags = post.frontMatter.tags || [];
-
     return `
         <div class="item">
-            <h2>${title}</h2>
+            <h2>${post.frontMatter.title}</h2>
             <div class="post-meta">
-                ${formatDate(date)} • ${tags.map(tag => tag).join(', ')}
+                ${formatDate(post.frontMatter.date)} • ${post.frontMatter.tags.join(', ')}
             </div>
             <p class="item-description">${post.excerpt}</p>
-            <a href="post.html?post=${post.name}" class="read-more">Read More →</a>
+            <a href="post.html?post=${post.filename}" class="read-more">Read More →</a>
         </div>
     `;
+}
+
+// Function to get excerpt from content
+function getExcerpt(content) {
+    // Get first paragraph after any headers
+    const paragraphs = content.split('\n\n');
+    for (const p of paragraphs) {
+        if (!p.startsWith('#')) {
+            return p.trim();
+        }
+    }
+    return '';
 }
 
 // Function to load and display blog posts list
@@ -88,9 +87,8 @@ async function loadBlogPosts() {
     blogList.innerHTML = '<p>Loading posts...</p>';
 
     try {
-        // Load both posts
         const posts = [];
-        const filenames = ['sample-post.md', '2024-03-20-introduction-to-explainable-ai.md'];
+        const filenames = ['2024-03-20-introduction-to-explainable-ai.md'];
 
         for (const filename of filenames) {
             try {
@@ -101,12 +99,10 @@ async function loadBlogPosts() {
                 const parsed = parseFrontMatter(markdown);
 
                 if (parsed && parsed.frontMatter.title) {
-                    // Get excerpt from first paragraph after the title
-                    const excerpt = parsed.content.split('\n\n')[1] || '';
                     posts.push({
-                        name: filename,
+                        filename,
                         frontMatter: parsed.frontMatter,
-                        excerpt: excerpt
+                        excerpt: getExcerpt(parsed.content)
                     });
                 }
             } catch (error) {
@@ -152,19 +148,16 @@ async function loadPost(filename) {
             throw new Error('Invalid post format');
         }
 
-        // Remove the title from content since we display it separately
-        const contentWithoutTitle = parsed.content.replace(/^#\s+.*$/m, '').trim();
-
         // Update title and metadata
         document.title = `${parsed.frontMatter.title} • Anurag Mishra`;
         postTitle.textContent = parsed.frontMatter.title;
         postMeta.innerHTML = `
             ${formatDate(parsed.frontMatter.date)} • 
-            ${parsed.frontMatter.tags.map(tag => tag).join(', ')}
+            ${parsed.frontMatter.tags.join(', ')}
         `;
 
         // Render markdown content
-        postContent.innerHTML = marked.parse(contentWithoutTitle);
+        postContent.innerHTML = marked.parse(parsed.content);
 
         // Apply syntax highlighting to code blocks
         document.querySelectorAll('pre code').forEach((block) => {
@@ -185,6 +178,8 @@ document.addEventListener('DOMContentLoaded', () => {
         const postFile = urlParams.get('post');
         if (postFile) {
             loadPost(postFile);
+        } else {
+            window.location.href = 'writing.html';
         }
     }
 }); 
