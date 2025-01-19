@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Blog Post</title>
+    <link rel="stylesheet" href="/style.css">
+    <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+</head>
+
+<body>
+    <nav>
+        <a href="/">~/home</a>
+        <a href="/research">~/research</a>
+        <a href="/projects">~/projects</a>
+        <a href="/writing">~/writing</a>
+        <a href="/cv">~/cv</a>
+    </nav>
+
+    <main>
+        <article class="post">
+            <header class="post-header">
+                <h1 id="post-title"></h1>
+                <div id="post-meta" class="post-meta"></div>
+            </header>
+            <div id="post-content" class="post-content">
+                <!-- Post content will be loaded here -->
+            </div>
+        </article>
+    </main>
+
+    <script>
+        // Function to get URL parameters
+        function getQueryParam(param) {
+            const urlParams = new URLSearchParams(window.location.search);
+            return urlParams.get(param);
+        }
+
+        // Function to load post metadata
+        function getPostMetadata(filename) {
+            return posts.find(post => post.file === filename);
+        }
+
+        // Function to format date
+        function formatDate(dateStr) {
+            const date = new Date(dateStr);
+            return date.toLocaleDateString('en-US', {
+                year: 'numeric',
+                month: 'long',
+                day: 'numeric'
+            });
+        }
+
+        // Function to load and display the post
+        async function loadPost() {
+            const postFile = getQueryParam('post');
+            if (!postFile) {
+                window.location.href = '/writing';
+                return;
+            }
+
+            try {
+                const response = await fetch(`/posts/${postFile}`);
+                if (!response.ok) throw new Error('Post not found');
+
+                const markdown = await response.text();
+                const post = getPostMetadata(postFile);
+
+                // Update title and metadata
+                document.title = post.title;
+                document.getElementById('post-title').textContent = post.title;
+                document.getElementById('post-meta').innerHTML = `
+                    ${formatDate(post.date)} • 
+                    ${post.tags.map(tag => `<span class="tag">${tag}</span>`).join(' ')}
+                `;
+
+                // Render markdown content
+                document.getElementById('post-content').innerHTML = marked.parse(markdown);
+            } catch (error) {
+                console.error('Error loading post:', error);
+                document.getElementById('post-content').innerHTML = '<p>Error loading post. Please try again later.</p>';
+            }
+        }
+
+        // Load post when the page loads
+        document.addEventListener('DOMContentLoaded', loadPost);
+    </script>
+    <script src="/js/blog.js"></script>
+</body>
+
+</html>
