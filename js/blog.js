@@ -81,7 +81,7 @@ function createPostPreview(post) {
 }
 
 /** Load and display blog posts */
-async function loadBlogPosts() {
+function loadBlogPosts() {
     const blogList = document.getElementById('blog-list');
     if (!blogList) return;
 
@@ -118,35 +118,30 @@ async function loadPost(filename) {
 
     if (!postContent || !postTitle || !postMeta) return;
 
-    postContent.innerHTML = '<p>Loading post...</p>';
-
     try {
         const response = await fetch(`posts/${filename}`);
         if (!response.ok) {
-            throw new Error(`Post not found: posts/${filename}`);
+            throw new Error('Post not found');
         }
+
         const markdown = await response.text();
-        const parsed = parseFrontMatter(markdown);
-        if (!parsed.frontMatter.title) {
-            throw new Error('Missing required front matter (title).');
-        }
 
-        // Update <title> of page
-        document.title = `${parsed.frontMatter.title} • Anurag Mishra`;
+        // Simple frontmatter parsing
+        const [_, frontMatter, content] = markdown.split('---');
+        const title = frontMatter.match(/title: "(.*?)"/)[1];
+        const date = frontMatter.match(/date: "(.*?)"/)[1];
+        const tags = frontMatter.match(/tags: \[(.*?)\]/)[1].split(',').map(t => t.trim());
 
-        // Set post heading
-        postTitle.textContent = parsed.frontMatter.title;
+        // Update page
+        document.title = `${title} • Anurag Mishra`;
+        postTitle.textContent = title;
+        postMeta.textContent = `${date} • ${tags.join(', ')}`;
 
-        // Set meta info
-        const dateStr = formatDate(parsed.frontMatter.date);
-        const tags = parsed.frontMatter.tags || [];
-        postMeta.textContent = `${dateStr} • ${tags.join(', ')}`;
-
-        // Convert the Markdown to HTML with Marked
-        const html = marked.parse(parsed.content);
+        // Convert markdown to HTML and insert
+        const html = marked.parse(content);
         postContent.innerHTML = html;
 
-        // Syntax highlighting
+        // Apply syntax highlighting
         document.querySelectorAll('pre code').forEach(block => {
             hljs.highlightBlock(block);
         });
@@ -156,7 +151,7 @@ async function loadPost(filename) {
     }
 }
 
-// Load posts when the page loads
+// Load appropriate content when page loads
 document.addEventListener('DOMContentLoaded', () => {
     if (window.location.pathname.endsWith('blogs.html')) {
         loadBlogPosts();

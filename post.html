@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Post • Anurag Mishra</title>
+    <title>Blog Post • Anurag Mishra</title>
 
     <!-- CSS/Fonts -->
     <link rel="stylesheet" href="style.css">
@@ -13,16 +13,10 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
 
     <!-- Marked for Markdown parsing -->
-    <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/marked/12.0.0/marked.min.js"></script>
     <!-- highlight.js for code blocks + style -->
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/highlight.js@11/styles/github.min.css">
-    <script src="https://cdn.jsdelivr.net/npm/highlight.js@11/lib/core.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/highlight.js@11/lib/languages/javascript.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/highlight.js@11/lib/languages/python.min.js"></script>
-    <script>
-        hljs.registerLanguage('javascript', window.hljsDefineJavascript);
-        hljs.registerLanguage('python', window.hljsDefinePython);
-    </script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/styles/github.min.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/highlight.min.js"></script>
 
     <!-- Our blog script -->
     <script src="js/blog.js" defer></script>
@@ -33,21 +27,18 @@
         <a href="index.html">~/home</a>
         <a href="publications.html">~/research</a>
         <a href="projects.html">~/projects</a>
-        <a href="writing.html">~/writing</a>
+        <a href="blogs.html">~/writing</a>
         <a href="Resume_Anurag_RIT.pdf">~/cv</a>
     </nav>
 
     <article class="post">
         <h1 id="post-title"></h1>
         <div id="post-meta" class="post-meta"></div>
-        <div id="post-content" class="post-content">
-            <!-- Full Markdown content gets injected here -->
-        </div>
+        <div id="post-content"></div>
+        <p class="back-link">
+            <a href="blogs.html">← Back to Writing</a>
+        </p>
     </article>
-
-    <p style="margin: 2rem 0;">
-        <a href="writing.html">← Back to Writing</a>
-    </p>
 
     <footer>
         <a href="mailto:am2552@rit.edu">email</a>
