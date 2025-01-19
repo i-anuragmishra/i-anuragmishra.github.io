@@ -1,635 +1,174 @@
-/* =========================
-   RESET & BASE STYLES
-   ========================= */
+/* Minimal Theme */
+:root {
+    --bg-color: #ffffff;
+    --text-color: #2d2d2d;
+    --accent-color: #0066cc;
+    --secondary-color: #666666;
+    --mono-font: 'SF Mono', 'Fira Code', Consolas, monospace;
+    --sans-font: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+}
+
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
 }
 
-/* 
-    COLOR VARIABLES
-    Feel free to adjust these for a different accent or shade.
-  */
-:root {
-    --bg-color: #f5f5f5;
-    /* Overall background */
-    --text-color: #2d2d2d;
-    /* Primary text color */
-    --text-light: #555;
-    /* Slightly lighter text */
-    --accent-color: #1e90ff;
-    /* Dodger Blue highlight */
-    --card-bg: #ffffff;
-    /* Card background (white) */
-    --border-color: #ddd;
-    /* Light border color */
-    --heading-font: Georgia, "Times New Roman", Times, serif;
-    --body-font: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
-}
-
-/* 
-    BODY & LAYOUT
-    Academic vibe often uses a clean, minimal, 
-    near-white or neutral background.
-  */
 body {
-    font-family: var(--body-font);
+    font-family: var(--sans-font);
+    line-height: 1.6;
     color: var(--text-color);
     background: var(--bg-color);
-    max-width: 900px;
+    max-width: 720px;
     margin: 0 auto;
-    padding: 0 20px;
-    min-height: 100vh;
-    display: flex;
-    flex-direction: column;
-    line-height: 1.6;
+    padding: 2rem;
 }
 
-/* =========================
-     NAVIGATION
-     ========================= */
-.top-nav {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 20px 0;
-    margin-bottom: 30px;
-}
-
-.nav-left a {
-    font-weight: 600;
-    font-size: 1.2rem;
-    text-decoration: none;
-    color: var(--text-color);
-    font-family: var(--heading-font);
-}
-
-.nav-right {
-    display: flex;
-    gap: 20px;
-}
-
-.nav-link {
-    color: var(--text-color);
-    text-decoration: none;
-    font-size: 0.95rem;
-    padding: 8px 12px;
-    border-radius: 4px;
-    transition: background 0.3s, color 0.3s;
-    display: flex;
-    align-items: center;
-}
-
-.nav-link i {
-    margin-right: 6px;
-    color: var(--accent-color);
-}
-
-.nav-link:hover {
-    background: var(--accent-color);
-    color: #fff;
-}
-
-/* =========================
-     MAIN CONTENT
-     ========================= */
-main {
-    flex: 1;
-    width: 100%;
-    padding-bottom: 40px;
-}
-
-/* =========================
-     PROFILE SECTION
-     ========================= */
-.profile {
-    text-align: center;
-    margin-bottom: 40px;
-}
-
-.profile-container {
-    width: 140px;
-    height: 140px;
-    margin: 0 auto 15px;
-    border-radius: 50%;
-    border: 4px solid var(--accent-color);
-    overflow: hidden;
-    transition: transform 0.3s;
-}
-
-.profile-container:hover {
-    transform: scale(1.03);
-}
-
-.profile-img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
+/* Typography */
+h1,
+h2,
+h3 {
+    font-family: var(--mono-font);
+    font-weight: 500;
+    line-height: 1.3;
+    margin: 2rem 0 1rem;
 }
 
 h1 {
-    font-size: 2rem;
-    font-family: var(--heading-font);
-    margin-bottom: 5px;
-}
-
-.email a {
-    color: var(--text-light);
-    text-decoration: none;
-    font-size: 0.95rem;
-}
-
-/* =========================
-     CONTENT CONTAINER
-     ========================= */
-.content {
-    max-width: 800px;
-    margin: 0 auto;
-}
-
-/* =========================
-     INTRO CARD
-     ========================= */
-.intro-card {
-    background: var(--card-bg);
-    padding: 25px 30px;
-    border-radius: 8px;
-    margin-bottom: 30px;
-    border: 1px solid var(--border-color);
-}
-
-.card-icon {
-    font-size: 1.3rem;
-    color: var(--accent-color);
-    margin-right: 8px;
-}
-
-/* To visually group the icon with the text, 
-     you can also place them on the same line or keep separate. */
-.intro-card p {
-    margin-top: 10px;
-    color: var(--text-light);
-}
-
-/* =========================
-     RESEARCH AREAS
-     ========================= */
-.research-areas {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-    gap: 25px;
-    margin: 40px 0;
-}
-
-.area-card {
-    background: var(--card-bg);
-    padding: 25px;
-    border-radius: 8px;
-    border: 1px solid var(--border-color);
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
-    height: 100%;
-    display: flex;
-    flex-direction: column;
-}
-
-.area-card:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 8px 15px rgba(0, 0, 0, 0.1);
-}
-
-.area-card .card-icon {
     font-size: 1.8rem;
-    margin-bottom: 15px;
-    color: var(--accent-color);
-    transition: transform 0.3s ease;
 }
 
-.area-card:hover .card-icon {
-    transform: scale(1.1);
-}
-
-.area-card h3 {
-    font-family: var(--heading-font);
-    font-size: 1.1rem;
-    margin-bottom: 12px;
-    color: var(--text-color);
-    font-weight: 600;
-}
-
-.area-card p {
-    color: var(--text-light);
-    font-size: 0.95rem;
-    line-height: 1.5;
-    margin: 0;
-    flex-grow: 1;
-}
-
-/* =========================
-     CURRENT WORK
-     ========================= */
-.current-work {
-    margin-top: 40px;
-}
-
-.current-work h2 {
-    font-size: 1.3rem;
-    font-family: var(--heading-font);
-    margin-bottom: 15px;
-    position: relative;
-    display: inline-block;
-    color: var(--text-color);
-}
-
-.current-work h2::after {
-    content: '';
-    position: absolute;
-    bottom: -4px;
-    left: 0;
-    width: 30%;
-    height: 2px;
-    background: var(--accent-color);
-    border-radius: 2px;
-}
-
-.work-card {
-    background: var(--card-bg);
-    padding: 25px 30px;
-    border-radius: 8px;
-    border: 1px solid var(--border-color);
-    margin-bottom: 20px;
-    transition: box-shadow 0.3s, transform 0.3s;
-}
-
-.work-card:hover {
-    transform: translateY(-3px);
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
-}
-
-.work-card h3 {
-    font-family: var(--heading-font);
-    margin-bottom: 12px;
-    font-size: 1.2rem;
-    color: var(--text-color);
-}
-
-.work-card p {
-    color: var(--text-light);
-    font-size: 0.95rem;
-    line-height: 1.6;
-    margin-bottom: 15px;
-}
-
-.work-card ul {
-    list-style-position: outside;
-    padding-left: 20px;
-    margin-top: 15px;
-}
-
-.work-card li {
-    color: var(--text-light);
-    font-size: 0.95rem;
-    line-height: 1.5;
-    margin-bottom: 8px;
-}
-
-.work-card strong {
-    color: var(--text-color);
-    font-weight: 600;
-}
-
-.work-card em {
-    color: var(--accent-color);
-    font-style: italic;
-}
-
-/* About Me Section */
-.about-me-card {
-    background: var(--card-bg);
-    padding: 30px 35px;
-    border-radius: 8px;
-    margin-bottom: 40px;
-    border: 1px solid var(--border-color);
-}
-
-.about-me-card h2 {
-    font-family: var(--heading-font);
+h2 {
     font-size: 1.4rem;
-    margin-bottom: 20px;
-    color: var(--text-color);
-    position: relative;
-    display: inline-block;
 }
 
-.about-me-card h2::after {
-    content: '';
-    position: absolute;
-    bottom: -5px;
-    left: 0;
-    width: 40%;
-    height: 2px;
-    background: var(--accent-color);
-    border-radius: 2px;
+h3 {
+    font-size: 1.2rem;
 }
 
-.about-me-card p {
-    margin-bottom: 15px;
-    line-height: 1.7;
-    color: var(--text-light);
+p {
+    margin-bottom: 1.5rem;
+    color: var(--secondary-color);
 }
 
-.about-me-card p:last-child {
-    margin-bottom: 0;
-}
-
-/* =========================
-     SITE UPDATES SECTION
-     ========================= */
-.site-updates {
-    margin-top: 30px;
-    background: var(--card-bg);
-    padding: 20px 25px;
-    border-radius: 8px;
-    border: 1px solid var(--border-color);
-}
-
-.site-updates h2 {
-    font-family: var(--heading-font);
-    font-size: 1.15rem;
-    margin-bottom: 10px;
-    color: var(--text-color);
-}
-
-.site-updates p {
-    color: var(--text-light);
-    font-size: 0.95rem;
-    line-height: 1.5;
-}
-
-/* =========================
-     FOOTER
-     ========================= */
-footer {
-    text-align: center;
-    padding: 30px 0;
-    margin-top: auto;
-    background: var(--bg-color);
-    border-top: 1px solid var(--border-color);
-}
-
-.social-links {
-    margin-bottom: 15px;
-}
-
-.social-links a {
-    color: var(--text-color);
+/* Links */
+a {
+    color: var(--accent-color);
     text-decoration: none;
-    margin: 0 12px;
-    font-size: 0.95rem;
-    transition: color 0.2s;
-    position: relative;
+    border-bottom: 1px solid transparent;
+    transition: border-color 0.2s;
 }
 
-.social-links a i {
+a:hover {
+    border-bottom-color: var(--accent-color);
+}
+
+/* Navigation */
+nav {
+    margin: 2rem 0 4rem;
+    font-family: var(--mono-font);
+    font-size: 0.9rem;
+}
+
+nav a {
+    margin-right: 1.5rem;
+    color: var(--secondary-color);
+}
+
+nav a:hover {
     color: var(--accent-color);
-    margin-right: 5px;
 }
 
-.social-links a:not(:last-child)::after {
-    content: "•";
-    position: absolute;
-    right: -15px;
-    color: var(--border-color);
+nav a.active {
+    color: var(--text-color);
+    border-bottom: 1px solid var(--text-color);
 }
 
-.social-links a:hover {
-    color: var(--accent-color);
+/* Sections */
+section {
+    margin: 4rem 0;
 }
 
-copyright {
-    color: var(--text-light);
+/* Profile */
+.profile {
+    margin: 4rem 0;
+}
+
+.profile h1 {
+    margin: 0 0 0.5rem;
+}
+
+.profile p {
+    font-family: var(--mono-font);
+    font-size: 0.9rem;
+}
+
+/* Project/Publication Lists */
+.item {
+    margin-bottom: 3rem;
+}
+
+.item h3 {
+    margin-bottom: 0.5rem;
+}
+
+.item-meta {
+    font-family: var(--mono-font);
     font-size: 0.85rem;
+    color: var(--secondary-color);
+    margin-bottom: 1rem;
 }
 
-/* =========================
-     RESPONSIVE DESIGN
-     ========================= */
+.item-description {
+    margin-bottom: 1rem;
+}
+
+.item-links a {
+    font-family: var(--mono-font);
+    font-size: 0.85rem;
+    margin-right: 1rem;
+}
+
+/* Research Areas */
+.research-area {
+    margin-bottom: 2rem;
+}
+
+.research-area h3 {
+    font-size: 1rem;
+    margin-bottom: 0.5rem;
+}
+
+/* Footer */
+footer {
+    margin-top: 6rem;
+    padding-top: 2rem;
+    border-top: 1px solid #eee;
+    font-family: var(--mono-font);
+    font-size: 0.85rem;
+    color: var(--secondary-color);
+}
+
+footer a {
+    margin-right: 1rem;
+}
+
+/* Responsive */
 @media (max-width: 768px) {
     body {
-        padding: 0 15px;
+        padding: 1rem;
     }
 
-    .top-nav {
-        flex-direction: column;
-        gap: 15px;
-        text-align: center;
+    nav {
+        margin: 1rem 0 2rem;
     }
 
-    .nav-right {
-        justify-content: center;
+    nav a {
+        display: block;
+        margin: 0.5rem 0;
     }
 
-    .research-areas {
-        grid-template-columns: 1fr;
+    .profile {
+        margin: 2rem 0;
     }
-}
-
-/* Publications Page */
-.publications-list {
-    margin-top: 30px;
-}
-
-.publication {
-    margin-bottom: 25px;
-}
-
-.publication h3 {
-    color: var(--accent-color);
-    font-size: 1.15rem;
-    margin-bottom: 12px;
-    line-height: 1.4;
-}
-
-.pub-meta {
-    margin-bottom: 12px;
-    font-size: 0.95rem;
-}
-
-.pub-description {
-    color: var(--text-light);
-    font-size: 0.95rem;
-    line-height: 1.6;
-    margin-bottom: 15px;
-}
-
-.pub-links {
-    display: flex;
-    gap: 15px;
-}
-
-.pub-link {
-    color: var(--accent-color);
-    text-decoration: none;
-    font-size: 0.9rem;
-    display: inline-flex;
-    align-items: center;
-    transition: color 0.2s;
-}
-
-.pub-link i {
-    margin-right: 5px;
-}
-
-.pub-link:hover {
-    color: var(--text-color);
-}
-
-@media (max-width: 1024px) {
-    .research-areas {
-        grid-template-columns: repeat(2, 1fr);
-    }
-}
-
-@media (max-width: 600px) {
-    .research-areas {
-        grid-template-columns: 1fr;
-    }
-}
-
-.profile-links {
-    display: inline-flex;
-    align-items: center;
-    margin-left: 20px;
-    gap: 15px;
-}
-
-.profile-links a {
-    color: #333;
-    font-size: 1.2rem;
-    transition: color 0.3s ease, transform 0.2s ease;
-}
-
-.profile-links a:hover {
-    color: #007bff;
-    transform: translateY(-2px);
-}
-
-.nav-left {
-    display: flex;
-    align-items: center;
-}
-
-.blogs-list {
-    max-width: 800px;
-    margin: 2rem auto;
-}
-
-.blog-entry {
-    background: #fff;
-    border-radius: 8px;
-    padding: 2rem;
-    margin-bottom: 2rem;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-    transition: transform 0.2s ease, box-shadow 0.2s ease;
-}
-
-.blog-entry:hover {
-    transform: translateY(-2px);
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
-}
-
-.blog-entry h2 {
-    color: #333;
-    margin-bottom: 1rem;
-    font-size: 1.5rem;
-}
-
-.blog-entry p {
-    color: #666;
-    line-height: 1.6;
-}
-
-.nav-link.active {
-    color: #007bff;
-    font-weight: 600;
-}
-
-/* Projects Page */
-.projects-list {
-    margin-top: 30px;
-}
-
-.project-entry {
-    background: var(--card-bg);
-    border-radius: 8px;
-    padding: 25px 30px;
-    margin-bottom: 30px;
-    border: 1px solid var(--border-color);
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
-}
-
-.project-entry:hover {
-    transform: translateY(-3px);
-    box-shadow: 0 8px 15px rgba(0, 0, 0, 0.1);
-}
-
-.project-entry h2 {
-    color: var(--accent-color);
-    font-size: 1.3rem;
-    margin-bottom: 12px;
-    font-family: var(--heading-font);
-}
-
-.project-meta {
-    display: flex;
-    gap: 20px;
-    margin-bottom: 15px;
-    color: var(--text-light);
-    font-size: 0.9rem;
-}
-
-.project-date {
-    color: var(--accent-color);
-    font-weight: 500;
-}
-
-.project-tech {
-    color: var(--text-light);
-}
-
-.project-description {
-    color: var(--text-light);
-    font-size: 0.95rem;
-    line-height: 1.6;
-    margin-bottom: 20px;
-}
-
-.project-links {
-    display: flex;
-    gap: 15px;
-    flex-wrap: wrap;
-}
-
-.project-link {
-    display: inline-flex;
-    align-items: center;
-    padding: 6px 12px;
-    border-radius: 4px;
-    background: var(--bg-color);
-    color: var(--accent-color);
-    text-decoration: none;
-    font-size: 0.9rem;
-    transition: all 0.2s ease;
-    border: 1px solid var(--border-color);
-}
-
-.project-link i {
-    margin-right: 6px;
-}
-
-.project-link:hover {
-    background: var(--accent-color);
-    color: white;
-    transform: translateY(-2px);
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }
