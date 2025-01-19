@@ -85,22 +85,46 @@ async function loadBlogPosts() {
     const blogList = document.getElementById('blog-list');
     if (!blogList) return;
 
+    blogList.innerHTML = '<p>Loading posts...</p>';
+
     try {
-        const response = await fetch('posts/sample-post.md');
-        const markdown = await response.text();
-        const parsed = parseFrontMatter(markdown);
+        // Load both posts
+        const posts = [];
+        const filenames = ['sample-post.md', '2024-03-20-introduction-to-explainable-ai.md'];
 
-        if (parsed) {
-            // Get excerpt from first paragraph after the title
-            const excerpt = parsed.content.split('\n\n')[1] || '';
-            const post = {
-                name: 'sample-post.md',
-                frontMatter: parsed.frontMatter,
-                excerpt: excerpt
-            };
+        for (const filename of filenames) {
+            try {
+                const response = await fetch(`posts/${filename}`);
+                if (!response.ok) continue;
 
-            blogList.innerHTML = createPostPreview(post);
+                const markdown = await response.text();
+                const parsed = parseFrontMatter(markdown);
+
+                if (parsed && parsed.frontMatter.title) {
+                    // Get excerpt from first paragraph after the title
+                    const excerpt = parsed.content.split('\n\n')[1] || '';
+                    posts.push({
+                        name: filename,
+                        frontMatter: parsed.frontMatter,
+                        excerpt: excerpt
+                    });
+                }
+            } catch (error) {
+                console.error(`Error loading post ${filename}:`, error);
+            }
         }
+
+        if (posts.length === 0) {
+            blogList.innerHTML = '<p>No posts found.</p>';
+            return;
+        }
+
+        // Sort posts by date (newest first)
+        posts.sort((a, b) => new Date(b.frontMatter.date) - new Date(a.frontMatter.date));
+
+        // Create HTML for all posts
+        blogList.innerHTML = posts.map(post => createPostPreview(post)).join('');
+
     } catch (error) {
         console.error('Error loading posts:', error);
         blogList.innerHTML = '<p>Error loading posts. Please try again later.</p>';
@@ -115,6 +139,8 @@ async function loadPost(filename) {
 
     if (!postContent || !postTitle || !postMeta) return;
 
+    postContent.innerHTML = '<p>Loading post...</p>';
+
     try {
         const response = await fetch(`posts/${filename}`);
         if (!response.ok) throw new Error('Post not found');
@@ -122,7 +148,12 @@ async function loadPost(filename) {
         const markdown = await response.text();
         const parsed = parseFrontMatter(markdown);
 
-        if (!parsed) throw new Error('Invalid post format');
+        if (!parsed || !parsed.frontMatter.title) {
+            throw new Error('Invalid post format');
+        }
+
+        // Remove the title from content since we display it separately
+        const contentWithoutTitle = parsed.content.replace(/^#\s+.*$/m, '').trim();
 
         // Update title and metadata
         document.title = `${parsed.frontMatter.title} • Anurag Mishra`;
@@ -133,7 +164,7 @@ async function loadPost(filename) {
         `;
 
         // Render markdown content
-        postContent.innerHTML = marked.parse(parsed.content);
+        postContent.innerHTML = marked.parse(contentWithoutTitle);
 
         // Apply syntax highlighting to code blocks
         document.querySelectorAll('pre code').forEach((block) => {
