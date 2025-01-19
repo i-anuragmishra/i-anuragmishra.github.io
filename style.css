@@ -149,12 +149,14 @@ nav a.active {
 /* Work Items */
 .item {
     margin-bottom: 4rem;
-    position: relative;
 }
 
-.item h3 {
+.item h2 {
     font-family: var(--serif-font);
-    margin-bottom: 0.75rem;
+    font-size: 2rem;
+    font-weight: 600;
+    margin-bottom: 0.5rem;
+    color: var(--text-color);
 }
 
 .item-meta {
@@ -166,8 +168,10 @@ nav a.active {
 }
 
 .item-description {
-    font-size: 1.05rem;
-    max-width: 90%;
+    font-size: 1.1rem;
+    line-height: 1.6;
+    margin: 1rem 0;
+    color: var(--text-color);
 }
 
 .item-links {
@@ -232,13 +236,16 @@ footer a {
     .item-description {
         max-width: 100%;
     }
+
+    .item h2 {
+        font-size: 1.75rem;
+    }
 }
 
 /* Blog Styles */
 .post {
     max-width: 700px;
     margin: 0 auto;
-    padding: 2rem 0;
 }
 
 .post-header {
@@ -246,11 +253,16 @@ footer a {
     text-align: center;
 }
 
+.post-header h1 {
+    font-size: 2.5rem;
+    margin-bottom: 1rem;
+}
+
 .post-meta {
     font-family: var(--mono-font);
     font-size: 0.9rem;
     color: var(--secondary-color);
-    margin: 1rem 0;
+    margin-bottom: 1rem;
 }
 
 .tag {
@@ -269,6 +281,7 @@ footer a {
 
 .post-content h2 {
     margin: 2.5rem 0 1.5rem;
+    font-size: 1.75rem;
 }
 
 .post-content h3 {
@@ -307,9 +320,6 @@ footer a {
 .post-content code {
     font-family: var(--mono-font);
     font-size: 0.9rem;
-    background: var(--subtle-color);
-    padding: 0.2rem 0.4rem;
-    border-radius: 3px;
 }
 
 .post-content pre code {
@@ -318,22 +328,16 @@ footer a {
 }
 
 .read-more {
-    display: inline-block;
-    background: var(--accent-color);
-    color: white;
-    padding: 0.5rem 1rem;
-    border-radius: 4px;
     font-family: var(--mono-font);
     font-size: 0.9rem;
-    margin-top: 1rem;
-    border: none;
-    cursor: pointer;
-    transition: all 0.2s ease;
+    color: var(--accent-color);
+    border-bottom: none;
+    display: inline-flex;
+    align-items: center;
 }
 
 .read-more:hover {
-    transform: translateY(-1px);
-    opacity: 0.9;
+    opacity: 0.8;
 }
 
 .date {
@@ -343,10 +347,14 @@ footer a {
     margin: 0.5rem 0;
 }
 
-/* Responsive adjustments for blog */
+/* Responsive adjustments */
 @media (max-width: 768px) {
     .post {
         padding: 1rem 0;
+    }
+
+    .post-header h1 {
+        font-size: 2rem;
     }
 
     .post-content {

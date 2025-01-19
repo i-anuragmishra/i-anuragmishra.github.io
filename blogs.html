@@ -54,45 +54,26 @@
             });
         }
 
-        // Grab the blog-list section
-        const blogList = document.getElementById("blog-list");
+        // Function to create post preview HTML
+        function createPostPreview(post) {
+            const title = post.frontMatter.title || 'Untitled Post';
+            const date = post.frontMatter.date || new Date().toISOString().split('T')[0];
+            const tags = post.frontMatter.tags || [];
 
-        if (posts.length === 0) {
-            // Show "Coming Soon" message if no posts
-            blogList.innerHTML = `
+            return `
                 <div class="item">
-                    <h3>Coming Soon!</h3>
-                    <p class="item-description">
-                        Technical blogs about AI, Machine Learning, and Deep Learning will be posted here. Topics will include:
-                    </p>
-                    <ul class="topic-list">
-                        <li>Explainable AI and Model Interpretability</li>
-                        <li>Deep Learning Architecture Design</li>
-                        <li>Natural Language Processing</li>
-                        <li>Computer Vision and Image Processing</li>
-                        <li>AI Ethics and Bias in Machine Learning</li>
-                    </ul>
+                    <h2>${title}</h2>
+                    <div class="post-meta">
+                        ${formatDate(date)} • ${tags.map(tag => tag).join(', ')}
+                    </div>
+                    <p class="item-description">${post.excerpt}</p>
+                    <a href="post.html?post=${post.name}" class="read-more">Read More →</a>
                 </div>
             `;
-        } else {
-            // Loop through posts array from blog.js
-            posts.forEach((post) => {
-                const item = document.createElement("div");
-                item.classList.add("item");
-
-                item.innerHTML = `
-                    <h3>${post.title}</h3>
-                    <p class="date">${formatDate(post.date)}</p>
-                    <p class="tags">${post.tags.map(tag => `<span class="tag">${tag}</span>`).join(' ')}</p>
-                    <p class="item-description">${post.excerpt}</p>
-                    <button onclick="window.location.href='post.html?post=${post.file}'" class="read-more">
-                        Read More
-                    </button>
-                `;
-
-                blogList.appendChild(item);
-            });
         }
+
+        // Load blog posts when the page loads
+        document.addEventListener('DOMContentLoaded', loadBlogPosts);
     </script>
 </body>
 

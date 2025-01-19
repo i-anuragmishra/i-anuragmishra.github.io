@@ -13,26 +13,43 @@ async function getPostsFromGitHub() {
 // Function to parse front matter from markdown
 function parseFrontMatter(markdown) {
     const parts = markdown.split('---');
-    if (parts.length < 3) return null;
+    if (parts.length < 3) {
+        // No front matter, treat the whole content as markdown
+        return {
+            frontMatter: {},
+            content: markdown
+        };
+    }
 
-    const frontMatter = {};
-    const frontMatterLines = parts[1].trim().split('\n');
-    frontMatterLines.forEach(line => {
-        const [key, ...value] = line.split(':');
-        if (key) {
-            let parsedValue = value.join(':').trim();
-            // Handle tags array
-            if (key.trim() === 'tags') {
-                parsedValue = parsedValue.replace(/[\[\]]/g, '').split(',').map(t => t.trim());
+    try {
+        const frontMatter = {};
+        const frontMatterLines = parts[1].trim().split('\n');
+        frontMatterLines.forEach(line => {
+            const [key, ...value] = line.split(':');
+            if (key) {
+                let parsedValue = value.join(':').trim();
+                // Handle tags array
+                if (key.trim() === 'tags') {
+                    parsedValue = parsedValue
+                        .replace(/[\[\]]/g, '')
+                        .split(',')
+                        .map(t => t.trim());
+                }
+                frontMatter[key.trim()] = parsedValue;
             }
-            frontMatter[key.trim()] = parsedValue;
-        }
-    });
+        });
 
-    return {
-        frontMatter,
-        content: parts[2].trim()
-    };
+        return {
+            frontMatter,
+            content: parts.slice(2).join('---').trim()
+        };
+    } catch (error) {
+        console.error('Error parsing front matter:', error);
+        return {
+            frontMatter: {},
+            content: markdown
+        };
+    }
 }
 
 // Function to format date
@@ -47,137 +64,93 @@ function formatDate(dateStr) {
 
 // Function to create post preview HTML
 function createPostPreview(post) {
+    const title = post.frontMatter.title || 'Untitled Post';
+    const date = post.frontMatter.date || new Date().toISOString().split('T')[0];
+    const tags = post.frontMatter.tags || [];
+
     return `
-        <article class="post-preview">
-            <h2><a href="#" onclick="loadPost('${post.name}', '${post.sha}'); return false;">${post.frontMatter.title}</a></h2>
-            <div class="post-meta">
-                ${formatDate(post.frontMatter.date)} • 
-                ${post.frontMatter.tags.map(tag => `<span class="tag">${tag}</span>`).join(' ')}
-            </div>
-            <p>${post.excerpt}</p>
-            <a href="#" onclick="loadPost('${post.name}', '${post.sha}'); return false;" class="read-more">Read More →</a>
-        </article>
+        <div class="item">
+            <h3>${title}</h3>
+            <p class="date">${formatDate(date)}</p>
+            <p class="tags">${tags.map(tag => `<span class="tag">${tag}</span>`).join(' ')}</p>
+            <p class="item-description">${post.excerpt}</p>
+            <button onclick="loadPost('${post.name}')" class="read-more">
+                Read More
+            </button>
+        </div>
     `;
 }
 
 // Function to load and display blog posts list
 async function loadBlogPosts() {
-    const blogPostsContainer = document.getElementById('blog-posts');
-    blogPostsContainer.innerHTML = '<p>Loading posts...</p>';
+    const blogList = document.getElementById('blog-list');
+    if (!blogList) return;
 
     try {
-        const files = await getPostsFromGitHub();
-        const posts = [];
+        const response = await fetch('posts/sample-post.md');
+        const markdown = await response.text();
+        const parsed = parseFrontMatter(markdown);
 
-        // Load content and metadata for each post
-        for (const file of files) {
-            try {
-                const response = await fetch(file.download_url);
-                const markdown = await response.text();
-                const parsed = parseFrontMatter(markdown);
-                if (parsed) {
-                    // Get excerpt from first paragraph of content
-                    const excerpt = parsed.content.split('\n\n')[0].replace(/^#+.*\n/, '').trim();
-                    posts.push({
-                        ...file,
-                        frontMatter: parsed.frontMatter,
-                        excerpt
-                    });
-                }
-            } catch (error) {
-                console.error(`Error loading post ${file.name}:`, error);
-            }
+        if (parsed) {
+            const excerpt = parsed.content.split('\n\n')[1] || '';
+            const post = {
+                name: 'sample-post.md',
+                frontMatter: parsed.frontMatter,
+                excerpt: excerpt
+            };
+
+            blogList.innerHTML = createPostPreview(post);
         }
-
-        // Sort and display posts
-        const postsHTML = posts
-            .sort((a, b) => new Date(b.frontMatter.date) - new Date(a.frontMatter.date))
-            .map(post => createPostPreview(post))
-            .join('');
-
-        blogPostsContainer.innerHTML = postsHTML || '<p>No posts found.</p>';
-
-        // Update URL without reload
-        history.pushState(null, null, '/writing');
-        document.title = 'Technical Writing';
-
     } catch (error) {
         console.error('Error loading posts:', error);
-        blogPostsContainer.innerHTML = '<p>Error loading posts. Please try again later.</p>';
+        blogList.innerHTML = '<p>Error loading posts. Please try again later.</p>';
     }
 }
 
 // Function to load and display a single post
-async function loadPost(filename, sha) {
-    const mainContent = document.querySelector('main');
-    mainContent.innerHTML = '<p>Loading post...</p>';
+async function loadPost(filename) {
+    const postContent = document.getElementById('post-content');
+    if (!postContent) return;
 
     try {
-        // Get file content from GitHub
-        const response = await fetch(`https://raw.githubusercontent.com/i-anuragmishra/i-anuragmishra.github.io/main/posts/${filename}`);
+        const response = await fetch(`posts/${filename}`);
         if (!response.ok) throw new Error('Post not found');
 
         const markdown = await response.text();
         const parsed = parseFrontMatter(markdown);
+
         if (!parsed) throw new Error('Invalid post format');
 
-        // Update page content
-        mainContent.innerHTML = `
-            <article class="post">
-                <header class="post-header">
-                    <h1>${parsed.frontMatter.title}</h1>
-                    <div class="post-meta">
-                        ${formatDate(parsed.frontMatter.date)} • 
-                        ${parsed.frontMatter.tags.map(tag => `<span class="tag">${tag}</span>`).join(' ')}
-                    </div>
-                </header>
-                <div class="post-content">
-                    ${marked.parse(parsed.content)}
-                </div>
-                <div class="post-footer">
-                    <a href="#" onclick="loadBlogPosts(); return false;">← Back to Posts</a>
-                </div>
-            </article>
+        // Update title and metadata
+        document.title = `${parsed.frontMatter.title} • Anurag Mishra`;
+        document.getElementById('post-title').textContent = parsed.frontMatter.title;
+        document.getElementById('post-meta').innerHTML = `
+            ${formatDate(parsed.frontMatter.date)} • 
+            ${parsed.frontMatter.tags.map(tag => `<span class="tag">${tag}</span>`).join(' ')}
         `;
 
-        // Update URL and title
-        history.pushState(null, null, `/posts/${filename.replace('.md', '')}`);
-        document.title = `${parsed.frontMatter.title} - Technical Writing`;
+        // Render markdown content
+        postContent.innerHTML = marked.parse(parsed.content);
 
+        // Apply syntax highlighting to code blocks
+        document.querySelectorAll('pre code').forEach((block) => {
+            hljs.highlightBlock(block);
+        });
     } catch (error) {
         console.error('Error loading post:', error);
-        mainContent.innerHTML = '<p>Error loading post. Please try again later.</p>';
+        postContent.innerHTML = '<p>Error loading post. Please try again later.</p>';
     }
 }
 
-// Handle browser back/forward buttons
-window.addEventListener('popstate', () => {
-    if (window.location.pathname === '/writing' || window.location.pathname === '/writing/') {
-        loadBlogPosts();
-    } else if (window.location.pathname.startsWith('/posts/')) {
-        const filename = window.location.pathname.split('/').pop() + '.md';
-        loadPost(filename);
-    }
-});
-
 // Initialize page
 document.addEventListener('DOMContentLoaded', () => {
-    if (window.location.pathname === '/writing' || window.location.pathname === '/writing/') {
+    if (window.location.pathname.endsWith('blogs.html')) {
         loadBlogPosts();
-    } else if (window.location.pathname.startsWith('/posts/')) {
-        const filename = window.location.pathname.split('/').pop() + '.md';
-        loadPost(filename);
+    } else if (window.location.pathname.endsWith('post.html')) {
+        const urlParams = new URLSearchParams(window.location.search);
+        const postFile = urlParams.get('post');
+        if (postFile) {
+            loadPost(postFile);
+        }
     }
-});
-
-// An array of metadata for each blog post
-const posts = [
-    {
-        file: "sample-post.md",
-        title: "Sample Blog Post",
-        date: "2024-03-19",
-        tags: ["AI", "Machine Learning"],
-        excerpt: "A sample blog post to demonstrate the blog system.",
-    }
-    // Add more posts here as you create them
-]; 
+}); 
