@@ -54,4 +54,7 @@ yarn.lock
 # Local development
 *.local
 .ruby-version
-.ruby-gemset 
+.ruby-gemset
+
+# Jekyll-specific entries
+Gemfile.lock 
