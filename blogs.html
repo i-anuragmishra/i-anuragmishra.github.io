@@ -67,7 +67,7 @@
                         ${formatDate(date)} • ${tags.map(tag => tag).join(', ')}
                     </div>
                     <p class="item-description">${post.excerpt}</p>
-                    <a href="post.html?post=${post.name}" class="read-more">Read More →</a>
+                    <a href="post.html?post=${encodeURIComponent(post.filename)}" class="read-more">Read More →</a>
                 </div>
             `;
         }
