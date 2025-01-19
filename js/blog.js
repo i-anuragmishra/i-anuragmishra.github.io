@@ -194,16 +194,13 @@ async function loadPost(filename) {
 // Decide which function to run when DOM loads
 document.addEventListener('DOMContentLoaded', () => {
     const path = window.location.pathname;
-    if (path.endsWith('writing.html')) {
+    if (path.endsWith('writing.html') || path.endsWith('blogs.html')) {
         loadBlogPosts();
     } else if (path.endsWith('post.html')) {
         const urlParams = new URLSearchParams(window.location.search);
         const postFile = urlParams.get('post');
-        if (postFile) {
-            loadPost(postFile);
-        } else {
-            // If no ?post= param, go back
-            window.location.href = 'writing.html';
-        }
+        loadPost(postFile);
+    } else {
+        // window.location.href = 'writing.html';
     }
 });
