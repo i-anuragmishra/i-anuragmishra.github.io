@@ -365,3 +365,33 @@ footer a {
         padding: 1rem;
     }
 }
+
+.research-focus {
+    max-width: 800px;
+    margin: 2rem auto;
+    padding: 0 1rem;
+}
+
+.research-focus h2 {
+    font-family: 'Crimson Pro', serif;
+    font-size: 1.75rem;
+    margin-bottom: 1.5rem;
+    color: #333;
+}
+
+.research-focus ul {
+    list-style: none;
+    padding: 0;
+}
+
+.research-focus li {
+    margin-bottom: 1.5rem;
+    line-height: 1.6;
+    color: #444;
+}
+
+.research-focus li strong {
+    color: #333;
+    display: block;
+    margin-bottom: 0.5rem;
+}
