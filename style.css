@@ -122,28 +122,30 @@ nav a.active {
 }
 
 /* Research Areas */
-.research-area {
-    margin-bottom: 3rem;
-    position: relative;
-    padding-left: 1.5rem;
+.section-title {
+    color: var(--accent-color);
+    font-size: 1.75rem;
+    margin-bottom: 2rem;
 }
 
-.research-area::before {
-    content: '→';
-    position: absolute;
-    left: 0;
-    color: var(--accent-color);
-    opacity: 0.5;
+.research-area {
+    margin-bottom: 2rem;
+    padding-left: 1.5rem;
+    position: relative;
 }
 
 .research-area h3 {
-    font-family: var(--serif-font);
-    font-weight: 600;
+    color: var(--text-color);
+    font-size: 1.25rem;
     margin-bottom: 0.75rem;
+    font-weight: 500;
 }
 
 .research-area p {
-    font-size: 1.05rem;
+    color: var(--text-color);
+    opacity: 0.9;
+    line-height: 1.6;
+    margin-bottom: 1rem;
 }
 
 /* Work Items */
