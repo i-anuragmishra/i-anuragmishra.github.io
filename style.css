@@ -119,6 +119,12 @@ nav a.active {
 .profile .links {
     font-family: var(--mono-font);
     font-size: 0.9rem;
+    margin-bottom: 2rem;
+}
+
+/* Reduce top margin of the first section after profile */
+.profile+section {
+    margin-top: -2rem;
 }
 
 /* Research Areas */
