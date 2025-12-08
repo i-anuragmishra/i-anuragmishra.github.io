@@ -102,6 +102,31 @@ nav a.active {
 /* Profile Section */
 .profile {
     margin: 6rem 0;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 2.5rem;
+}
+
+.profile-text {
+    flex: 1;
+}
+
+.profile-photo {
+    flex: 0 0 240px;
+    display: flex;
+    justify-content: flex-end;
+}
+
+.profile-photo img {
+    width: 100%;
+    max-width: 240px;
+    aspect-ratio: 1 / 1;
+    object-fit: cover;
+    border-radius: 14px;
+    border: 1px solid rgba(0, 0, 0, 0.05);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+    background: #fff;
 }
 
 .profile h1 {
@@ -239,6 +264,18 @@ footer a {
 
     .profile {
         margin: 3rem 0;
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 1.5rem;
+    }
+
+    .profile-photo {
+        width: 100%;
+        justify-content: flex-start;
+    }
+
+    .profile-photo img {
+        max-width: 180px;
     }
 
     .item-description {
