@@ -147,6 +147,38 @@ nav a.active {
     margin-bottom: 0;
 }
 
+.credibility-strip {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 0.55rem;
+    margin: 0.8rem 0 1rem;
+}
+
+.credibility-label {
+    font-family: var(--mono-font);
+    font-size: 0.8rem;
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
+    color: var(--secondary-color);
+}
+
+.venue-pill {
+    font-family: var(--mono-font);
+    font-size: 0.8rem;
+    color: var(--text-color);
+    background: rgba(255, 255, 255, 0.85);
+    border: 1px solid rgba(0, 0, 0, 0.14);
+    border-radius: 999px;
+    padding: 0.18rem 0.62rem;
+    line-height: 1.2;
+    border-bottom-width: 1px;
+}
+
+.venue-pill:hover {
+    border-color: var(--accent-color);
+}
+
 .contact-block {
     margin-bottom: 1rem;
 }
@@ -431,6 +463,10 @@ footer a {
 
     .profile-photo img {
         max-width: 180px;
+    }
+
+    .credibility-strip {
+        gap: 0.45rem;
     }
 
     .item-description {
