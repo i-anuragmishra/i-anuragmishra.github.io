@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Anurag Mishra • Graduate Student and Researcher</title>
+    <title>Anurag Mishra • AI Engineer and Mechanistic Interpretability Researcher</title>
     <link rel="stylesheet" href="style.css">
     <link rel="stylesheet"
         href="https://fonts.googleapis.com/css2?family=Crimson+Pro:ital,wght@0,400;0,500;0,600;1,400&family=JetBrains+Mono:wght@400;500&family=Inter:wght@400;500;600&display=swap">
@@ -16,20 +16,41 @@
         <a href="index.html" class="active">~/home</a>
         <a href="publications.html">~/research</a>
         <a href="projects.html">~/projects</a>
-        <a href="blogs.html">~/writing</a>
-        <a href="Resume_Anurag_RIT.pdf">~/cv</a>
+        <a href="writing.html">~/writing</a>
+        <a href="cv.pdf">~/cv</a>
     </nav>
 
     <div class="profile">
         <div class="profile-text">
             <h1>Hi, I'm Anurag Mishra</h1>
-            <p>Graduate Student and Researcher working at the intersection of explainable AI, ethics, and deep learning.</p>
-            <p class="links">
-                <a href="mailto:am2552@rit.edu">am2552@rit.edu</a> •
-                <a href="https://github.com/i-anuragmishra">github</a> •
-                <a href="https://www.linkedin.com/in/i-anuragmishra">linkedin</a> •
-                <a href="https://scholar.google.com/citations?user=ZzAwD4EAAAAJ">scholar</a>
-            </p>
+            <p>AI Engineer and researcher focused on mechanistic interpretability, LLM reliability, and high-performance ML systems.</p>
+            <div class="contact-block">
+                <p class="links contact-line">
+                    <a href="mailto:anuragmishra.ofc@gmail.com">anuragmishra.ofc@gmail.com</a>
+                </p>
+                <p class="links contact-line">
+                    <a href="https://github.com/i-anuragmishra">GitHub</a> •
+                    <a href="https://www.linkedin.com/in/i-anuragmishra">LinkedIn</a> •
+                    <a href="https://scholar.google.com/citations?user=ZzAwD4EAAAAJ">Google Scholar</a>
+                </p>
+            </div>
+
+            <div class="intro-copy">
+                <p>
+                    I build and ship production AI systems, and I study how those systems work internally. My primary focus is
+                    mechanistic interpretability: tracing transformer circuits, testing causal hypotheses, and designing targeted
+                    interventions that improve behavior without losing efficiency.
+                </p>
+                <p>
+                    I previously completed an M.S. in Artificial Intelligence at Rochester Institute of Technology (May 2025),
+                    where my work spanned multimodal deepfake detection, LLM evaluation and robustness, and performance-aware
+                    training workflows.
+                </p>
+                <p class="action-links">
+                    <a href="cv.pdf">Download CV</a>
+                    <a href="resume.pdf">Download Resume</a>
+                </p>
+            </div>
         </div>
         <div class="profile-photo">
             <img src="assets/profile-1.jpeg" alt="Portrait of Anurag Mishra" loading="lazy">
@@ -37,77 +58,94 @@
     </div>
 
     <section>
-        <p>
-            I'm a graduate student and researcher at RIT, focusing on making AI systems more transparent and ethical.
-            My work spans deepfake detection, bias mitigation in language models, and neural machine translation.
-        </p>
-        <p>
-            Currently, I'm exploring the intersection of explainable AI and adversarial robustness,
-            developing techniques to make AI systems both interpretable and resilient.
-        </p>
-    </section>
-
-    <section>
         <h2 class="section-title">Research Focus</h2>
 
         <div class="research-area">
-            <h3>→ Explainable AI (XAI) and Mechanistic Interpretability</h3>
-            <p>Advancing research in explainability through mechanistic interpretability techniques, uncovering how
-                models process and represent information. Developing frameworks to enhance the transparency and
-                trustworthiness of AI systems across diverse applications.</p>
+            <h3>→ Mechanistic Interpretability and Causal Circuit Analysis</h3>
+            <p>Activation tracing, attention-head profiling, and intervention-based analysis to identify task-relevant
+                transformer mechanisms and measure causal contribution to final model behavior.</p>
         </div>
 
         <div class="research-area">
-            <h3>→ Detecting and Debiasing Large Language Models</h3>
-            <p>Investigating biases in LLMs by analyzing their training data and architectures. Designing robust
-                debiasing methodologies to ensure fair and ethical AI, with a focus on mitigating adverse impacts in
-                real-world deployments.</p>
+            <h3>→ LLM Evaluation, Reliability, and Hallucination Reduction</h3>
+            <p>Benchmark-driven evaluation across GPT-4, Claude, Llama, and Mistral families with stress testing,
+                retrieval-augmented prompting, and regression checks for reasoning and factual consistency.</p>
         </div>
 
         <div class="research-area">
-            <h3>→ CUDA Kernel Development for High-Performance AI</h3>
-            <p>Harnessing the power of CUDA for writing optimized kernels to accelerate computations in deep learning
-                workflows. Exploring applications of CUDA in scaling and enhancing the efficiency of large language
-                models for high-performance AI engineering.</p>
+            <h3>→ ML Systems Performance Engineering</h3>
+            <p>Latency/throughput optimization, profiling, and regression debugging for production AI services, including
+                model serving, asynchronous orchestration, and memory-aware optimization.</p>
         </div>
 
         <div class="research-area">
-            <h3>→ Deepfake Detection and Explainable AI</h3>
-            <p>Building multi-modal deepfake detection systems using innovative approaches in neuro-symbolic AI and
-                explainable AI. Enhancing detection accuracy and transparency with layer-wise relevance propagation to
-                tackle emerging challenges in multimedia authenticity.</p>
+            <h3>→ Multimodal Detection and Robustness</h3>
+            <p>Multimodal CNN-transformer architectures for lip-sync manipulation detection, synthetic data generation,
+                and robust out-of-distribution evaluation under realistic deployment constraints.</p>
         </div>
     </section>
 
     <section>
-        <h2>Current Research Work</h2>
+        <h2>Professional and Research Experience</h2>
 
-        <div class="item">
-            <h3>DeFake Project</h3>
-            <div class="item-meta">Machine Learning Research Assistant • Oct 2024 - Present</div>
-            <p class="item-description">
-                Leading research with Dr. Matthew Wright on explainable AI for deepfake detection.
-                Developing novel approaches to make detection systems transparent and interpretable
-                through multi-modal analysis and saliency mapping.
-            </p>
+        <div class="experience-group">
+            <h3 class="group-title">Industrial Experience</h3>
+            <div class="item">
+                <h3>AI Engineer</h3>
+                <div class="item-meta">Eaton Ventures (Rochester Appliances) • Aug 2025 - Present</div>
+                <ul class="compact-list">
+                    <li>Architected and deployed production AI services supporting 10K+ daily requests at 99.9% uptime.</li>
+                    <li>Reduced end-to-end API latency by 35% through request-path and model-serving optimization.</li>
+                    <li>Implemented CI/CD validation and regression pipelines that reduced release-cycle time by 60%.</li>
+                </ul>
+            </div>
         </div>
 
-        <div class="item">
-            <h3>LLM Security Research</h3>
-            <div class="item-meta">Research Assistant @ RIT • Oct 2024 - Present</div>
-            <p class="item-description">
-                Collaborating with Dr. Bartosz Krawczyk to study adversarial vulnerabilities
-                in large language models. Developing frameworks for bias detection and mitigation
-                in AI-generated content.
-            </p>
+        <div class="experience-group">
+            <h3 class="group-title">Research Experience</h3>
+
+            <div class="item">
+                <h3>Machine Learning Research Assistant, Mechanistic Interpretability</h3>
+                <div class="item-meta">Rochester Institute of Technology • Jan 2025 - May 2025</div>
+                <ul class="compact-list">
+                    <li>Built activation tracing tooling in PyTorch/C++ for layer-wise transformer analysis.</li>
+                    <li>Identified summarization-relevant circuits in layers 2, 3, and 5.</li>
+                    <li>Applied targeted LoRA interventions with 40% faster convergence and 75% fewer trainable parameters.</li>
+                </ul>
+            </div>
+
+            <div class="item">
+                <h3>Machine Learning Research Assistant, LLM Evaluation and Robustness</h3>
+                <div class="item-meta">RIT Office of the Provost • Oct 2024 - Aug 2025</div>
+                <ul class="compact-list">
+                    <li>Designed evaluation harnesses for frontier models across reasoning, factuality, and tool calling.</li>
+                    <li>Developed retrieval-augmented prompting workflows that reduced hallucination by 35%.</li>
+                    <li>Built reproducible benchmark suites for quality and runtime regression tracking.</li>
+                </ul>
+            </div>
+
+            <div class="item">
+                <h3>Machine Learning Research Assistant, DeFake Project</h3>
+                <div class="item-meta">Rochester Institute of Technology • Oct 2024 - Aug 2025</div>
+                <ul class="compact-list">
+                    <li>Developed multimodal CNN + transformer systems on 18,000+ videos for lip-sync manipulation detection.</li>
+                    <li>Implemented custom C++/CUDA tensor kernels that improved training efficiency by 40%.</li>
+                    <li>Expanded stress-test data with 50K+ synthetic samples and improved OOD generalization by 18%.</li>
+                </ul>
+            </div>
         </div>
     </section>
 
     <footer>
-        <a href="mailto:am2552@rit.edu">email</a>
-        <a href="https://github.com/i-anuragmishra">github</a>
-        <a href="https://www.linkedin.com/in/i-anuragmishra">linkedin</a>
-        <a href="https://scholar.google.com/citations?user=ZzAwD4EAAAAJ">scholar</a>
+        <p class="footer-links">
+            <a href="mailto:anuragmishra.ofc@gmail.com">email</a>
+            <span class="sep">•</span>
+            <a href="https://github.com/i-anuragmishra">GitHub</a>
+            <span class="sep">•</span>
+            <a href="https://www.linkedin.com/in/i-anuragmishra">LinkedIn</a>
+            <span class="sep">•</span>
+            <a href="https://scholar.google.com/citations?user=ZzAwD4EAAAAJ">Google Scholar</a>
+        </p>
     </footer>
 </body>
 

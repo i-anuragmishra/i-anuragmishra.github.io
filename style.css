@@ -18,13 +18,13 @@
 
 body {
     font-family: var(--serif-font);
-    font-size: 1.125rem;
-    line-height: 1.7;
+    font-size: 1.1rem;
+    line-height: 1.65;
     color: var(--text-color);
     background: var(--bg-color);
-    max-width: 800px;
+    max-width: 980px;
     margin: 0 auto;
-    padding: 3rem 2rem;
+    padding: 2.5rem 2rem;
 }
 
 /* Typography */
@@ -45,7 +45,7 @@ h1 {
 
 h2 {
     font-size: 1.75rem;
-    margin: 3rem 0 1.5rem;
+    margin: 2.4rem 0 1.2rem;
     color: var(--accent-color);
 }
 
@@ -55,7 +55,7 @@ h3 {
 }
 
 p {
-    margin-bottom: 1.5rem;
+    margin-bottom: 1.2rem;
     color: var(--text-color);
     opacity: 0.9;
 }
@@ -78,7 +78,7 @@ a:hover {
 nav {
     font-family: var(--mono-font);
     font-size: 0.9rem;
-    margin: 0 0 5rem;
+    margin: 0 0 3.6rem;
     display: flex;
     gap: 2rem;
 }
@@ -101,11 +101,11 @@ nav a.active {
 
 /* Profile Section */
 .profile {
-    margin: 6rem 0;
+    margin: 3rem 0 2rem;
     display: flex;
-    align-items: center;
+    align-items: flex-start;
     justify-content: space-between;
-    gap: 2.5rem;
+    gap: 2rem;
 }
 
 .profile-text {
@@ -113,14 +113,14 @@ nav a.active {
 }
 
 .profile-photo {
-    flex: 0 0 240px;
+    flex: 0 0 220px;
     display: flex;
     justify-content: flex-end;
 }
 
 .profile-photo img {
     width: 100%;
-    max-width: 240px;
+    max-width: 220px;
     aspect-ratio: 1 / 1;
     object-fit: cover;
     border-radius: 14px;
@@ -136,20 +136,44 @@ nav a.active {
 
 .profile p {
     font-family: var(--mono-font);
-    font-size: 1rem;
+    font-size: 1em;
     color: var(--secondary-color);
-    margin-bottom: 1rem;
+    margin-bottom: 0.8rem;
 }
 
 .profile .links {
     font-family: var(--mono-font);
     font-size: 0.9rem;
-    margin-bottom: 2rem;
+    margin-bottom: 0;
 }
 
-/* Reduce top margin of the first section after profile */
-.profile+section {
-    margin-top: -2rem;
+.contact-block {
+    margin-bottom: 1rem;
+}
+
+.contact-line {
+    margin-bottom: 0.5rem;
+}
+
+.contact-line:last-child {
+    margin-bottom: 0;
+}
+
+.profile .intro-copy {
+    margin-top: 1.1rem;
+}
+
+.profile .intro-copy p {
+    font-family: var(--serif-font);
+    font-size: 1em;
+    color: var(--text-color);
+    line-height: 1.65;
+    margin-bottom: 1rem;
+}
+
+.profile .intro-copy .action-links {
+    margin-top: 1.2rem;
+    margin-bottom: 0;
 }
 
 /* Research Areas */
@@ -181,7 +205,7 @@ nav a.active {
 
 /* Work Items */
 .item {
-    margin-bottom: 4rem;
+    margin-bottom: 3rem;
 }
 
 .item h2 {
@@ -201,7 +225,7 @@ nav a.active {
 }
 
 .item-description {
-    font-size: 1.1rem;
+    font-size: 1em;
     line-height: 1.6;
     margin: 1rem 0;
     color: var(--text-color);
@@ -223,19 +247,150 @@ nav a.active {
     opacity: 0.8;
 }
 
+.action-links {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1rem;
+    margin-top: 1.5rem;
+}
+
+.action-links a {
+    font-family: var(--mono-font);
+    font-size: 0.9rem;
+    color: var(--accent-color);
+    border-bottom: none;
+}
+
+.compact-list {
+    margin: 1rem 0 0 1.3rem;
+    padding: 0;
+}
+
+.compact-list li {
+    margin-bottom: 0.65rem;
+    line-height: 1.6;
+}
+
+.experience-group {
+    margin-bottom: 2.4rem;
+    padding: 1rem 1rem 0.1rem;
+    border-left: 3px solid rgba(0, 102, 204, 0.25);
+    background: rgba(255, 255, 255, 0.65);
+}
+
+.group-title {
+    font-family: var(--mono-font);
+    font-size: 1rem;
+    text-transform: uppercase;
+    letter-spacing: 0.04em;
+    color: var(--accent-color);
+    margin: 0 0 1.1rem;
+}
+
+.card-grid {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 1.5rem;
+    margin-bottom: 1.5rem;
+}
+
+.single-card-grid {
+    grid-template-columns: minmax(0, 1fr);
+    max-width: 560px;
+}
+
+.link-card {
+    border: 1px solid rgba(0, 0, 0, 0.08);
+    border-radius: 12px;
+    padding: 1rem;
+    background: rgba(255, 255, 255, 0.8);
+}
+
+.link-card h3 {
+    margin-top: 1rem;
+    margin-bottom: 0.75rem;
+    font-size: 1.2rem;
+}
+
+.link-card p {
+    margin-bottom: 1rem;
+    font-size: 1em;
+}
+
+.card-link {
+    display: block;
+    border-bottom: none;
+}
+
+.card-thumb-image {
+    width: 100%;
+    aspect-ratio: 16 / 9;
+    object-fit: cover;
+    border-radius: 10px;
+    border: 1px solid rgba(0, 0, 0, 0.08);
+    display: block;
+}
+
+.card-thumb {
+    width: 100%;
+    aspect-ratio: 16 / 9;
+    border-radius: 10px;
+    display: flex;
+    align-items: flex-end;
+    padding: 0.85rem;
+    font-family: var(--mono-font);
+    font-size: 0.85rem;
+    color: rgba(255, 255, 255, 0.95);
+    letter-spacing: 0.02em;
+}
+
+.thumb-substack {
+    background: linear-gradient(135deg, #ff6b35 0%, #f7931a 100%);
+}
+
+.thumb-alignment {
+    background: linear-gradient(135deg, #2a6f97 0%, #61a5c2 100%);
+}
+
+.thumb-article {
+    background: linear-gradient(135deg, #495057 0%, #6c757d 100%);
+}
+
+.notice {
+    font-family: var(--mono-font);
+    font-size: 0.85rem;
+    color: var(--secondary-color);
+}
+
 /* Footer */
 footer {
-    margin-top: 8rem;
-    padding-top: 2rem;
+    margin-top: 3.5rem;
+    padding-top: 1.2rem;
     border-top: 1px solid rgba(0, 0, 0, 0.1);
     font-family: var(--mono-font);
     font-size: 0.85rem;
     color: var(--secondary-color);
 }
 
+footer p {
+    margin-bottom: 0;
+}
+
 footer a {
-    margin-right: 2rem;
+    margin-right: 0;
     border-bottom: none;
+}
+
+.footer-links {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.95rem;
+    align-items: center;
+}
+
+.footer-links .sep {
+    color: var(--secondary-color);
+    opacity: 0.8;
 }
 
 /* Responsive */
@@ -285,6 +440,27 @@ footer a {
     .item h2 {
         font-size: 1.75rem;
     }
+
+    .action-links {
+        flex-direction: column;
+        gap: 0.5rem;
+    }
+
+    .experience-group {
+        padding: 0.8rem 0.7rem 0.1rem;
+    }
+
+    footer {
+        margin-top: 2.8rem;
+    }
+
+    .footer-links {
+        gap: 0.6rem;
+    }
+
+    .card-grid {
+        grid-template-columns: 1fr;
+    }
 }
 
 /* Blog Styles */
@@ -320,7 +496,7 @@ footer a {
 }
 
 .post-content {
-    font-size: 1.1rem;
+    font-size: 1em;
     line-height: 1.8;
 }
 

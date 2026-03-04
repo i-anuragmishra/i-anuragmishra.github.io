@@ -16,70 +16,90 @@
         <a href="index.html">~/home</a>
         <a href="publications.html">~/research</a>
         <a href="projects.html" class="active">~/projects</a>
-        <a href="blogs.html">~/writing</a>
-        <a href="Resume_Anurag_RIT.pdf">~/cv</a>
+        <a href="writing.html">~/writing</a>
+        <a href="cv.pdf">~/cv</a>
     </nav>
 
     <div class="profile">
-        <h1>Research Projects</h1>
-        <p>Current research projects in AI, machine learning, and computer vision.</p>
-        <p class="links">
-            <a href="mailto:am2552@rit.edu">am2552@rit.edu</a> •
-            <a href="https://github.com/i-anuragmishra">github</a> •
-            <a href="https://www.linkedin.com/in/i-anuragmishra">linkedin</a> •
-            <a href="https://scholar.google.com/citations?user=ZzAwD4EAAAAJ">scholar</a>
-        </p>
+        <div class="profile-text">
+            <h1>Selected Projects</h1>
+            <p>Research and engineering projects across mechanistic interpretability, LLM evaluation, and multimodal ML systems.</p>
+            <div class="contact-block">
+                <p class="links contact-line">
+                    <a href="mailto:anuragmishra.ofc@gmail.com">anuragmishra.ofc@gmail.com</a>
+                </p>
+                <p class="links contact-line">
+                    <a href="https://github.com/i-anuragmishra">GitHub</a> •
+                    <a href="https://www.linkedin.com/in/i-anuragmishra">LinkedIn</a> •
+                    <a href="https://scholar.google.com/citations?user=ZzAwD4EAAAAJ">Google Scholar</a>
+                </p>
+            </div>
+        </div>
     </div>
 
     <section>
         <div class="item">
-            <h3>DeFake: Explainable Deepfake Detection</h3>
-            <div class="item-meta">2024 PyTorch • CUDA • Computer Vision</div>
+            <h3>Causal Mechanisms of Backtracking in Reasoning Models</h3>
+            <div class="item-meta">2025 • Mechanistic Interpretability • Causal Ablations</div>
             <p class="item-description">
-                Advanced research in explainable AI (XAI) for deepfake detection, focusing on lip-sync deepfakes and
-                saliency map analysis. Implementing multi-modal approaches combining neuro-symbolic AI, attention
-                mechanisms, and layer-wise relevance propagation (LRP).
+                Studied backtracking behavior in reasoning models and identified causally important components through
+                targeted interventions. Measured how backtracking dynamics correlate with answer correctness under
+                controlled perturbations.
             </p>
             <div class="item-links">
-                <a href="#"><i class="fab fa-github"></i> Code</a>
-                <a href="#"><i class="fas fa-file-alt"></i> Paper</a>
-                <a href="#"><i class="fas fa-desktop"></i> Demo</a>
+                <a href="https://github.com/i-anuragmishra/mats-backtracking"><i class="fab fa-github"></i> Code</a>
             </div>
         </div>
 
         <div class="item">
-            <h3>LLM Security & Bias Analysis</h3>
-            <div class="item-meta">2023-2024 PyTorch • NLP • Transformers</div>
+            <h3>DeFake: Multimodal Lip-Sync Manipulation Detection</h3>
+            <div class="item-meta">2024-2025 • PyTorch • C++/CUDA • Multimodal Systems</div>
             <p class="item-description">
-                Research on adversarial vulnerabilities in large language models (LLMs), investigating data poisoning
-                and prompt injection attacks. Developed frameworks for bias detection and mitigation in AI-generated
-                content.
+                Built CNN + transformer detection pipelines over 18,000+ videos, with custom C++/CUDA tensor kernels,
+                synthetic data expansion, and robustness testing. Achieved +12% F1 and +18% OOD generalization gains.
             </p>
             <div class="item-links">
-                <a href="#"><i class="fab fa-github"></i> Code</a>
-                <a href="#"><i class="fas fa-file-alt"></i> Paper</a>
+                <a href="publications.html"><i class="fas fa-file-alt"></i> Related Research</a>
+            </div>
+        </div>
+
+        <div class="item">
+            <h3>LLM Evaluation and Robustness Harness</h3>
+            <div class="item-meta">2024-2025 • GPT-4/Claude/Llama/Mistral • Reliability Benchmarks</div>
+            <p class="item-description">
+                Designed benchmark workflows to evaluate reasoning, factual consistency, tool-calling behavior, and
+                latency-quality trade-offs. Built regression checks and retrieval-augmented prompting strategies that
+                reduced hallucination by 35% on factual QA tasks.
+            </p>
+            <div class="item-links">
+                <a href="publications.html"><i class="fas fa-file-alt"></i> Related Research</a>
             </div>
         </div>
 
         <div class="item">
             <h3>Explainable Neural Machine Translation</h3>
-            <div class="item-meta">2023 PyTorch • NLP • Attention Models</div>
+            <div class="item-meta">2024 • Attention Analysis • Interpretability Metrics</div>
             <p class="item-description">
-                Developed analytical metrics for attention and alignment consistency in neural machine translation
-                systems. Implemented novel approaches for improving explainability in sequence-to-sequence models.
+                Built analytical metrics for attention and alignment consistency in sequence-to-sequence translation
+                models, focusing on interpretable behavior diagnostics for generation workflows.
             </p>
             <div class="item-links">
-                <a href="#"><i class="fab fa-github"></i> Code</a>
-                <a href="#"><i class="fas fa-file-alt"></i> Paper</a>
+                <a href="https://arxiv.org/abs/2412.18669"><i class="fas fa-file-pdf"></i> Paper</a>
+                <a href="https://github.com/i-anuragmishra/NMT-Explainability"><i class="fab fa-github"></i> Code</a>
             </div>
         </div>
     </section>
 
     <footer>
-        <a href="mailto:am2552@rit.edu">email</a>
-        <a href="https://github.com/i-anuragmishra">github</a>
-        <a href="https://www.linkedin.com/in/i-anuragmishra">linkedin</a>
-        <a href="https://scholar.google.com/citations?user=ZzAwD4EAAAAJ">scholar</a>
+        <p class="footer-links">
+            <a href="mailto:anuragmishra.ofc@gmail.com">email</a>
+            <span class="sep">•</span>
+            <a href="https://github.com/i-anuragmishra">GitHub</a>
+            <span class="sep">•</span>
+            <a href="https://www.linkedin.com/in/i-anuragmishra">LinkedIn</a>
+            <span class="sep">•</span>
+            <a href="https://scholar.google.com/citations?user=ZzAwD4EAAAAJ">Google Scholar</a>
+        </p>
     </footer>
 </body>
 
