@@ -4,154 +4,533 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Anurag Mishra • AI Engineer and Mechanistic Interpretability Researcher</title>
+    <title>Anurag Mishra — Mechanistic Interpretability &amp; AI Systems</title>
+    <meta name="description"
+        content="AI engineer and researcher focused on mechanistic interpretability, LLM reliability, and high-performance ML systems.">
+    <link rel="icon" href="assets/images/favicon.ico">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=JetBrains+Mono:wght@400;500;600&family=Source+Sans+3:wght@300;400;500;600;700&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="base.css">
     <link rel="stylesheet" href="style.css">
-    <link rel="stylesheet"
-        href="https://fonts.googleapis.com/css2?family=Crimson+Pro:ital,wght@0,400;0,500;0,600;1,400&family=JetBrains+Mono:wght@400;500&family=Inter:wght@400;500;600&display=swap">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
 </head>
 
 <body>
-    <nav>
-        <a href="index.html" class="active">~/home</a>
-        <a href="publications.html">~/research</a>
-        <a href="projects.html">~/projects</a>
-        <a href="writing.html">~/writing</a>
-        <a href="cv.pdf">~/cv</a>
-    </nav>
+    <a class="skip-link" href="#main">Skip to content</a>
 
-    <div class="profile">
-        <div class="profile-text">
-            <h1>Hi, I'm Anurag Mishra</h1>
-            <p>AI Engineer and researcher focused on mechanistic interpretability, LLM reliability, and high-performance ML systems.</p>
-            <div class="credibility-strip">
-                <span class="credibility-label">Published Venues</span>
-                <a class="venue-pill" href="https://openreview.net/forum?id=Q5ox302DLN&nesting=2&sort=date-desc" target="_blank" rel="noopener noreferrer">ICLR 2026 (Sole Author)</a>
-                <a class="venue-pill" href="https://ieeexplore.ieee.org/abstract/document/10263899" target="_blank" rel="noopener noreferrer">IEEE (Co-authored)</a>
+    <header class="site-header entrance" data-delay="1">
+        <div class="container header-inner">
+            <a class="site-name" href="#top">Anurag Mishra</a>
+
+            <button class="menu-toggle" id="menuToggle" type="button" aria-expanded="false" aria-controls="siteNav"
+                aria-label="Toggle navigation">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+
+            <nav class="site-nav" id="siteNav" aria-label="Primary">
+                <a href="#news">News</a>
+                <a href="#research">Research</a>
+                <a href="#publications">Publications</a>
+                <a href="#showcase">Showcase</a>
+                <a href="#projects">Projects</a>
+                <a href="#experience">Experience</a>
+                <a href="#education">Education</a>
+                <a href="#writing">Writing</a>
+                <a href="cv.pdf">CV</a>
+                <button class="theme-toggle" id="themeToggle" type="button" aria-label="Switch theme">
+                    <span aria-hidden="true">◐</span>
+                </button>
+            </nav>
+        </div>
+    </header>
+
+    <main id="main">
+        <section class="hero" id="top">
+            <div class="container hero-layout">
+                <div class="hero-copy">
+                    <h1 class="hero-title entrance" data-delay="2">Anurag Mishra</h1>
+                    <p class="hero-text entrance" data-delay="3">
+                        I am a researcher focused on understanding how machine learning models work internally. My primary
+                        focus is <strong>mechanistic interpretability</strong>: tracing transformer circuits, testing causal
+                        hypotheses, and studying the internal representations and computations that drive model behavior.
+                    </p>
+                    <p class="hero-text entrance" data-delay="4">
+                        I completed an <strong>M.S. in Artificial Intelligence</strong> at Rochester Institute of Technology
+                        in May 2025. My work spans mechanistic interpretability, LLM evaluation and reliability, multimodal
+                        deepfake detection, explainable AI, and statistical ML.
+                    </p>
+
+                    <div class="tag-row entrance" data-delay="5" aria-label="Highlights">
+                        <a class="tag tag-accent" href="https://arxiv.org/abs/2603.10071" target="_blank"
+                            rel="noopener noreferrer">ICLR 2026 · Sole Author</a>
+                        <a class="tag" href="https://ieeexplore.ieee.org/abstract/document/10263899" target="_blank"
+                            rel="noopener noreferrer">IEEE · Co-authored</a>
+                        <a class="tag" href="https://sites.google.com/view/aims2026" target="_blank"
+                            rel="noopener noreferrer">CVPR AIMS 2026 Reviewer</a>
+                    </div>
+
+                    <div class="hero-meta entrance" data-delay="6">
+                        <a href="mailto:anuragmishra.ofc@gmail.com">anuragmishra.ofc@gmail.com</a>
+                        <a href="https://github.com/i-anuragmishra" target="_blank" rel="noopener noreferrer">GitHub</a>
+                        <a href="https://www.linkedin.com/in/i-anuragmishra" target="_blank"
+                            rel="noopener noreferrer">LinkedIn</a>
+                        <a href="https://scholar.google.com/citations?user=ZzAwD4EAAAAJ" target="_blank"
+                            rel="noopener noreferrer">Google Scholar</a>
+                        <a href="resume.pdf">Resume</a>
+                    </div>
+                </div>
+
+                <div class="hero-media entrance" data-delay="3">
+                    <img src="assets/profile-1.jpeg" alt="Portrait of Anurag Mishra" class="hero-portrait" loading="lazy">
+                </div>
             </div>
-            <div class="contact-block">
-                <p class="links contact-line">
-                    <a href="mailto:anuragmishra.ofc@gmail.com">anuragmishra.ofc@gmail.com</a>
-                </p>
-                <p class="links contact-line">
-                    <a href="https://github.com/i-anuragmishra">GitHub</a> •
-                    <a href="https://www.linkedin.com/in/i-anuragmishra">LinkedIn</a> •
-                    <a href="https://scholar.google.com/citations?user=ZzAwD4EAAAAJ">Google Scholar</a>
-                </p>
+        </section>
+
+        <section class="section entrance" data-delay="7" id="news">
+            <div class="container">
+                <h2 class="section-title">News</h2>
+                <div class="row-list fade-in">
+                    <article class="cv-row cv-row-news">
+                        <div class="cv-label">Mar 2026</div>
+                        <div class="cv-content">
+                            <p><strong>ICLR 2026</strong> — Published a sole-author paper on time-series foundation
+                                models and mechanistic interpretability through the <a
+                                    href="https://openreview.net/forum?id=Q5ox302DLN&nesting=2&sort=date-desc"
+                                    target="_blank" rel="noopener noreferrer">Workshop on Time Series in the Age of Large
+                                    Models</a>.</p>
+                        </div>
+                    </article>
+                    <article class="cv-row cv-row-news">
+                        <div class="cv-label">Mar 2026</div>
+                        <div class="cv-content">
+                            <p><strong>CVPR 2026</strong> — Served as a reviewer for the <a
+                                    href="https://sites.google.com/view/aims2026" target="_blank"
+                                    rel="noopener noreferrer"><strong>AIMS 2026</strong></a> workshop on AI-generated
+                                media and security.</p>
+                        </div>
+                    </article>
+                    <article class="cv-row cv-row-news">
+                        <div class="cv-label">Aug 2025</div>
+                        <div class="cv-content">
+                            <p>Joined <strong>Eaton Ventures (Rochester Appliances)</strong> as an AI Engineer.</p>
+                        </div>
+                    </article>
+                    <article class="cv-row cv-row-news">
+                        <div class="cv-label">May 2025</div>
+                        <div class="cv-content">
+                            <p>Completed an <strong>M.S. in Artificial Intelligence</strong> at Rochester Institute of
+                                Technology.</p>
+                        </div>
+                    </article>
+                    <article class="cv-row cv-row-news">
+                        <div class="cv-label">2023-2026</div>
+                        <div class="cv-content">
+                            <p>Published research across <strong>IEEE, arXiv, and other venues</strong> in mechanistic
+                                interpretability, translation explainability, time-series foundation models, and applied
+                                machine learning.</p>
+                        </div>
+                    </article>
+                    <article class="cv-row cv-row-news">
+                        <div class="cv-label">May 2023</div>
+                        <div class="cv-content">
+                            <p>Completed a <strong>B.Tech in Computer Science &amp; Engineering</strong> at Sikkim
+                                Manipal Institute of Technology.</p>
+                        </div>
+                    </article>
+                </div>
             </div>
+        </section>
 
-            <div class="intro-copy">
-                <p>
-                    I build and ship production AI systems, and I study how those systems work internally. My primary focus is
-                    mechanistic interpretability: tracing transformer circuits, testing causal hypotheses, and designing targeted
-                    interventions that improve behavior without losing efficiency.
-                </p>
-                <p>
-                    I previously completed an M.S. in Artificial Intelligence at Rochester Institute of Technology (May 2025),
-                    where my work spanned multimodal deepfake detection, LLM evaluation and robustness, and performance-aware
-                    training workflows.
-                </p>
-                <p class="action-links">
-                    <a href="cv.pdf">Download CV</a>
-                    <a href="resume.pdf">Download Resume</a>
-                </p>
+        <section class="section entrance" data-delay="8" id="research">
+            <div class="container">
+                <h2 class="section-title">Research Interests</h2>
+                <div class="row-list fade-in">
+                    <article class="cv-row cv-row-wide">
+                        <div class="cv-label">Interpretability</div>
+                        <div class="cv-content">
+                            <p><strong>Mechanistic interpretability and causal circuit analysis.</strong> Activation tracing,
+                                attention-head profiling, and intervention-based analysis to identify task-relevant
+                                transformer mechanisms and measure causal contribution to final behavior.</p>
+                        </div>
+                    </article>
+                    <article class="cv-row cv-row-wide">
+                        <div class="cv-label">Reliability</div>
+                        <div class="cv-content">
+                            <p><strong>LLM evaluation, reliability, and hallucination reduction.</strong> Benchmark-driven
+                                evaluation across frontier model families with retrieval-augmented prompting, stress tests,
+                                and regression checks for reasoning and factual consistency.</p>
+                        </div>
+                    </article>
+                    <article class="cv-row cv-row-wide">
+                        <div class="cv-label">ML Systems</div>
+                        <div class="cv-content">
+                            <p><strong>Performance-aware AI systems.</strong> Latency and throughput optimization, profiling,
+                                asynchronous orchestration, and runtime regression debugging for production model-serving
+                                systems.</p>
+                        </div>
+                    </article>
+                    <article class="cv-row cv-row-wide">
+                        <div class="cv-label">Multimodal</div>
+                        <div class="cv-content">
+                            <p><strong>Multimodal detection and robustness.</strong> CNN-transformer architectures for
+                                lip-sync manipulation detection, synthetic data generation, and out-of-distribution
+                                evaluation under realistic deployment constraints.</p>
+                        </div>
+                    </article>
+                </div>
+            </div>
+        </section>
+
+        <section class="section entrance" data-delay="9" id="publications">
+            <div class="container">
+                <h2 class="section-title">Publications</h2>
+
+                <div class="publication-list fade-in" id="publicationList">
+                    <article class="publication">
+                        <h3 class="publication-title">Dissecting Chronos: Sparse Autoencoders Reveal Causal Feature
+                            Hierarchies in Time Series Foundation Models</h3>
+                        <p class="publication-authors"><span class="self-name">Anurag Mishra</span></p>
+                        <p class="publication-venue">1st ICLR Workshop on Time Series in the Age of Large Models, 2026</p>
+                        <div class="badge-list">
+                            <a class="badge badge-link" href="https://arxiv.org/abs/2603.10071" target="_blank"
+                                rel="noopener noreferrer">paper</a>
+                            <a class="badge badge-link"
+                                href="https://openreview.net/forum?id=Q5ox302DLN&nesting=2&sort=date-desc" target="_blank"
+                                rel="noopener noreferrer">openreview</a>
+                        </div>
+                    </article>
+
+                    <article class="publication">
+                        <h3 class="publication-title">Automatic Short Answer Grading Using a LSTM Based Approach</h3>
+                        <p class="publication-authors">Udit Kr Chakraborty, <span class="self-name">Anurag Mishra</span></p>
+                        <p class="publication-venue">2023 IEEE World Conference on Applied Intelligence and Computing (AIC),
+                            332-337, 2023</p>
+                        <div class="badge-list">
+                            <a class="badge badge-link" href="https://ieeexplore.ieee.org/abstract/document/10263899"
+                                target="_blank" rel="noopener noreferrer">paper</a>
+                            <a class="badge badge-link" href="https://doi.org/10.1109/AIC57670.2023.10263899"
+                                target="_blank" rel="noopener noreferrer">doi</a>
+                        </div>
+                    </article>
+
+                    <article class="publication">
+                        <h3 class="publication-title">Mechanistic Interpretability of GPT-like Models on Summarization
+                            Tasks</h3>
+                        <p class="publication-authors"><span class="self-name">Anurag Mishra</span></p>
+                        <p class="publication-venue">arXiv preprint arXiv:2505.17073, 2025</p>
+                        <div class="badge-list">
+                            <a class="badge badge-link" href="https://arxiv.org/abs/2505.17073" target="_blank"
+                                rel="noopener noreferrer">paper</a>
+                        </div>
+                    </article>
+
+                    <article class="publication publication-hidden">
+                        <h3 class="publication-title">Advancing Explainability in Neural Machine Translation: Analytical
+                            Metrics for Attention and Alignment Consistency</h3>
+                        <p class="publication-authors"><span class="self-name">Anurag Mishra</span></p>
+                        <p class="publication-venue">arXiv preprint arXiv:2412.18669, 2024</p>
+                        <div class="badge-list">
+                            <a class="badge badge-link" href="https://arxiv.org/abs/2412.18669" target="_blank"
+                                rel="noopener noreferrer">paper</a>
+                            <a class="badge badge-link" href="https://github.com/i-anuragmishra/NMT-Explainability"
+                                target="_blank" rel="noopener noreferrer">code</a>
+                        </div>
+                    </article>
+
+                    <article class="publication publication-hidden">
+                        <h3 class="publication-title">Analyzing the Impact of Climate Change With Major Emphasis on
+                            Pollution: A Comparative Study of ML and Statistical Models in Time Series Data</h3>
+                        <p class="publication-authors"><span class="self-name">Anurag Mishra</span>, Ronen Gold, Sanjeev
+                            Vijayakumar</p>
+                        <p class="publication-venue">arXiv preprint arXiv:2405.15835, 2024</p>
+                        <div class="badge-list">
+                            <a class="badge badge-link" href="https://arxiv.org/abs/2405.15835" target="_blank"
+                                rel="noopener noreferrer">paper</a>
+                        </div>
+                    </article>
+
+                </div>
+
+                <button class="publication-toggle" id="publicationToggle" type="button" aria-expanded="false">
+                    <span class="publication-toggle-label">Show all publications</span>
+                    <span class="publication-toggle-icon" aria-hidden="true">▾</span>
+                </button>
+            </div>
+        </section>
+
+        <section class="section entrance" data-delay="10" id="showcase">
+            <div class="container">
+                <h2 class="section-title">Research Showcase</h2>
+                <p class="section-subtitle">Conference and research posters from recent work.</p>
+
+                <div class="showcase-grid fade-in">
+                    <article class="showcase-card">
+                        <span class="showcase-label">ICLR 2026 · Sole Author</span>
+                        <h3 class="showcase-title">Dissecting Chronos</h3>
+                        <button class="showcase-frame" type="button" data-lightbox="assets/chronos-poster.jpg"
+                            data-lightbox-alt="Poster for Dissecting Chronos" data-lightbox-pdf="assets/chronos-poster.pdf"
+                            aria-label="View Chronos poster">
+                            <img src="assets/chronos-poster.jpg"
+                                alt="Poster for Dissecting Chronos: Sparse Autoencoders Reveal Causal Feature Hierarchies in Time Series Foundation Models"
+                                loading="lazy">
+                            <span class="showcase-hover">
+                                <span class="showcase-hover-icon" aria-hidden="true">⤢</span>
+                                <span>View poster</span>
+                            </span>
+                        </button>
+                        <div class="badge-list">
+                            <a class="badge badge-link" href="https://arxiv.org/abs/2603.10071" target="_blank"
+                                rel="noopener noreferrer">paper</a>
+                        </div>
+                    </article>
+
+                    <article class="showcase-card">
+                        <span class="showcase-label">Capstone Project</span>
+                        <h3 class="showcase-title">Mechanistic Interpretability of GPT-like Models on Summarization
+                            Tasks</h3>
+                        <button class="showcase-frame" type="button" data-lightbox="assets/capstone-poster.jpg"
+                            data-lightbox-alt="Poster for Mechanistic Interpretability of GPT-like Models on Summarization Tasks"
+                            data-lightbox-pdf="assets/capstone-poster.pdf" aria-label="View capstone poster">
+                            <img src="assets/capstone-poster.jpg"
+                                alt="Poster for Mechanistic Interpretability of GPT-like Models on Summarization Tasks"
+                                loading="lazy">
+                            <span class="showcase-hover">
+                                <span class="showcase-hover-icon" aria-hidden="true">⤢</span>
+                                <span>View poster</span>
+                            </span>
+                        </button>
+                        <div class="badge-list">
+                            <a class="badge badge-link" href="https://arxiv.org/abs/2505.17073" target="_blank"
+                                rel="noopener noreferrer">paper</a>
+                        </div>
+                    </article>
+                </div>
+            </div>
+        </section>
+
+        <div class="lightbox" id="lightbox" role="dialog" aria-modal="true" aria-label="Poster viewer">
+            <div class="lightbox__backdrop"></div>
+            <div class="lightbox__content">
+                <img class="lightbox__img" id="lightboxImg" src="" alt="">
+            </div>
+            <div class="lightbox__actions">
+                <a class="lightbox__enlarge" id="lightboxEnlarge" href="" target="_blank" rel="noopener noreferrer">
+                    <span aria-hidden="true">↗</span>
+                    <span>Open PDF</span>
+                </a>
+                <button class="lightbox__close" id="lightboxClose" type="button" aria-label="Close poster viewer">
+                    <span aria-hidden="true">×</span>
+                </button>
             </div>
         </div>
-        <div class="profile-photo">
-            <img src="assets/profile-1.jpeg" alt="Portrait of Anurag Mishra" loading="lazy">
-        </div>
-    </div>
 
-    <section>
-        <h2 class="section-title">Research Focus</h2>
+        <section class="section entrance" data-delay="11" id="projects">
+            <div class="container">
+                <h2 class="section-title">Projects</h2>
+                <div class="row-list fade-in">
+                    <article class="cv-row">
+                        <div class="cv-label">2025</div>
+                        <div class="cv-content">
+                            <h3 class="item-title">Causal Mechanisms of Backtracking in Reasoning Models</h3>
+                            <p class="item-meta">Mechanistic interpretability · Causal ablations</p>
+                            <p>Studied backtracking behavior in reasoning models and identified causally important
+                                components through targeted interventions, measuring how backtracking dynamics correlate
+                                with answer correctness under controlled perturbations.</p>
+                            <div class="badge-list">
+                                <a class="badge badge-link" href="https://github.com/i-anuragmishra/mats-backtracking"
+                                    target="_blank" rel="noopener noreferrer">code</a>
+                            </div>
+                        </div>
+                    </article>
 
-        <div class="research-area">
-            <h3>→ Mechanistic Interpretability and Causal Circuit Analysis</h3>
-            <p>Activation tracing, attention-head profiling, and intervention-based analysis to identify task-relevant
-                transformer mechanisms and measure causal contribution to final model behavior.</p>
-        </div>
+                    <article class="cv-row">
+                        <div class="cv-label">2024-2025</div>
+                        <div class="cv-content">
+                            <h3 class="item-title">DeFake: Multimodal Lip-Sync Manipulation Detection</h3>
+                            <p class="item-meta">PyTorch · C++/CUDA · Multimodal systems</p>
+                            <p>Built CNN + transformer detection pipelines over 18,000+ videos, with custom C++/CUDA
+                                tensor kernels, synthetic data expansion, and robustness testing under deployment-like
+                                conditions.</p>
+                        </div>
+                    </article>
 
-        <div class="research-area">
-            <h3>→ LLM Evaluation, Reliability, and Hallucination Reduction</h3>
-            <p>Benchmark-driven evaluation across GPT-4, Claude, Llama, and Mistral families with stress testing,
-                retrieval-augmented prompting, and regression checks for reasoning and factual consistency.</p>
-        </div>
+                    <article class="cv-row">
+                        <div class="cv-label">2024-2025</div>
+                        <div class="cv-content">
+                            <h3 class="item-title">LLM Evaluation and Robustness Harness</h3>
+                            <p class="item-meta">Frontier model evaluation · Reliability benchmarking</p>
+                            <p>Designed benchmark workflows to evaluate reasoning, factual consistency, tool-calling
+                                behavior, and latency-quality trade-offs, with regression checks and retrieval-augmented
+                                prompting strategies that reduced hallucination on factual QA tasks.</p>
+                        </div>
+                    </article>
 
-        <div class="research-area">
-            <h3>→ ML Systems Performance Engineering</h3>
-            <p>Latency/throughput optimization, profiling, and regression debugging for production AI services, including
-                model serving, asynchronous orchestration, and memory-aware optimization.</p>
-        </div>
+                    <article class="cv-row">
+                        <div class="cv-label">2024</div>
+                        <div class="cv-content">
+                            <h3 class="item-title">Explainable Neural Machine Translation</h3>
+                            <p class="item-meta">Attention analysis · Interpretability metrics</p>
+                            <p>Built analytical metrics for attention and alignment consistency in sequence-to-sequence
+                                translation models, focusing on interpretable behavior diagnostics for generation
+                                workflows.</p>
+                            <div class="badge-list">
+                                <a class="badge badge-link" href="https://arxiv.org/abs/2412.18669" target="_blank"
+                                    rel="noopener noreferrer">paper</a>
+                                <a class="badge badge-link" href="https://github.com/i-anuragmishra/NMT-Explainability"
+                                    target="_blank" rel="noopener noreferrer">code</a>
+                            </div>
+                        </div>
+                    </article>
+                </div>
+            </div>
+        </section>
 
-        <div class="research-area">
-            <h3>→ Multimodal Detection and Robustness</h3>
-            <p>Multimodal CNN-transformer architectures for lip-sync manipulation detection, synthetic data generation,
-                and robust out-of-distribution evaluation under realistic deployment constraints.</p>
-        </div>
-    </section>
+        <section class="section entrance" data-delay="12" id="experience">
+            <div class="container">
+                <h2 class="section-title">Experience</h2>
 
-    <section>
-        <h2>Professional and Research Experience</h2>
+                <div class="group-block">
+                    <p class="group-label">Industry</p>
+                    <div class="row-list fade-in">
+                        <article class="cv-row">
+                            <div class="cv-label">Aug 2025 - Present</div>
+                            <div class="cv-content">
+                                <h3 class="item-title">AI Engineer</h3>
+                                <p class="item-meta">Eaton Ventures (Rochester Appliances)</p>
+                                <ul class="detail-list">
+                                    <li>Architected and deployed production AI services supporting 10K+ daily requests at
+                                        99.9% uptime.</li>
+                                    <li>Reduced end-to-end API latency by 35% through request-path and model-serving
+                                        optimization.</li>
+                                    <li>Implemented CI/CD validation and regression pipelines that reduced release-cycle
+                                        time by 60%.</li>
+                                </ul>
+                            </div>
+                        </article>
+                    </div>
+                </div>
 
-        <div class="experience-group">
-            <h3 class="group-title">Industrial Experience</h3>
-            <div class="item">
-                <h3>AI Engineer</h3>
-                <div class="item-meta">Eaton Ventures (Rochester Appliances) • Aug 2025 - Present</div>
-                <ul class="compact-list">
-                    <li>Architected and deployed production AI services supporting 10K+ daily requests at 99.9% uptime.</li>
-                    <li>Reduced end-to-end API latency by 35% through request-path and model-serving optimization.</li>
-                    <li>Implemented CI/CD validation and regression pipelines that reduced release-cycle time by 60%.</li>
-                </ul>
+                <div class="group-block">
+                    <p class="group-label">Research</p>
+                    <div class="row-list fade-in">
+                        <article class="cv-row">
+                            <div class="cv-label">Jan 2025 - May 2025</div>
+                            <div class="cv-content">
+                                <h3 class="item-title">Machine Learning Research Assistant, Mechanistic Interpretability</h3>
+                                <p class="item-meta">Rochester Institute of Technology</p>
+                                <ul class="detail-list">
+                                    <li>Built activation tracing tooling in PyTorch/C++ for layer-wise transformer
+                                        analysis.</li>
+                                    <li>Identified summarization-relevant circuits in layers 2, 3, and 5.</li>
+                                    <li>Applied targeted LoRA interventions with 40% faster convergence and 75% fewer
+                                        trainable parameters.</li>
+                                </ul>
+                            </div>
+                        </article>
+
+                        <article class="cv-row">
+                            <div class="cv-label">Oct 2024 - Aug 2025</div>
+                            <div class="cv-content">
+                                <h3 class="item-title">Machine Learning Research Assistant, LLM Evaluation and Robustness</h3>
+                                <p class="item-meta">RIT Office of the Provost</p>
+                                <ul class="detail-list">
+                                    <li>Designed evaluation harnesses for frontier models across reasoning, factuality,
+                                        and tool calling.</li>
+                                    <li>Developed retrieval-augmented prompting workflows that reduced hallucination by
+                                        35%.</li>
+                                    <li>Built reproducible benchmark suites for quality and runtime regression tracking.</li>
+                                </ul>
+                            </div>
+                        </article>
+
+                        <article class="cv-row">
+                            <div class="cv-label">Oct 2024 - Aug 2025</div>
+                            <div class="cv-content">
+                                <h3 class="item-title">Machine Learning Research Assistant, DeFake Project</h3>
+                                <p class="item-meta">Rochester Institute of Technology</p>
+                                <ul class="detail-list">
+                                    <li>Developed multimodal CNN + transformer systems on 18,000+ videos for lip-sync
+                                        manipulation detection.</li>
+                                    <li>Implemented custom C++/CUDA tensor kernels that improved training efficiency by
+                                        40%.</li>
+                                    <li>Expanded stress-test data with 50K+ synthetic samples and improved OOD
+                                        generalization by 18%.</li>
+                                </ul>
+                            </div>
+                        </article>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="section entrance" data-delay="12" id="education">
+            <div class="container">
+                <h2 class="section-title">Education</h2>
+                <div class="row-list fade-in">
+                    <article class="cv-row">
+                        <div class="cv-label">2023 - 2025</div>
+                        <div class="cv-content">
+                            <h3 class="item-title">M.S. in Artificial Intelligence</h3>
+                            <p class="item-meta">Rochester Institute of Technology</p>
+                            <p>CGPA: 3.89/4.00.</p>
+                            <p>Research emphasis: Mechanistic Interpretability, NLP, Multimodal Imaging, and Statistical
+                                Machine Learning.</p>
+                        </div>
+                    </article>
+                    <article class="cv-row">
+                        <div class="cv-label">2019 - 2023</div>
+                        <div class="cv-content">
+                            <h3 class="item-title">B.Tech in Computer Science &amp; Engineering</h3>
+                            <p class="item-meta">Sikkim Manipal Institute of Technology</p>
+                            <p>Minor in Artificial Intelligence. AI/ML Lead at Google Developer Student Club. Research
+                                intern at DRDO and NLP intern across multiple startups.</p>
+                        </div>
+                    </article>
+                </div>
+            </div>
+        </section>
+
+        <section class="section entrance" data-delay="12" id="writing">
+            <div class="container">
+                <h2 class="section-title">Writing</h2>
+                <div class="row-list fade-in">
+                    <article class="cv-row">
+                        <div class="cv-label">External</div>
+                        <div class="cv-content">
+                            <h3 class="item-title">Substack</h3>
+                            <p class="item-meta">Essays and notes on mechanistic interpretability, AI reliability, and ML
+                                systems engineering.</p>
+                            <p>Current public writing is published externally rather than hosted as on-site blog posts.</p>
+                            <div class="badge-list">
+                                <a class="badge badge-link" href="https://anuragmishraa.substack.com/" target="_blank"
+                                    rel="noopener noreferrer">open substack</a>
+                            </div>
+                        </div>
+                    </article>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="site-footer">
+        <div class="container footer-inner">
+            <p class="footer-copy">Anurag Mishra — AI systems, interpretability, and reliability research.</p>
+            <div class="footer-links">
+                <a href="mailto:anuragmishra.ofc@gmail.com">Email</a>
+                <a href="https://github.com/i-anuragmishra" target="_blank" rel="noopener noreferrer">GitHub</a>
+                <a href="https://www.linkedin.com/in/i-anuragmishra" target="_blank" rel="noopener noreferrer">LinkedIn</a>
+                <a href="https://scholar.google.com/citations?user=ZzAwD4EAAAAJ" target="_blank"
+                    rel="noopener noreferrer">Scholar</a>
+                <a href="cv.pdf">CV</a>
             </div>
         </div>
-
-        <div class="experience-group">
-            <h3 class="group-title">Research Experience</h3>
-
-            <div class="item">
-                <h3>Machine Learning Research Assistant, Mechanistic Interpretability</h3>
-                <div class="item-meta">Rochester Institute of Technology • Jan 2025 - May 2025</div>
-                <ul class="compact-list">
-                    <li>Built activation tracing tooling in PyTorch/C++ for layer-wise transformer analysis.</li>
-                    <li>Identified summarization-relevant circuits in layers 2, 3, and 5.</li>
-                    <li>Applied targeted LoRA interventions with 40% faster convergence and 75% fewer trainable parameters.</li>
-                </ul>
-            </div>
-
-            <div class="item">
-                <h3>Machine Learning Research Assistant, LLM Evaluation and Robustness</h3>
-                <div class="item-meta">RIT Office of the Provost • Oct 2024 - Aug 2025</div>
-                <ul class="compact-list">
-                    <li>Designed evaluation harnesses for frontier models across reasoning, factuality, and tool calling.</li>
-                    <li>Developed retrieval-augmented prompting workflows that reduced hallucination by 35%.</li>
-                    <li>Built reproducible benchmark suites for quality and runtime regression tracking.</li>
-                </ul>
-            </div>
-
-            <div class="item">
-                <h3>Machine Learning Research Assistant, DeFake Project</h3>
-                <div class="item-meta">Rochester Institute of Technology • Oct 2024 - Aug 2025</div>
-                <ul class="compact-list">
-                    <li>Developed multimodal CNN + transformer systems on 18,000+ videos for lip-sync manipulation detection.</li>
-                    <li>Implemented custom C++/CUDA tensor kernels that improved training efficiency by 40%.</li>
-                    <li>Expanded stress-test data with 50K+ synthetic samples and improved OOD generalization by 18%.</li>
-                </ul>
-            </div>
-        </div>
-    </section>
-
-    <footer>
-        <p class="footer-links">
-            <a href="mailto:anuragmishra.ofc@gmail.com">email</a>
-            <span class="sep">•</span>
-            <a href="https://github.com/i-anuragmishra">GitHub</a>
-            <span class="sep">•</span>
-            <a href="https://www.linkedin.com/in/i-anuragmishra">LinkedIn</a>
-            <span class="sep">•</span>
-            <a href="https://scholar.google.com/citations?user=ZzAwD4EAAAAJ">Google Scholar</a>
-        </p>
     </footer>
+
+    <script src="script.js"></script>
 </body>
 
 </html>
