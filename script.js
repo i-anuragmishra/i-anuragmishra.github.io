@@ -45,12 +45,14 @@
         const expanded = toggle.getAttribute("aria-expanded") === "true";
         toggle.setAttribute("aria-expanded", String(!expanded));
         nav.classList.toggle("open", !expanded);
+        document.body.style.overflow = expanded ? "" : "hidden";
     });
 
     nav.querySelectorAll("a").forEach(function (link) {
         link.addEventListener("click", function () {
             nav.classList.remove("open");
             toggle.setAttribute("aria-expanded", "false");
+            document.body.style.overflow = "";
         });
     });
 })();
