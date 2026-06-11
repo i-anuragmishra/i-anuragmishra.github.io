@@ -80,6 +80,68 @@
 })();
 
 (function () {
+    const overflow = document.getElementById("newsOverflow");
+    const wrapper = document.getElementById("newsOverflowWrapper");
+    const toggle = document.getElementById("newsToggle");
+    if (!overflow || !wrapper || !toggle) return;
+
+    const collapsedHeight = Number(overflow.getAttribute("data-collapsed-height")) || 92;
+    const reducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+
+    function setCollapsedState() {
+        overflow.style.maxHeight = collapsedHeight + "px";
+        wrapper.classList.remove("expanded");
+        toggle.classList.remove("publication-toggle-expanded");
+        toggle.setAttribute("aria-expanded", "false");
+        const label = toggle.querySelector(".publication-toggle-label");
+        if (label) {
+            label.textContent = "Show more updates";
+        }
+    }
+
+    function setExpandedState() {
+        overflow.style.maxHeight = overflow.scrollHeight + "px";
+        wrapper.classList.add("expanded");
+        toggle.classList.add("publication-toggle-expanded");
+        toggle.setAttribute("aria-expanded", "true");
+        const label = toggle.querySelector(".publication-toggle-label");
+        if (label) {
+            label.textContent = "Show fewer updates";
+        }
+    }
+
+    setCollapsedState();
+
+    toggle.addEventListener("click", function () {
+        const expanded = toggle.getAttribute("aria-expanded") === "true";
+
+        if (reducedMotion) {
+            if (expanded) {
+                setCollapsedState();
+            } else {
+                setExpandedState();
+            }
+            return;
+        }
+
+        if (expanded) {
+            overflow.style.maxHeight = overflow.scrollHeight + "px";
+            requestAnimationFrame(function () {
+                setCollapsedState();
+            });
+        } else {
+            setExpandedState();
+        }
+    });
+
+    window.addEventListener("resize", function () {
+        if (toggle.getAttribute("aria-expanded") === "true") {
+            overflow.style.maxHeight = overflow.scrollHeight + "px";
+        }
+    });
+})();
+
+(function () {
     const lightbox = document.getElementById("lightbox");
     const lightboxImage = document.getElementById("lightboxImg");
     const lightboxClose = document.getElementById("lightboxClose");

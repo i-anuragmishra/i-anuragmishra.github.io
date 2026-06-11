@@ -480,6 +480,55 @@ p {
     transform: rotate(180deg);
 }
 
+.news-overflow-wrapper {
+    position: relative;
+}
+
+.news-overflow-wrapper::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    height: 4.5rem;
+    background: linear-gradient(
+        180deg,
+        rgba(250, 249, 246, 0) 0%,
+        color-mix(in srgb, var(--color-bg) 92%, transparent) 55%,
+        var(--color-bg) 100%
+    );
+    pointer-events: none;
+    opacity: 1;
+    transition: opacity 220ms ease;
+}
+
+[data-theme="dark"] .news-overflow-wrapper::after {
+    background: linear-gradient(
+        180deg,
+        rgba(17, 17, 16, 0) 0%,
+        color-mix(in srgb, var(--color-bg) 90%, transparent) 55%,
+        var(--color-bg) 100%
+    );
+}
+
+.news-overflow-wrapper.expanded::after {
+    opacity: 0;
+}
+
+.news-overflow {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-6);
+    overflow: hidden;
+    max-height: 92px;
+    transition: max-height 420ms var(--ease-out);
+}
+
+.news-toggle {
+    align-self: flex-start;
+    margin-top: calc(-1 * var(--space-2));
+}
+
 .showcase-grid {
     display: grid;
     grid-template-columns: repeat(2, minmax(0, 1fr));
